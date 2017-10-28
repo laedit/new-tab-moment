@@ -2,21 +2,26 @@
 
 Minimalist clock and weather on the new tab page, based on [Moment](https://github.com/alfredxing/moment) from [Alfred Xing](https://alfredxing.com/).
 
-# Screenshots
+## Screenshots
 
-Default theme:
+### Default theme
+
 ![Default theme](./images/Default-theme.png)
 
-Default theme with icon:
+### Default theme with icon
+
 ![Default theme - icon](./images/Default-theme-icon.png)
 
-Options page:
+### Options page
+
 ![Options](./images/Options.png)
 
-Custom theme:
+### Custom theme
+
 ![Custom theme](./images/Custom-theme.png)
 
-Custom theme with icon:
+### Custom theme with icon
+
 ![Custom theme - icon](./images/Custom-theme-icon.png)
 
 ## Contribute
