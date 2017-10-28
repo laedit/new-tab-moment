@@ -4,14 +4,19 @@ Minimalist clock and weather on the new tab page, based on [Moment](https://gith
 
 # Screenshots
 
+Default theme:
 ![Default theme](./images/Default-theme.png)
 
+Default theme with icon:
 ![Default theme - icon](./images/Default-theme-icon.png)
 
+Options page:
 ![Options](./images/Options.png)
 
+Custom theme:
 ![Custom theme](./images/Custom-theme.png)
 
+Custom theme with icon:
 ![Custom theme - icon](./images/Custom-theme-icon.png)
 
 ## Contribute
