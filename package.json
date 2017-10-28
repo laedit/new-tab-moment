@@ -1,0 +1,18 @@
+{
+  "name": "new-tab-moment",
+  "version": "0.0.1",
+  "description": "new tab moment",
+  "devDependencies": {
+    "web-ext-types": "^1.1.1"
+  },
+  "scripts": {
+    "postinstall:typescript": "npm list --global web-ext || npm install --global web-ext",
+    "postinstall:web-ext": "npm list --global typescript || npm install --global typescript",
+    "postinstall": "npm run postinstall:typescript && npm run postinstall:web-ext",
+    "build": "web-ext build --source-dir=src --ignore-files=\"*.ts\" --overwrite-dest",
+    "web-ext:run": "web-ext run --source-dir=src --firefox=firefoxdeveloperedition --ignore-files=\"*.ts\"",
+    "test": "tsc && npm run web-ext:run",
+    "test:fr": "tsc && npm run web-ext:run -- --pref intl.accept_languages=fr-fr"
+  },
+  "author": "laedit"
+}

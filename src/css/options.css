@@ -1,0 +1,32 @@
+body {
+    font-size: larger;
+}
+
+label {
+	cursor: default;
+	display: block;
+	font-weight: bold;
+}
+
+#save {
+    margin-top: 1em;
+}
+
+#css {
+	width: 412px;
+	height: 206px;
+	font-family: "Monaco", "Source Code Pro", "Consolas", monospace;
+}
+
+.input-group {
+	display: inline-block;
+	margin-right: 5px;
+}
+
+#credits {
+	font-size: smaller;
+}
+
+section {
+	margin: 5px 0px;
+}
