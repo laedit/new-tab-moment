@@ -22,7 +22,8 @@
   },
   "applications": {
       "gecko": {
-          "id": "new-tab-moment@laedit.net"
+          "id": "new-tab-moment@laedit.net", 
+          "strict_min_version": "54.0"
       }
   }
 }
