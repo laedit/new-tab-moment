@@ -1,5 +1,7 @@
 # New tab Moment
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/laedit/new-tab-moment.svg)](https://greenkeeper.io/)
+
 Minimalist clock and weather on the new tab page, based on [Moment](https://github.com/alfredxing/moment) from [Alfred Xing](https://alfredxing.com/).
 
 ## Screenshots
