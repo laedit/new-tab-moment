@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "new tab moment",
   "devDependencies": {
-    "web-ext-types": "1.1.1"
+    "web-ext-types": "2.0.1"
   },
   "scripts": {
     "postinstall:typescript": "npm list --global web-ext || npm install --global web-ext",
