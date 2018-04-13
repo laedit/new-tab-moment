@@ -59,6 +59,7 @@ typings/
 
 # web-ext
 web-ext-artifacts/
+build/
 
 # only .ts files are allowed
 *.js

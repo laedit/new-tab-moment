@@ -36,8 +36,6 @@ Require `npm`.
 
 Clone the repo and run `npm install`.
 
-It will install `typescript` and `web-ext` globally if not already installed, if you prefer to install them locally, modify the `package.json` accordingly.
-
 ## Test
 
 run `npm test`.

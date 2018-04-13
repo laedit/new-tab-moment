@@ -1,0 +1,11 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outFile": "./build/moment.js"
+  },
+  "files": [
+    "src/moment.ts",
+    "src/settings.ts",
+    "src/weather.ts"
+  ]
+}

@@ -7,9 +7,9 @@ function setInputValue(elementId: string, value: string): void {
 }
 
 function setStatus(statusText: string): void {
-  const status: HTMLElement | null = document.getElementById("status");
-  status!.textContent = statusText;
-  setTimeout(() => status!.textContent = "", 1000);
+  const status: HTMLElement | null = document.getElementById("status")!;
+  status.textContent = statusText;
+  setTimeout(() => status.textContent = "", 1000);
 }
 
 function saveOptions(e: Event): void {

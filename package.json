@@ -2,17 +2,23 @@
   "name": "new-tab-moment",
   "version": "0.0.1",
   "description": "new tab moment",
+  "author": "laedit",
   "devDependencies": {
+    "concurrently": "^3.5.1",
+    "cpx": "^1.5.0",
+    "typescript": "^2.8.1",
+    "web-ext": "^2.6.0",
     "web-ext-types": "2.0.1"
   },
   "scripts": {
-    "postinstall:typescript": "npm list --global web-ext || npm install --global web-ext",
-    "postinstall:web-ext": "npm list --global typescript || npm install --global typescript",
-    "postinstall": "npm run postinstall:typescript && npm run postinstall:web-ext",
-    "build": "tsc && web-ext build --source-dir=src --ignore-files=\"*.ts\" --overwrite-dest",
-    "web-ext:run": "web-ext run --source-dir=src --firefox=firefoxdeveloperedition --ignore-files=\"*.ts\"",
-    "test": "tsc && npm run web-ext:run",
-    "test:fr": "tsc && npm run web-ext:run -- --pref intl.accept_languages=fr-fr"
-  },
-  "author": "laedit"
+    "transpile:options": "tsc -p options.tsconfig.json",
+    "transpile:moment": "tsc -p moment.tsconfig.json",
+    "transpile": "npm run transpile:moment && npm run transpile:options",
+    "copy": "cpx \"src/**/*.{html,css,woff2,svg,json}\" build",
+    "copy:watch": "npm run copy -- --watch",
+    "build": "npm run transpile && npm run copy && web-ext build --source-dir=build --overwrite-dest",
+    "web-ext:run": "web-ext run --source-dir=build --firefox=firefoxdeveloperedition",
+    "test": "concurrently \"npm run copy:watch\" \"npm run transpile:moment -- -w\"  \"npm run transpile:options -- -w\" \"npm run web-ext:run\" --kill-others",
+    "test:fr": "concurrently \"npm run copy:watch\" \"npm run transpile:moment -- -w\"  \"npm run transpile:options -- -w\" \"npm run web-ext:run -- --pref intl.accept_languages=fr-fr\" --kill-others"
+  }
 }

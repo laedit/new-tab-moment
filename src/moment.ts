@@ -1,46 +1,3 @@
-function getWeatherFromAPI(tempUnit: TempUnit, location: string, language: string, displayIcon: boolean): void {
-    if (location === "") {
-        navigator.geolocation.getCurrentPosition((position: Position) => {
-            weatherAPIRequest([position.coords.latitude, position.coords.longitude], tempUnit, language, displayIcon);
-        });
-    } else {
-        weatherAPIRequest(location, tempUnit, language, displayIcon);
-    }
-}
-
-function getAPIUrl(parameter: string | [number, number], tempUnit: TempUnit, language: string): string {
-    const apiUrl: string = `https://api.openweathermap.org/data/2.5/weather?APPID=cfcea063d9248af75b4837959ee2feac&lang=${language.substring(0, 2)}&units=${tempUnit === "celsius" ? "metric" : "imperial"}&`;
-
-    if (typeof parameter === "string") {
-        return apiUrl + `q=${parameter}`;
-    } else {
-        return apiUrl + `lat=${parameter[0]}&lon=${parameter[1]}`;
-    }
-}
-
-function weatherAPIRequest(parameter: string | [number, number], tempUnit: TempUnit, language: string, displayIcon: boolean): void {
-    const apiUrl = getAPIUrl(parameter, tempUnit, language);
-
-    fetch(apiUrl)
-        .then(response => {
-            return response.json();
-        })
-        .then(weatherData => {
-            const weatherDescription: string = weatherData.weather[0].description;
-            const code: string = weatherData.weather[0].id;
-            const degrees: string = Math.round(weatherData.main.temp).toString();
-
-            const weatherLink: string = `https://openweathermap.org/city/${weatherData.id}`;
-
-            displayWeather(degrees, weatherDescription, weatherLink, code, displayIcon);
-            storeWeather(degrees, weatherDescription, weatherLink, code);
-        })
-        .catch(error => {
-            console.log(`Error on weather fetch: ${error}`);
-            // TODO Weather can't be displayed, sorry :(
-        });
-}
-
 function refresh(settings: Settings, language: string): void {
     const currentDate: Date = new Date();
     let currentHours: number = currentDate.getHours();
@@ -79,20 +36,10 @@ function refresh(settings: Settings, language: string): void {
     document.getElementById("date")!.textContent = dateText;
 }
 
-function storeWeather(degrees: string, weather: string, link: string, code: string): void {
-    let currentTime: number = Date.now();
-    currentTime += 60 * 5000; // 5 min
-    const expireDate: Date = new Date(currentTime);
-    localStorage.setItem("degrees", degrees);
-    localStorage.setItem("weather", weather);
-    localStorage.setItem("link", link);
-    localStorage.setItem("code", code);
-    localStorage.setItem("expires", expireDate.getTime().toString());
-}
-
-function displayWeather(degrees: string, weather: string, link: string, code: string, displayIcon: boolean): void {
+async function displayWeather({ tempUnit, location, displayIcon }: Settings, language:string): Promise<void> {
+    const { degrees, description, link, code }: weather = await Weather.getWeather(tempUnit, location, language)
     document.getElementById("weather-degrees")!.textContent = degrees;
-    document.getElementById("weather-description")!.innerHTML = `&mdash; ${weather}`;
+    document.getElementById("weather-description")!.innerHTML = `&mdash; ${description}`;
     document.getElementById("loader")!.style.display = "none";
 
     const conditionsElement: HTMLLinkElement = document.getElementById("weather-link") as HTMLLinkElement;
@@ -104,23 +51,9 @@ function displayWeather(degrees: string, weather: string, link: string, code: st
         const iconElement: HTMLElement = document.getElementById("weather-icon") as HTMLElement;
         iconElement.classList.add(`wi-owm-${code}`);
         iconElement.style.display = "block";
-        iconElement.title = weather;
+        iconElement.title = description;
 
         document.getElementById("weather-description")!.style.display = "none";
-    }
-}
-
-function getWeather(tempUnit: TempUnit, location: string, language: string, displayIcon: boolean): void {
-    const expiresDate: number = Number(localStorage.getItem("expires"));
-    if (expiresDate > Date.now()) {
-        displayWeather(localStorage.getItem("degrees") as string,
-            localStorage.getItem("weather") as string,
-            localStorage.getItem("link") as string,
-            localStorage.getItem("code") as string,
-            displayIcon
-        );
-    } else {
-        getWeatherFromAPI(tempUnit, location, language, displayIcon);
     }
 }
 
@@ -151,19 +84,19 @@ function setStyle(settings: Settings): void {
     document.getElementById("custom")!.textContent = settings.customCss;
 }
 
-function load(userSettings: Settings, language: string): void {
+async function load(userSettings: Settings, language: string): Promise<void> {
     // apply style settings
     setStyle(userSettings);
 
-    // get weather
-    getWeather(userSettings.tempUnit, userSettings.location, language, userSettings.displayIcon);
-
     startTime(userSettings, language);
+
+    // get weather
+    displayWeather(userSettings, language);
+
+    return Promise.resolve();
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    browser.storage.sync.get(defaultSettings)
-        .then(settings => {
-            load(settings, navigator.language);
-        });
+document.addEventListener("DOMContentLoaded", async () => {
+    const settings = await browser.storage.sync.get(defaultSettings);
+    await load(settings, navigator.language);
 });
