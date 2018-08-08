@@ -30,3 +30,8 @@ label {
 section {
 	margin: 5px 0px;
 }
+
+#homepage-url {
+	width: 420px;
+	background-color: lightgrey;
+}

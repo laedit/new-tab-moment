@@ -29,7 +29,7 @@ function saveOptions(e: Event): void {
 
   browser.storage.sync.set(settings)
     .then(() => setStatus("Options saved."),
-    error => setStatus(`Error: ${error}`)
+      error => setStatus(`Error: ${error}`)
     );
 
   localStorage.removeItem("expires");
@@ -54,5 +54,20 @@ function restoreOptions(): void {
     }, error => setStatus(`Error: ${error}`));
 }
 
-document.addEventListener("DOMContentLoaded", restoreOptions);
+document.addEventListener("DOMContentLoaded", () => {
+  restoreOptions();
+
+  setInputValue("homepage-url", browser.extension.getURL("moment.html"));
+
+  document.getElementById("copy-link")!.onclick = () => {
+    document.addEventListener("copy", (e: Event) => {
+      (<ClipboardEvent>e).clipboardData.setData("text/plain", browser.extension.getURL("moment.html"));
+      e.preventDefault();
+    }, { once: true });
+
+    document.execCommand("copy");
+  };
+
+});
+
 document.querySelector("form")!.addEventListener("submit", saveOptions);
