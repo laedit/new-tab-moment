@@ -6,7 +6,7 @@
   "devDependencies": {
     "concurrently": "4.0.1",
     "cpx": "1.5.0",
-    "typescript": "3.0.1",
+    "typescript": "3.0.3",
     "web-ext": "2.9.0",
     "web-ext-types": "2.1.0"
   },
