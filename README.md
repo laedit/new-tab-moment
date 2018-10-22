@@ -30,18 +30,18 @@ Minimalist clock and weather on the new tab page, based on [Moment](https://gith
 
 All contributions are welcome :)
 
-Require `npm`.
+Require `yarn`.
 
 ### Install
 
-Clone the repo and run `npm install`.
+Clone the repo and run `yarn install`.
 
 ## Test
 
-run `npm test`.
+run `yarn test`.
 
 By default it's Firefox Developer Edition which is used, you can change that in the `web-ext:run` scripts in `package.json`.
 
 ## Build
 
-run `npm run build`.
+run `yarn build`.
