@@ -60,8 +60,8 @@ document.addEventListener("DOMContentLoaded", () => {
   setInputValue("homepage-url", browser.extension.getURL("moment.html"));
 
   document.getElementById("copy-link")!.onclick = () => {
-    document.addEventListener("copy", (e: Event) => {
-      (<ClipboardEvent>e).clipboardData.setData("text/plain", browser.extension.getURL("moment.html"));
+    document.addEventListener("copy", (e: ClipboardEvent) => {
+      e.clipboardData!.setData("text/plain", browser.extension.getURL("moment.html"));
       e.preventDefault();
     }, { once: true });
 
