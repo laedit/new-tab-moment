@@ -2075,12 +2075,11 @@ functional-red-black-tree@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/functional-red-black-tree/-/functional-red-black-tree-1.0.1.tgz#1b0ab3bd553b2a0d6399d29c0e3ea0b252078327"
 
-fx-runner@1.0.10:
-  version "1.0.10"
-  resolved "https://registry.yarnpkg.com/fx-runner/-/fx-runner-1.0.10.tgz#c58ff92d82f620db7bba8633d68423e6385ea69a"
+fx-runner@1.0.11:
+  version "1.0.11"
+  resolved "https://registry.yarnpkg.com/fx-runner/-/fx-runner-1.0.11.tgz#528d2d0c3dc8bb05570b506728c4f62e0b0ef095"
   dependencies:
     commander "2.9.0"
-    lodash "4.17.11"
     shell-quote "1.6.1"
     spawn-sync "1.0.15"
     when "3.7.7"
@@ -3146,13 +3145,13 @@ lodash.sortby@^4.7.0:
   version "4.7.0"
   resolved "https://registry.yarnpkg.com/lodash.sortby/-/lodash.sortby-4.7.0.tgz#edd14c824e2cc9c1e0b0a1b42bb5210516a42438"
 
-lodash@4.17.11, lodash@^4.0.0, lodash@^4.14.0, lodash@^4.15.0, lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.5, lodash@^4.3.0, lodash@^4.8.0, lodash@~4.17.2:
-  version "4.17.11"
-  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.11.tgz#b39ea6229ef607ecd89e2c8df12536891cac9b8d"
-
 lodash@^4, lodash@^4.17.12, lodash@^4.17.13:
   version "4.17.14"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.14.tgz#9ce487ae66c96254fe20b599f21b6816028078ba"
+
+lodash@^4.0.0, lodash@^4.14.0, lodash@^4.15.0, lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.5, lodash@^4.3.0, lodash@^4.8.0, lodash@~4.17.2:
+  version "4.17.11"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.11.tgz#b39ea6229ef607ecd89e2c8df12536891cac9b8d"
 
 lowercase-keys@^1.0.0, lowercase-keys@^1.0.1:
   version "1.0.1"
@@ -5267,9 +5266,9 @@ upath@^1.0.5:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/upath/-/upath-1.1.0.tgz#35256597e46a581db4793d0ce47fa9aebfc9fabd"
 
-update-notifier@3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/update-notifier/-/update-notifier-3.0.0.tgz#e9bbf8f0f5b7a2ce6666ca46334fdb29492e8fab"
+update-notifier@3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/update-notifier/-/update-notifier-3.0.1.tgz#78ecb68b915e2fd1be9f767f6e298ce87b736250"
   dependencies:
     boxen "^3.0.0"
     chalk "^2.0.1"
@@ -5376,9 +5375,9 @@ web-ext-types@3.2.1:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/web-ext-types/-/web-ext-types-3.2.1.tgz#3edc0e3c2e8fe121d7d7e4ca0b7ee0c883cea832"
 
-web-ext@3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/web-ext/-/web-ext-3.1.0.tgz#58b8fcf113fdc8cc4484142fdb1457cd147de897"
+web-ext@3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/web-ext/-/web-ext-3.1.1.tgz#457f81cd68fe36e4a0025693aac911dcf9b658a8"
   dependencies:
     "@babel/polyfill" "7.4.4"
     "@babel/runtime" "7.4.5"
@@ -5393,7 +5392,7 @@ web-ext@3.1.0:
     es6-error "4.1.1"
     event-to-promise "0.8.0"
     firefox-profile "1.2.0"
-    fx-runner "1.0.10"
+    fx-runner "1.0.11"
     git-rev-sync "1.12.0"
     mkdirp "0.5.1"
     multimatch "4.0.0"
@@ -5407,7 +5406,7 @@ web-ext@3.1.0:
     stream-to-promise "2.2.0"
     strip-json-comments "3.0.1"
     tmp "0.1.0"
-    update-notifier "3.0.0"
+    update-notifier "3.0.1"
     watchpack "1.6.0"
     yargs "13.2.4"
     zip-dir "1.0.2"
