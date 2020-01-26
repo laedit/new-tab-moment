@@ -36,24 +36,28 @@ function refresh(settings: Settings, language: string): void {
     document.getElementById("date")!.textContent = dateText;
 }
 
-async function displayWeather({ tempUnit, location, displayIcon }: Settings, language:string): Promise<void> {
-    const { degrees, description, link, code }: weather = await Weather.getWeather(tempUnit, location, language)
-    document.getElementById("weather-degrees")!.textContent = degrees;
-    document.getElementById("weather-description")!.textContent = `— ${description}`;
-    document.getElementById("loader")!.style.display = "none";
+async function displayWeather({ tempUnit, location, displayIcon, activateDebugMode }: Settings, language: string): Promise<void> {
+    try {
+        const { degrees, description, link, code }: weather = await Weather.getWeather(tempUnit, location, language, activateDebugMode)
+        document.getElementById("weather-degrees")!.textContent = degrees;
+        document.getElementById("weather-description")!.textContent = `— ${description}`;
+        document.getElementById("loader")!.style.display = "none";
 
-    const conditionsElement: HTMLLinkElement = document.getElementById("weather-link") as HTMLLinkElement;
-    conditionsElement.style.display = "block";
-    conditionsElement.classList.add("conditions-fadeIn");
-    conditionsElement.href = link;
+        const conditionsElement: HTMLLinkElement = document.getElementById("weather-link") as HTMLLinkElement;
+        conditionsElement.style.display = "block";
+        conditionsElement.classList.add("conditions-fadeIn");
+        conditionsElement.href = link;
 
-    if (displayIcon) {
-        const iconElement: HTMLElement = document.getElementById("weather-icon") as HTMLElement;
-        iconElement.classList.add(`wi-owm-${code}`);
-        iconElement.style.display = "block";
-        iconElement.title = description;
+        if (displayIcon) {
+            const iconElement: HTMLElement = document.getElementById("weather-icon") as HTMLElement;
+            iconElement.classList.add(`wi-owm-${code}`);
+            iconElement.style.display = "block";
+            iconElement.title = description;
 
-        document.getElementById("weather-description")!.style.display = "none";
+            document.getElementById("weather-description")!.style.display = "none";
+        }
+    } catch (error) {
+        console.error("Error during weather display", error);
     }
 }
 

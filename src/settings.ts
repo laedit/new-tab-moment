@@ -9,7 +9,8 @@ const defaultSettings: Settings = {
     font: "thin",
     leadingZero: true,
     customCss: "",
-    displayIcon: false
+    displayIcon: false,
+    activateDebugMode: false
 };
 
 type TempUnit = "celsius" | "fahrenheit";
@@ -28,4 +29,5 @@ type Settings = {
     leadingZero: boolean;
     customCss: string;
     displayIcon: boolean;
+    activateDebugMode: boolean;
 };

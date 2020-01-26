@@ -24,7 +24,8 @@ function saveOptions(e: Event): void {
     font: getInputValue("font") as FontType,
     leadingZero: getInputValue("zero") === "true",
     customCss: getInputValue("css"),
-    displayIcon: getInputValue("icon") === "true"
+    displayIcon: getInputValue("icon") === "true",
+    activateDebugMode: (document.getElementById("activateDebugMode") as HTMLInputElement).checked
   };
 
   browser.storage.sync.set(settings)
@@ -51,6 +52,7 @@ function restoreOptions(): void {
       setInputValue("zero", settings.leadingZero.toString());
       setInputValue("css", settings.customCss);
       setInputValue("icon", settings.displayIcon.toString());
+      (document.getElementById("activateDebugMode") as HTMLInputElement).checked = settings.activateDebugMode;
     }, error => setStatus(`Error: ${error}`));
 }
 
