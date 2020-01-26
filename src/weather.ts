@@ -1,32 +1,47 @@
 class Weather {
 
-    public static async getWeather(tempUnit: TempUnit, location: string, language: string): Promise<weather> {
+    public static async getWeather(tempUnit: TempUnit, location: string, language: string, debugMode: boolean): Promise<weather> {
         const expiresDate: number = Number(localStorage.getItem("expires"));
         if (expiresDate > Date.now()) {
             return Promise.resolve(this.getFromStorage());
         } else {
-            return this.getCurrentWeather(tempUnit, location, language);
+            return this.getCurrentWeather(tempUnit, location, language, debugMode);
         }
     }
 
-    private static async getCurrentWeather(tempUnit: TempUnit, location: string, language: string): Promise<weather> {
+    private static async getCurrentWeather(tempUnit: TempUnit, location: string, language: string, debugMode: boolean): Promise<weather> {
         let latitude: number | undefined = undefined;
         let longitude: number | undefined = undefined;
 
         if (location === "") {
+            if (debugMode) {
+                console.debug("Getting geolocation from browser");
+            }
             const position = await new Promise<Position>((resolve, reject) => { navigator.geolocation.getCurrentPosition(resolve, reject); });
+            if (debugMode) {
+                console.debug("Geolocation result", position);
+            }
             latitude = position.coords.latitude;
             longitude = position.coords.longitude;
         }
 
-        return this.weatherAPIRequest(location === "" ? undefined : location, latitude, longitude, tempUnit, language);
+        return this.weatherAPIRequest(location === "" ? undefined : location, latitude, longitude, tempUnit, language, debugMode);
     }
 
-    private static async weatherAPIRequest(location: string | undefined, latitude: number | undefined, longitude: number | undefined, tempUnit: TempUnit, language: string): Promise<weather> {
-        const apiUrl = this.buildApiUrl({ q: location, lat: latitude, lon: longitude, lang: language.substring(0, 2), units: tempUnit === "celsius" ? "metric" : "imperial" });
+    private static async weatherAPIRequest(location: string | undefined, latitude: number | undefined, longitude: number | undefined, tempUnit: TempUnit, language: string, debugMode: boolean): Promise<weather> {
+        var apiUrlParameters: apiUrlParameters = { q: location, lat: latitude, lon: longitude, lang: language.substring(0, 2), units: tempUnit === "celsius" ? "metric" : "imperial" };
+        if (debugMode) {
+            console.debug("Weather api url parameters", apiUrlParameters);
+        }
+        const apiUrl = this.buildApiUrl(apiUrlParameters);
 
         const response = await fetch(apiUrl);
         const weatherData = await response.json();
+
+        if (debugMode) {
+            console.debug("Weather api result", weatherData);
+        }
+
         const weather: weather = {
             degrees: Math.round(weatherData.main.temp).toString(),
             description: weatherData.weather[0].description,
