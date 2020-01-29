@@ -1,7 +1,3 @@
-// if(browser=== undefined) {
-//     browser = chrome;
-// }
-
 function refresh(settings: Settings, language: string): void {
     const currentDate: Date = new Date();
     let currentHours: number = currentDate.getHours();
