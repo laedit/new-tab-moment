@@ -1,6 +1,6 @@
 class Weather {
 
-    public static async getWeather(tempUnit: TempUnit, location: string, language: string, debugMode: boolean): Promise<weather | userError> {
+    public static async getWeather(tempUnit: TempUnit, location: string, language: string, debugMode: boolean): Promise<weather> {
         const expiresDate: number = Number(localStorage.getItem("expires"));
         if (expiresDate > Date.now()) {
             return Promise.resolve(this.getFromStorage());
@@ -9,7 +9,7 @@ class Weather {
         }
     }
 
-    private static async getCurrentWeather(tempUnit: TempUnit, location: string, language: string, debugMode: boolean): Promise<weather | userError> {
+    private static async getCurrentWeather(tempUnit: TempUnit, location: string, language: string, debugMode: boolean): Promise<weather> {
         let latitude: number | undefined = undefined;
         let longitude: number | undefined = undefined;
 
@@ -19,7 +19,7 @@ class Weather {
             }
             if (navigator.geolocation === undefined) {
                 console.debug("navigator.geolocation is undefined in your browser");
-                return Promise.resolve("Your browser doesn't handle geolocation, please provide a location in the options.");
+                throw new GeolocationUndefinedError();
             }
 
             const position = await new Promise<Position>((resolve, reject) => navigator.geolocation.getCurrentPosition(resolve, reject));
@@ -91,8 +91,6 @@ class Weather {
     }
 }
 
-type userError = string;
-
 type weather = {
     degrees: string;
     description: string;
@@ -108,4 +106,11 @@ type apiUrlParameters = {
     lon?: number;
     lang: string;
     units: apiUnit;
+}
+
+class GeolocationUndefinedError extends Error {
+    constructor() {
+        super("Geolocation is not available in your browser (navigator.geolocation is undefined).");
+        this.name = 'GeolocationUndefinedError';
+    }
 }

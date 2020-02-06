@@ -33,20 +33,17 @@ a {
   font-size: 0.25em;
 }
 
-#weather-link {
+#weather {
   opacity: 0;
   cursor: pointer;
   display: none;
-}
-
-#weather-text {
   font-size: 0.15em;
   font-weight: 100;
 }
 
 #weather-icon {
   display: none;
-  font-size: 0.5em;
+  font-size: 3em;
   margin-top: 20px;
 }
 
@@ -57,11 +54,11 @@ a {
   #date {
     font-size: 0.5em;
   }
-  #weather-text {
+  #weather {
     font-size: 0.5em;
   }
   #weather-icon {
-    font-size: 0.7em;
+    font-size: 4em;
   }
   #loader {
     font-size: 0.5em;
@@ -75,11 +72,11 @@ a {
   #date {
     font-size: 0.5em;
   }
-  #weather-text {
+  #weather {
     font-size: 0.5em;
   }
   #weather-icon {
-    font-size: 0.7em;
+    font-size: 4em;
   }
   #loader {
     font-size: 0.5em;

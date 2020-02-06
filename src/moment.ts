@@ -40,39 +40,53 @@ async function displayWeather({ tempUnit, location, displayIcon, activateDebugMo
     try {
         const weatherResult = await Weather.getWeather(tempUnit, location, language, activateDebugMode);
 
-        document.getElementById("loader")!.style.display = "none";
-
         const conditionsElement: HTMLLinkElement = document.getElementById("weather-link") as HTMLLinkElement;
-        conditionsElement.style.display = "block";
-        conditionsElement.classList.add("conditions-fadeIn");
 
-        if (typeof weatherResult === "string") {
-            document.getElementById("weather-degrees")!.textContent = "";
-            document.getElementById("weather-description")!.textContent = weatherResult as string;
+        const { degrees, description, link, code }: weather = weatherResult as weather;
+        const weatherDegreesElement = document.getElementById("weather-degrees")!;
+        weatherDegreesElement.textContent = degrees;
+        weatherDegreesElement.after("°");
+        document.getElementById("weather-description")!.textContent = `— ${description}`;
 
-            conditionsElement.onclick = () => browser.runtime.openOptionsPage();
-        }
-        else {
-            const { degrees, description, link, code }: weather = weatherResult as weather;
-            const weatherDegreesElement = document.getElementById("weather-degrees")!;
-            weatherDegreesElement.textContent = degrees;
-            weatherDegreesElement.after("°");
-            document.getElementById("weather-description")!.textContent = `— ${description}`;
+        conditionsElement.href = link;
 
-            conditionsElement.href = link;
+        if (displayIcon) {
+            const iconElement: HTMLElement = document.getElementById("weather-icon") as HTMLElement;
+            iconElement.classList.add(`wi-owm-${code}`);
+            iconElement.style.display = "block";
+            iconElement.title = description;
 
-            if (displayIcon) {
-                const iconElement: HTMLElement = document.getElementById("weather-icon") as HTMLElement;
-                iconElement.classList.add(`wi-owm-${code}`);
-                iconElement.style.display = "block";
-                iconElement.title = description;
-
-                document.getElementById("weather-description")!.style.display = "none";
-            }
+            document.getElementById("weather-description")!.style.display = "none";
         }
     } catch (error) {
         console.error("Error during weather display", error);
+        let errorElement = document.getElementById("error")!;
+
+        if (error instanceof GeolocationUndefinedError || IsPositionError(error)) {
+            let errorLink = document.createElement("a");
+            errorLink.text = "Your browser doesn't handle geolocation, please provide a location in the options.";
+            errorLink.onclick = () => browser.runtime.openOptionsPage();
+            errorElement.appendChild(errorLink);
+
+        }
+        else {
+            errorElement.innerText = "An error occurred during weather display. See browser console for details.";
+        }
     }
+    finally {
+        document.getElementById("loader")!.style.display = "none";
+
+        const weatherBlock: HTMLLinkElement = document.getElementById("weather") as HTMLLinkElement;
+        weatherBlock.style.display = "block";
+        weatherBlock.classList.add("conditions-fadeIn");
+    }
+}
+
+function IsPositionError(error: any): error is PositionError {
+    // from https://developer.mozilla.org/en-US/docs/Web/API/GeolocationPositionError
+    return error.constructor.name === "GeolocationPositionError"
+        || ["code", "message", "TIMEOUT", "PERMISSION_DENIED", "POSITION_UNAVAILABLE"]
+            .every(propertyName => error.__proto__.hasOwnProperty(propertyName));
 }
 
 function startTime(settings: Settings, language: string): void {
