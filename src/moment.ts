@@ -38,14 +38,16 @@ function refresh(settings: Settings, language: string): void {
 
 async function displayWeather({ tempUnit, location, displayIcon, activateDebugMode }: Settings, language: string): Promise<void> {
     try {
-        const { degrees, description, link, code }: weather = await Weather.getWeather(tempUnit, location, language, activateDebugMode)
-        document.getElementById("weather-degrees")!.textContent = degrees;
-        document.getElementById("weather-description")!.textContent = `— ${description}`;
-        document.getElementById("loader")!.style.display = "none";
+        const weatherResult = await Weather.getWeather(tempUnit, location, language, activateDebugMode);
 
         const conditionsElement: HTMLLinkElement = document.getElementById("weather-link") as HTMLLinkElement;
-        conditionsElement.style.display = "block";
-        conditionsElement.classList.add("conditions-fadeIn");
+
+        const { degrees, description, link, code }: weather = weatherResult as weather;
+        const weatherDegreesElement = document.getElementById("weather-degrees")!;
+        weatherDegreesElement.textContent = degrees;
+        weatherDegreesElement.after("°");
+        document.getElementById("weather-description")!.textContent = `— ${description}`;
+
         conditionsElement.href = link;
 
         if (displayIcon) {
@@ -58,7 +60,33 @@ async function displayWeather({ tempUnit, location, displayIcon, activateDebugMo
         }
     } catch (error) {
         console.error("Error during weather display", error);
+        let errorElement = document.getElementById("error")!;
+
+        if (error instanceof GeolocationUndefinedError || IsPositionError(error)) {
+            let errorLink = document.createElement("a");
+            errorLink.text = "Your browser doesn't handle geolocation, please provide a location in the options.";
+            errorLink.onclick = () => browser.runtime.openOptionsPage();
+            errorElement.appendChild(errorLink);
+
+        }
+        else {
+            errorElement.innerText = "An error occurred during weather display. See browser console for details.";
+        }
     }
+    finally {
+        document.getElementById("loader")!.style.display = "none";
+
+        const weatherBlock: HTMLLinkElement = document.getElementById("weather") as HTMLLinkElement;
+        weatherBlock.style.display = "block";
+        weatherBlock.classList.add("conditions-fadeIn");
+    }
+}
+
+function IsPositionError(error: any): error is PositionError {
+    // from https://developer.mozilla.org/en-US/docs/Web/API/GeolocationPositionError
+    return error.constructor.name === "GeolocationPositionError"
+        || ["code", "message", "TIMEOUT", "PERMISSION_DENIED", "POSITION_UNAVAILABLE"]
+            .every(propertyName => error.__proto__.hasOwnProperty(propertyName));
 }
 
 function startTime(settings: Settings, language: string): void {

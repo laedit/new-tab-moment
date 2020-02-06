@@ -17,7 +17,12 @@ class Weather {
             if (debugMode) {
                 console.debug("Getting geolocation from browser");
             }
-            const position = await new Promise<Position>((resolve, reject) => { navigator.geolocation.getCurrentPosition(resolve, reject); });
+            if (navigator.geolocation === undefined) {
+                console.debug("navigator.geolocation is undefined in your browser");
+                throw new GeolocationUndefinedError();
+            }
+
+            const position = await new Promise<Position>((resolve, reject) => navigator.geolocation.getCurrentPosition(resolve, reject));
             if (debugMode) {
                 console.debug("Geolocation result", position);
             }
@@ -103,3 +108,9 @@ type apiUrlParameters = {
     units: apiUnit;
 }
 
+class GeolocationUndefinedError extends Error {
+    constructor() {
+        super("Geolocation is not available in your browser (navigator.geolocation is undefined).");
+        this.name = 'GeolocationUndefinedError';
+    }
+}
