@@ -22,7 +22,7 @@ class Weather {
                 throw new GeolocationUndefinedError();
             }
 
-            const position = await new Promise<Position>((resolve, reject) => navigator.geolocation.getCurrentPosition(resolve, reject));
+            const position = await new Promise<GeolocationPosition>((resolve, reject) => navigator.geolocation.getCurrentPosition(resolve, reject));
             if (debugMode) {
                 console.debug("Geolocation result", position);
             }

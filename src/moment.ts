@@ -82,7 +82,7 @@ async function displayWeather({ tempUnit, location, displayIcon, activateDebugMo
     }
 }
 
-function IsPositionError(error: any): error is PositionError {
+function IsPositionError(error: any): error is GeolocationPositionError {
     // from https://developer.mozilla.org/en-US/docs/Web/API/GeolocationPositionError
     return error.constructor.name === "GeolocationPositionError"
         || ["code", "message", "TIMEOUT", "PERMISSION_DENIED", "POSITION_UNAVAILABLE"]
