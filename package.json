@@ -4,7 +4,7 @@
   "description": "new tab moment",
   "author": "laedit",
   "devDependencies": {
-    "concurrently": "6.2.0",
+    "concurrently": "6.2.1",
     "cpx": "1.5.0",
     "typescript": "4.3.5",
     "web-ext": "6.2.0",
