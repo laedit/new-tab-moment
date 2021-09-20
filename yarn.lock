@@ -88,9 +88,9 @@
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/object-schema/-/object-schema-1.2.0.tgz#87de7af9c231826fdd68ac7258f77c429e0e5fcf"
 
-"@mdn/browser-compat-data@3.3.14":
-  version "3.3.14"
-  resolved "https://registry.yarnpkg.com/@mdn/browser-compat-data/-/browser-compat-data-3.3.14.tgz#b72a37c654e598f9ae6f8335faaee182bebc6b28"
+"@mdn/browser-compat-data@4.0.2":
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/@mdn/browser-compat-data/-/browser-compat-data-4.0.2.tgz#54431f690853e11b61f93b29ded25978f78c38e0"
 
 "@sindresorhus/is@^0.14.0":
   version "0.14.0"
@@ -118,9 +118,9 @@
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/@types/normalize-package-data/-/normalize-package-data-2.4.0.tgz#e486d0d97396d79beedd0a6e33f4534ff6b4973e"
 
-"@types/yauzl@2.9.1":
-  version "2.9.1"
-  resolved "https://registry.yarnpkg.com/@types/yauzl/-/yauzl-2.9.1.tgz#d10f69f9f522eef3cf98e30afb684a1e1ec923af"
+"@types/yauzl@2.9.2":
+  version "2.9.2"
+  resolved "https://registry.yarnpkg.com/@types/yauzl/-/yauzl-2.9.2.tgz#c48e5d56aff1444409e39fa164b0b4d4552a7b7a"
   dependencies:
     "@types/node" "*"
 
@@ -144,12 +144,12 @@ acorn@^8.4.1:
   version "8.4.1"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-8.4.1.tgz#56c36251fc7cabc7096adc18f05afe814321a28c"
 
-addons-linter@3.12.0:
-  version "3.12.0"
-  resolved "https://registry.yarnpkg.com/addons-linter/-/addons-linter-3.12.0.tgz#9950928fb704306e8ebce1fefb8f9257e1b69610"
+addons-linter@3.14.0:
+  version "3.14.0"
+  resolved "https://registry.yarnpkg.com/addons-linter/-/addons-linter-3.14.0.tgz#87db4e3705767452d2d42a3eae580c5f1b8ea568"
   dependencies:
-    "@mdn/browser-compat-data" "3.3.14"
-    addons-scanner-utils "4.9.0"
+    "@mdn/browser-compat-data" "4.0.2"
+    addons-scanner-utils "4.10.0"
     ajv "6.12.6"
     ajv-merge-patch "4.1.0"
     chalk "4.1.2"
@@ -169,21 +169,21 @@ addons-linter@3.12.0:
     is-mergeable-object "1.1.1"
     jed "1.1.1"
     os-locale "5.0.0"
-    pino "6.13.0"
+    pino "6.13.2"
     postcss "8.3.6"
     relaxed-json "1.0.3"
     semver "7.3.5"
     source-map-support "0.5.19"
     tosource "1.0.0"
     upath "2.0.1"
-    yargs "17.1.0"
+    yargs "17.1.1"
     yauzl "2.10.0"
 
-addons-scanner-utils@4.9.0:
-  version "4.9.0"
-  resolved "https://registry.yarnpkg.com/addons-scanner-utils/-/addons-scanner-utils-4.9.0.tgz#f38ba12e2a0885c1aaacca8ba36c83b34f238fa8"
+addons-scanner-utils@4.10.0:
+  version "4.10.0"
+  resolved "https://registry.yarnpkg.com/addons-scanner-utils/-/addons-scanner-utils-4.10.0.tgz#b01aad308e7f6f06eece9d8264fb4a4d0ed475b6"
   dependencies:
-    "@types/yauzl" "2.9.1"
+    "@types/yauzl" "2.9.2"
     common-tags "1.8.0"
     first-chunk-stream "3.0.0"
     strip-bom-stream "4.0.0"
@@ -783,9 +783,9 @@ copy-descriptor@^0.1.0:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/copy-descriptor/-/copy-descriptor-0.1.1.tgz#676f6eb3c39997c2ee1ac3a924fd6124748f578d"
 
-core-js@3.16.0:
-  version "3.16.0"
-  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.16.0.tgz#1d46fb33720bc1fa7f90d20431f36a5540858986"
+core-js@3.17.2:
+  version "3.17.2"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.17.2.tgz#f960eae710dc62c29cca93d5332e3660e289db10"
 
 core-js@^2.4.0:
   version "2.5.7"
@@ -1374,6 +1374,10 @@ fast-safe-stringify@^2.0.7:
 fast-safe-stringify@^2.0.8:
   version "2.0.8"
   resolved "https://registry.yarnpkg.com/fast-safe-stringify/-/fast-safe-stringify-2.0.8.tgz#dc2af48c46cf712b683e849b2bbd446b32de936f"
+
+fastify-warning@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/fastify-warning/-/fastify-warning-0.2.0.tgz#e717776026a4493dc9a2befa44db6d17f618008f"
 
 fd-slicer@~1.1.0:
   version "1.1.0"
@@ -2833,12 +2837,13 @@ pino-std-serializers@^3.1.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/pino-std-serializers/-/pino-std-serializers-3.2.0.tgz#b56487c402d882eb96cd67c257868016b61ad671"
 
-pino@6.13.0:
-  version "6.13.0"
-  resolved "https://registry.yarnpkg.com/pino/-/pino-6.13.0.tgz#41810b9be213af6f8f7c23a1b17058d880267e7b"
+pino@6.13.2:
+  version "6.13.2"
+  resolved "https://registry.yarnpkg.com/pino/-/pino-6.13.2.tgz#948a0fcadca668f3b5fb8a427f2854b08661eccf"
   dependencies:
     fast-redact "^3.0.0"
     fast-safe-stringify "^2.0.8"
+    fastify-warning "^0.2.0"
     flatstr "^1.0.12"
     pino-std-serializers "^3.1.0"
     quick-format-unescaped "^4.0.3"
@@ -3266,12 +3271,12 @@ shellwords@^0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/shellwords/-/shellwords-0.1.1.tgz#d6b9181c1a48d397324c84871efbcfc73fc0654b"
 
-sign-addon@3.7.0:
-  version "3.7.0"
-  resolved "https://registry.yarnpkg.com/sign-addon/-/sign-addon-3.7.0.tgz#78c4f8ad364a67ca303e8b6a529c65ac081ab4e5"
+sign-addon@3.8.0:
+  version "3.8.0"
+  resolved "https://registry.yarnpkg.com/sign-addon/-/sign-addon-3.8.0.tgz#15bb8048271f2204cf86196362b1e744a9dc7350"
   dependencies:
     common-tags "1.8.0"
-    core-js "3.16.0"
+    core-js "3.17.2"
     deepcopy "2.1.0"
     es6-error "4.1.1"
     es6-promisify "7.0.0"
@@ -3826,13 +3831,13 @@ web-ext-types@3.2.1:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/web-ext-types/-/web-ext-types-3.2.1.tgz#3edc0e3c2e8fe121d7d7e4ca0b7ee0c883cea832"
 
-web-ext@6.3.0:
-  version "6.3.0"
-  resolved "https://registry.yarnpkg.com/web-ext/-/web-ext-6.3.0.tgz#c0781a370a1477565d2356cf26579d5c96fe68ef"
+web-ext@6.4.0:
+  version "6.4.0"
+  resolved "https://registry.yarnpkg.com/web-ext/-/web-ext-6.4.0.tgz#8c4b27cf2775ecdda970a0f3ccaaf4d295940109"
   dependencies:
     "@babel/runtime" "7.13.9"
     "@devicefarmer/adbkit" "2.11.3"
-    addons-linter "3.12.0"
+    addons-linter "3.14.0"
     bunyan "1.8.15"
     camelcase "6.2.0"
     chrome-launcher "0.14.0"
@@ -3850,7 +3855,7 @@ web-ext@6.3.0:
     node-notifier "9.0.0"
     open "7.4.2"
     parse-json "5.2.0"
-    sign-addon "3.7.0"
+    sign-addon "3.8.0"
     source-map-support "0.5.19"
     strip-bom "4.0.0"
     strip-json-comments "3.1.1"
@@ -3966,9 +3971,9 @@ yargs@16.2.0, yargs@^16.2.0, yargs@~16.2.0:
     y18n "^5.0.5"
     yargs-parser "^20.2.2"
 
-yargs@17.1.0:
-  version "17.1.0"
-  resolved "https://registry.yarnpkg.com/yargs/-/yargs-17.1.0.tgz#0cd9827a0572c9a1795361c4d1530e53ada168cf"
+yargs@17.1.1:
+  version "17.1.1"
+  resolved "https://registry.yarnpkg.com/yargs/-/yargs-17.1.1.tgz#c2a8091564bdb196f7c0a67c1d12e5b85b8067ba"
   dependencies:
     cliui "^7.0.2"
     escalade "^3.1.1"
