@@ -20,7 +20,7 @@
       "page": "options.html",
       "browser_style": true
   },
-  "applications": {
+  "browser_specific_settings": {
       "gecko": {
           "id": "new-tab-moment@laedit.net",
           "strict_min_version": "57.0"

@@ -59,11 +59,11 @@ function restoreOptions(): void {
 document.addEventListener("DOMContentLoaded", () => {
   restoreOptions();
 
-  setInputValue("homepage-url", browser.extension.getURL("moment.html"));
+  setInputValue("homepage-url", browser.runtime.getURL("moment.html"));
 
   document.getElementById("copy-link")!.onclick = () => {
     document.addEventListener("copy", (e: ClipboardEvent) => {
-      e.clipboardData!.setData("text/plain", browser.extension.getURL("moment.html"));
+      e.clipboardData!.setData("text/plain", browser.runtime.getURL("moment.html"));
       e.preventDefault();
     }, { once: true });
 
