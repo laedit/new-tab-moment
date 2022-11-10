@@ -1,38 +1,22 @@
 function refresh(settings: Settings, language: string): void {
-    const currentDate: Date = new Date();
-    let currentHours: number = currentDate.getHours();
-    const currentMinutes: number = currentDate.getMinutes();
-    const currentSeconds: number = currentDate.getSeconds();
-    if (settings.clock === "12" && currentHours > 12) {
-        currentHours = currentHours - 12;
-    }
+    var dateTimeParts = new Intl.DateTimeFormat(language, {
+        year: "numeric", month: "long", day: "numeric",
+        hour: "numeric", minute: "numeric", second: "numeric",
+        hour12: settings.clock === "12"
+    }).formatToParts(new Date());
 
-    let hoursDisplayed: string = currentHours.toString();
-    if (10 > currentHours && settings.leadingZero) {
-        hoursDisplayed = "0" + currentHours;
+    let hour = dateTimeParts.find(part => part.type == 'hour')?.value!;
+    if (10 > Number(hour) && settings.leadingZero) {
+        hour = "0" + hour;
     }
-
-    let minutesDisplayed: string = currentMinutes.toString();
-    if (10 > currentMinutes) {
-        minutesDisplayed = "0" + currentMinutes;
-    }
-
-    let secondsDisplayed = currentSeconds.toString();
-    if (10 > currentSeconds) {
-        secondsDisplayed = "0" + currentSeconds;
-    }
-
-    const timeText: string = settings.timePattern.replace("H", hoursDisplayed).replace("M", minutesDisplayed).replace("S", secondsDisplayed);
+    const timeText: string = settings.timePattern.replace("H", hour)
+        .replace("M", dateTimeParts.find(part => part.type == 'minute')?.value!)
+        .replace("S", dateTimeParts.find(part => part.type == 'second')?.value!);
     document.getElementById("time")!.textContent = timeText;
 
-    const month: string = new Intl.DateTimeFormat(language, { month: "long" }).format(new Date());
-    const day: number = currentDate.getDate();
-    let year: number = currentDate.getFullYear();
-    if (year < 2000) {
-        year = year + 1900;
-    }
-
-    const dateText: string = settings.datePattern.replace("D", day.toString()).replace("Y", year.toString()).replace("M", month);
+    const dateText: string = settings.datePattern.replace("D", dateTimeParts.find(part => part.type == 'day')?.value!)
+        .replace("Y", dateTimeParts.find(part => part.type == 'year')?.value!)
+        .replace("M", dateTimeParts.find(part => part.type == 'month')?.value!);
     document.getElementById("date")!.textContent = dateText;
 }
 
