@@ -43,7 +43,7 @@ class Weather {
     }
 
     private static async weatherAPIRequest(location: string | undefined, latitude: number | undefined, longitude: number | undefined, tempUnit: TempUnit, language: string, debugMode: boolean): Promise<weather> {
-        const apiUrlParameters: apiUrlParameters = { q: location, lat: latitude, lon: longitude, lang: getLanguageForRequest(language), units: tempUnit === "celsius" ? "metric" : "imperial" };
+        const apiUrlParameters: apiUrlParameters = { q: location, lat: latitude, lon: longitude, lang: this.getLanguageForRequest(language), units: tempUnit === "celsius" ? "metric" : "imperial" };
         if (debugMode) {
             console.debug("Weather api url parameters", apiUrlParameters);
         }
