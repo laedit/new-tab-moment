@@ -1,3 +1,12 @@
+/**
+ * We need convert "https://developer.mozilla.org/en-US/docs/Web/API/Navigator/language"
+ * to "https://openweathermap.org/current#multi"
+ */
+const openWeatherMapLanguageRemap = {
+    "cs": "cz",
+    // etc.
+};
+
 class Weather {
 
     public static async getWeather(tempUnit: TempUnit, location: string, language: string, debugMode: boolean): Promise<weather> {
@@ -34,7 +43,7 @@ class Weather {
     }
 
     private static async weatherAPIRequest(location: string | undefined, latitude: number | undefined, longitude: number | undefined, tempUnit: TempUnit, language: string, debugMode: boolean): Promise<weather> {
-        var apiUrlParameters: apiUrlParameters = { q: location, lat: latitude, lon: longitude, lang: language.substring(0, 2), units: tempUnit === "celsius" ? "metric" : "imperial" };
+        const apiUrlParameters: apiUrlParameters = { q: location, lat: latitude, lon: longitude, lang: this.getLanguageForRequest(language), units: tempUnit === "celsius" ? "metric" : "imperial" };
         if (debugMode) {
             console.debug("Weather api url parameters", apiUrlParameters);
         }
@@ -68,6 +77,11 @@ class Weather {
             }
         });
         return apiUrl + searchParams.toString();
+    }
+    
+    private static getLanguageForRequest(language: string): string {
+        const lang = language.substring(0, 2);
+        return openWeatherMapLanguageRemap[lang] || lang;     
     }
 
     private static putInStorage({ degrees, description, link, code }: weather): void {
