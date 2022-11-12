@@ -1,10 +1,15 @@
 /**
- * We need convert "https://developer.mozilla.org/en-US/docs/Web/API/Navigator/language"
- * to "https://openweathermap.org/current#multi"
+ * We need convert https://developer.mozilla.org/en-US/docs/Web/API/Navigator/language
+ * to https://openweathermap.org/current#multi
  */
-const openWeatherMapLanguageRemap = {
+const openWeatherMapLanguageRemap: { [key: string]: string } = {
     "cs": "cz",
-    // etc.
+    "ko": "kr",
+    "lv": "la",
+    "pt-br": "pt_br",
+    "sq": "al",
+    "zh-cn": "zh_cn",
+    "zh-tw": "zh_tw"
 };
 
 class Weather {
@@ -78,10 +83,14 @@ class Weather {
         });
         return apiUrl + searchParams.toString();
     }
-    
+
     private static getLanguageForRequest(language: string): string {
         const lang = language.substring(0, 2);
-        return openWeatherMapLanguageRemap[lang] || lang;     
+        let owmLang = openWeatherMapLanguageRemap[language.toLowerCase()];
+        if (owmLang === undefined) {
+            owmLang = openWeatherMapLanguageRemap[lang];
+        }
+        return owmLang || lang;
     }
 
     private static putInStorage({ degrees, description, link, code }: weather): void {
