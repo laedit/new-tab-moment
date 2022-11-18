@@ -6,7 +6,7 @@ function refresh(settings: Settings, language: string): void {
     }).formatToParts(new Date());
 
     let hour = dateTimeParts.find(part => part.type == 'hour')?.value!;
-    if (10 > Number(hour) && settings.leadingZero) {
+    if (settings.leadingZero && settings.clock === "12" && hour.length === 1) {
         hour = "0" + hour;
     }
     const timeText: string = settings.timePattern.replace("H", hour)
