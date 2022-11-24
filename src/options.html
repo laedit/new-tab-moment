@@ -21,26 +21,47 @@
     <section>
       <h3>Appearance</h3>
       <div class="input-group">
-        <label>Background:</label>
-        <input type="color" id="background">
+        <label>
+          Theme:
+          <select id="colorScheme">
+            <option value="default">By system</option>
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+            <option value="custom">Custom</option>
+          </select>
+        </label>
+      </div>
+      <br>
+      <div class="input-group">
+        <label>
+          Background:
+          <input type="color" id="background">
+        </label>
       </div>
       <div class="input-group">
-        <label>Text:</label>
-        <input type="color" id="foreground">
+        <label>
+          Text:
+          <input type="color" id="foreground">
+        </label>
+      </div>
+      <br>
+      <div class="input-group">
+        <label>
+          Font:
+          <select id="font">
+            <option value="thin">Thin</option>
+            <option value="bold">Bold</option>
+          </select>
+        </label>
       </div>
       <div class="input-group">
-        <label>Font:</label>
-        <select id="font">
-          <option value="thin">Thin</option>
-          <option value="bold">Bold</option>
-        </select>
-      </div>
-      <div class="input-group">
-        <label>Weather icon:</label>
-        <select id="icon">
-          <option value="false">Only text</option>
-          <option value="true">Text and icon</option>
-        </select>
+        <label>
+          Weather icon:
+          <select id="icon">
+            <option value="false">Only text</option>
+            <option value="true">Text and icon</option>
+          </select>
+        </label>
       </div>
     </section>
 
@@ -91,7 +112,9 @@
 
     <section>
       <h3>Debug mode</h3>
-      <input type="checkbox" id="activateDebugMode" />Activate
+      <label>
+        <input type="checkbox" id="activateDebugMode" /> Activate
+      </label>
     </section>
     <br>
     <br>
