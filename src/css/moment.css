@@ -1,355 +1,427 @@
 :root,
 :root[data-color-scheme="light"] {
-  --bg-color: #fafafa;
-  --fg-color: #424242;
+    --bg-color: #fafafa;
+    --fg-color: #424242;
 }
 
 :root[data-color-scheme="dark"] {
-  --bg-color: #424242;
-  --fg-color: #fafafa;
+    --bg-color: #424242;
+    --fg-color: #fafafa;
 }
 
 :root[data-font-type="thin"] {
-  --font-weight: 100;
-  --font-weight-weather: 300;
+    --font-weight: 100;
+    --font-weight-weather: 300;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root[data-color-scheme="system"] {
-    --bg-color: #424242;
-    --fg-color: #fafafa;
-  }
+    :root[data-color-scheme="system"] {
+        --bg-color: #424242;
+        --fg-color: #fafafa;
+    }
 }
 
 html {
-  height: 100%;
-  background-color: var(--bg-color);
-  color: var(--fg-color);
+    height: 100%;
+    background-color: var(--bg-color);
+    color: var(--fg-color);
 }
 
 body {
-  font-family: "Lato";
-  font-size: 12em;
-  font-weight: var(--font-weight, 700);
-  margin: 0;
-  padding: 0;
-  text-align: center;
-  opacity: 0;
-  height: 100%;
-  cursor: default;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
+    font-family: "Lato";
+    font-size: 12em;
+    font-weight: var(--font-weight, 700);
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    opacity: 0;
+    height: 100%;
+    cursor: default;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 
 section {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 a {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 #date {
-  font-weight: var(--font-weight, 300);
-  font-size: 0.25em;
+    font-weight: var(--font-weight, 300);
+    font-size: 0.25em;
 }
 
 #weather {
-  opacity: 0;
-  cursor: pointer;
-  display: none;
-  font-size: 0.15em;
-  font-weight: var(--font-weight-weather, 100);
+    opacity: 0;
+    cursor: pointer;
+    display: none;
+    font-size: 0.15em;
+    font-weight: var(--font-weight-weather, 100);
 }
 
 #weather-link {
-  color: var(--fg-color);
+    color: var(--fg-color);
 }
 
 #weather-icon {
-  display: none;
-  font-size: 3em;
-  margin-top: 20px;
+    display: none;
+    font-size: 3em;
+    margin-top: 20px;
 }
 
 @media only screen and (max-width: 700px) {
-  body {
-    font-size: 6em;
-  }
-  #date {
-    font-size: 0.5em;
-  }
-  #weather {
-    font-size: 0.5em;
-  }
-  #weather-icon {
-    font-size: 4em;
-  }
-  #loader {
-    font-size: 0.5em;
-  }
+    body {
+        font-size: 6em;
+    }
+
+    #date {
+        font-size: 0.5em;
+    }
+
+    #weather {
+        font-size: 0.5em;
+    }
+
+    #weather-icon {
+        font-size: 4em;
+    }
+
+    #loader {
+        font-size: 0.5em;
+    }
 }
 
 @media only screen and (max-width: 360px) {
-  body {
-    font-size: 5em;
-  }
-  #date {
-    font-size: 0.5em;
-  }
-  #weather {
-    font-size: 0.5em;
-  }
-  #weather-icon {
-    font-size: 4em;
-  }
-  #loader {
-    font-size: 0.5em;
-  }
+    body {
+        font-size: 5em;
+    }
+
+    #date {
+        font-size: 0.5em;
+    }
+
+    #weather {
+        font-size: 0.5em;
+    }
+
+    #weather-icon {
+        font-size: 4em;
+    }
+
+    #loader {
+        font-size: 0.5em;
+    }
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 .body-fadeIn {
-  animation-name: fadeIn;
-  animation-duration: 500ms;
-  animation-fill-mode: both;
+    animation-name: fadeIn;
+    animation-duration: 500ms;
+    animation-fill-mode: both;
 }
 
 .conditions-fadeIn {
-  animation-name: fadeIn;
-  animation-duration: 300ms;
-  animation-fill-mode: both;
+    animation-name: fadeIn;
+    animation-duration: 300ms;
+    animation-fill-mode: both;
 }
 
 #loader {
-  font-size: 0.15em;
+    font-size: 0.15em;
 }
 
 #loader span {
-  animation-name: blink;
-  animation-duration: 1.4s;
-  animation-iteration-count: infinite;
-  animation-fill-mode: both;
+    animation-name: blink;
+    animation-duration: 1.4s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
 }
 
 #loader span:nth-child(2) {
-  animation-delay: 0.2s;
+    animation-delay: 0.2s;
 }
 
 #loader span:nth-child(3) {
-  animation-delay: 0.4s;
+    animation-delay: 0.4s;
 }
 
 @keyframes blink {
-  0% {
-    opacity: 0.2;
-  }
-  20% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0.2;
-  }
+    0% {
+        opacity: 0.2;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.2;
+    }
 }
 
 /* weather icons from http://erikflowers.github.io/weather-icons */
 .wi {
-  display: inline-block;
-  font-family: "weathericons";
-  font-style: normal;
-  font-weight: normal;
-  line-height: 1;
+    display: inline-block;
+    font-family: "weathericons";
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
 }
+
 .wi-owm-200:before {
-  content: "\f01e";
+    content: "\f01e";
 }
+
 .wi-owm-201:before {
-  content: "\f01e";
+    content: "\f01e";
 }
+
 .wi-owm-202:before {
-  content: "\f01e";
+    content: "\f01e";
 }
+
 .wi-owm-210:before {
-  content: "\f016";
+    content: "\f016";
 }
+
 .wi-owm-211:before {
-  content: "\f016";
+    content: "\f016";
 }
+
 .wi-owm-212:before {
-  content: "\f016";
+    content: "\f016";
 }
+
 .wi-owm-221:before {
-  content: "\f016";
+    content: "\f016";
 }
+
 .wi-owm-230:before {
-  content: "\f01e";
+    content: "\f01e";
 }
+
 .wi-owm-231:before {
-  content: "\f01e";
+    content: "\f01e";
 }
+
 .wi-owm-232:before {
-  content: "\f01e";
+    content: "\f01e";
 }
+
 .wi-owm-300:before {
-  content: "\f01c";
+    content: "\f01c";
 }
+
 .wi-owm-301:before {
-  content: "\f01c";
+    content: "\f01c";
 }
+
 .wi-owm-302:before {
-  content: "\f019";
+    content: "\f019";
 }
+
 .wi-owm-310:before {
-  content: "\f017";
+    content: "\f017";
 }
+
 .wi-owm-311:before {
-  content: "\f019";
+    content: "\f019";
 }
+
 .wi-owm-312:before {
-  content: "\f019";
+    content: "\f019";
 }
+
 .wi-owm-313:before {
-  content: "\f01a";
+    content: "\f01a";
 }
+
 .wi-owm-314:before {
-  content: "\f019";
+    content: "\f019";
 }
+
 .wi-owm-321:before {
-  content: "\f01c";
+    content: "\f01c";
 }
+
 .wi-owm-500:before {
-  content: "\f01c";
+    content: "\f01c";
 }
+
 .wi-owm-501:before {
-  content: "\f019";
+    content: "\f019";
 }
+
 .wi-owm-502:before {
-  content: "\f019";
+    content: "\f019";
 }
+
 .wi-owm-503:before {
-  content: "\f019";
+    content: "\f019";
 }
+
 .wi-owm-504:before {
-  content: "\f019";
+    content: "\f019";
 }
+
 .wi-owm-511:before {
-  content: "\f017";
+    content: "\f017";
 }
+
 .wi-owm-520:before {
-  content: "\f01a";
+    content: "\f01a";
 }
+
 .wi-owm-521:before {
-  content: "\f01a";
+    content: "\f01a";
 }
+
 .wi-owm-522:before {
-  content: "\f01a";
+    content: "\f01a";
 }
+
 .wi-owm-531:before {
-  content: "\f01d";
+    content: "\f01d";
 }
+
 .wi-owm-600:before {
-  content: "\f01b";
+    content: "\f01b";
 }
+
 .wi-owm-601:before {
-  content: "\f01b";
+    content: "\f01b";
 }
+
 .wi-owm-602:before {
-  content: "\f0b5";
+    content: "\f0b5";
 }
+
 .wi-owm-611:before {
-  content: "\f017";
+    content: "\f017";
 }
+
 .wi-owm-612:before {
-  content: "\f017";
+    content: "\f017";
 }
+
 .wi-owm-615:before {
-  content: "\f017";
+    content: "\f017";
 }
+
 .wi-owm-616:before {
-  content: "\f017";
+    content: "\f017";
 }
+
 .wi-owm-620:before {
-  content: "\f017";
+    content: "\f017";
 }
+
 .wi-owm-621:before {
-  content: "\f01b";
+    content: "\f01b";
 }
+
 .wi-owm-622:before {
-  content: "\f01b";
+    content: "\f01b";
 }
+
 .wi-owm-701:before {
-  content: "\f01a";
+    content: "\f01a";
 }
+
 .wi-owm-711:before {
-  content: "\f062";
+    content: "\f062";
 }
+
 .wi-owm-721:before {
-  content: "\f0b6";
+    content: "\f0b6";
 }
+
 .wi-owm-731:before {
-  content: "\f063";
+    content: "\f063";
 }
+
 .wi-owm-741:before {
-  content: "\f014";
+    content: "\f014";
 }
+
 .wi-owm-761:before {
-  content: "\f063";
+    content: "\f063";
 }
+
 .wi-owm-762:before {
-  content: "\f063";
+    content: "\f063";
 }
+
 .wi-owm-771:before {
-  content: "\f011";
+    content: "\f011";
 }
+
 .wi-owm-781:before {
-  content: "\f056";
+    content: "\f056";
 }
+
 .wi-owm-800:before {
-  content: "\f00d";
+    content: "\f00d";
 }
+
 .wi-owm-801:before {
-  content: "\f011";
+    content: "\f011";
 }
+
 .wi-owm-802:before {
-  content: "\f011";
+    content: "\f011";
 }
+
 .wi-owm-803:before {
-  content: "\f012";
+    content: "\f012";
 }
+
 .wi-owm-804:before {
-  content: "\f013";
+    content: "\f013";
 }
+
 .wi-owm-900:before {
-  content: "\f056";
+    content: "\f056";
 }
+
 .wi-owm-901:before {
-  content: "\f01d";
+    content: "\f01d";
 }
+
 .wi-owm-902:before {
-  content: "\f073";
+    content: "\f073";
 }
+
 .wi-owm-903:before {
-  content: "\f076";
+    content: "\f076";
 }
+
 .wi-owm-904:before {
-  content: "\f072";
+    content: "\f072";
 }
+
 .wi-owm-905:before {
-  content: "\f021";
+    content: "\f021";
 }
+
 .wi-owm-906:before {
-  content: "\f015";
+    content: "\f015";
 }
+
 .wi-owm-957:before {
-  content: "\f050";
+    content: "\f050";
 }

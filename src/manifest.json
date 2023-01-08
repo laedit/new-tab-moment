@@ -5,11 +5,14 @@
   "version": "0.6.0",
   "description": "A minimalist clock on the new tab page showing the current time, date, and weather. Based on Moment from Alfred Xing but for WebExtension.",
   "author": "laedit",
-  "homepage_url":"https://github.com/laedit/new-tab-moment",
+  "homepage_url": "https://github.com/laedit/new-tab-moment",
   "chrome_url_overrides": {
     "newtab": "moment.html"
   },
-  "permissions": ["storage", "geolocation"],
+  "permissions": [
+    "storage",
+    "geolocation"
+  ],
   "icons": {
     "16": "icon.svg",
     "48": "icon.svg",
@@ -17,13 +20,13 @@
     "128": "icon.svg"
   },
   "options_ui": {
-      "page": "options.html",
-      "browser_style": true
+    "page": "options.html",
+    "browser_style": true
   },
   "browser_specific_settings": {
-      "gecko": {
-          "id": "new-tab-moment@laedit.net",
-          "strict_min_version": "57.0"
-      }
+    "gecko": {
+      "id": "new-tab-moment@laedit.net",
+      "strict_min_version": "57.0"
+    }
   }
 }

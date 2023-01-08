@@ -3,152 +3,152 @@
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <title>New Tab - Moment / Options</title>
-  <link href="css/options.css" rel="stylesheet" type="text/css" />
+    <meta charset="utf-8">
+    <title>New Tab - Moment / Options</title>
+    <link href="css/options.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
-  <form>
-    <section>
-      <h3>Homepage</h3>
-      <div class="input-group">
-        <div>To set New Tab - Moment as your homepage, click on the "copy link" button and paste the url to Firefox's options / Home / Homepage and new windows / Custom URLs.</div>
-        <input type="url" id="homepage-url" readonly>
-        <button type="button" id="copy-link">Copy link</button>
-      </div>
-    </section>
-    <section>
-      <h3>Appearance</h3>
+    <form>
+        <section>
+            <h3>Homepage</h3>
+            <div class="input-group">
+                <div>To set New Tab - Moment as your homepage, click on the "copy link" button and paste the url to Firefox's options / Home / Homepage and new windows / Custom URLs.</div>
+                <input type="url" id="homepage-url" readonly>
+                <button type="button" id="copy-link">Copy link</button>
+            </div>
+        </section>
+        <section>
+            <h3>Appearance</h3>
 
-      <section>
-        <div class="input-group">
-          <label>
-            Theme:
-            <select id="colorScheme">
-              <option value="system">By system</option>
-              <option value="light">Light</option>
-              <option value="dark">Dark</option>
-              <option value="custom">Custom</option>
+            <section>
+                <div class="input-group">
+                    <label>
+                        Theme:
+                        <select id="colorScheme">
+                            <option value="system">By system</option>
+                            <option value="light">Light</option>
+                            <option value="dark">Dark</option>
+                            <option value="custom">Custom</option>
+                        </select>
+                    </label>
+                </div>
+                <br>
+                <div class="input-group">
+                    <label>
+                        Background:
+                        <input type="color" id="background">
+                    </label>
+                </div>
+                <div class="input-group">
+                    <label>
+                        Text:
+                        <input type="color" id="foreground">
+                    </label>
+                </div>
+            </section>
+            <section>
+                <div class="input-group">
+                    <label>
+                        Font:
+                        <select id="font">
+                            <option value="thin">Thin</option>
+                            <option value="bold">Bold</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="input-group">
+                    <label>
+                        Weather icon:
+                        <select id="icon">
+                            <option value="false">Only text</option>
+                            <option value="true">Text and icon</option>
+                        </select>
+                    </label>
+                </div>
+            </section>
+        </section>
+
+        <section>
+            <h3>Units</h3>
+            <select id="tempUnit">
+                <option value="celsius">Celsius</option>
+                <option value="fahrenheit">Fahrenheit</option>
             </select>
-          </label>
-        </div>
+            <select id="clock">
+                <option value="24">24-hour time</option>
+                <option value="12">12-hour time</option>
+            </select>
+            <select id="zero">
+                <option value="false">No leading zero</option>
+                <option value="true">Leading zero</option>
+            </select>
+        </section>
+
+        <section>
+            <h3>Formats</h3>
+            <div class="input-group">
+                <label>
+                    <abbr title="Be sure to use capital letters!">Time</abbr>:
+                </label>
+                <input type="text" id="timePattern" placeholder="H:M;S">
+            </div>
+            <div class="input-group">
+                <label>
+                    <abbr title="Be sure to use capital letters!">Date</abbr>:
+                </label>
+                <input type="text" id="datePattern" placeholder="D M Y">
+            </div>
+        </section>
+
+        <section>
+            <h3>Weather</h3>
+            <label>Location:</label>
+            <input type="text" id="location" placeholder="London,uk">
+            <div class="help">Format: "{City},{CountryCode}", ex.: "London,uk" or leave blank for automatic geolocation (relatively slower).</div>
+        </section>
+
+        <section>
+            <h3>Custom CSS</h3>
+            <small>Use <code>!important</code> to force background properties.</small>
+            <textarea id="css" cols="80"></textarea>
+        </section>
+
+        <section>
+            <h3>Debug mode</h3>
+            <label>
+                <input type="checkbox" id="activateDebugMode" /> Activate
+            </label>
+        </section>
         <br>
-        <div class="input-group">
-          <label>
-            Background:
-            <input type="color" id="background">
-          </label>
-        </div>
-        <div class="input-group">
-          <label>
-            Text:
-            <input type="color" id="foreground">
-          </label>
-        </div>
-      </section>
-      <section>
-        <div class="input-group">
-          <label>
-            Font:
-            <select id="font">
-              <option value="thin">Thin</option>
-              <option value="bold">Bold</option>
-            </select>
-          </label>
-        </div>
-        <div class="input-group">
-          <label>
-            Weather icon:
-            <select id="icon">
-              <option value="false">Only text</option>
-              <option value="true">Text and icon</option>
-            </select>
-          </label>
-        </div>
-      </section>
-    </section>
-
-    <section>
-      <h3>Units</h3>
-      <select id="tempUnit">
-        <option value="celsius">Celsius</option>
-        <option value="fahrenheit">Fahrenheit</option>
-      </select>
-      <select id="clock">
-        <option value="24">24-hour time</option>
-        <option value="12">12-hour time</option>
-      </select>
-      <select id="zero">
-        <option value="false">No leading zero</option>
-        <option value="true">Leading zero</option>
-      </select>
-    </section>
-
-    <section>
-      <h3>Formats</h3>
-      <div class="input-group">
-        <label>
-          <abbr title="Be sure to use capital letters!">Time</abbr>:
-        </label>
-        <input type="text" id="timePattern" placeholder="H:M;S">
-      </div>
-      <div class="input-group">
-        <label>
-          <abbr title="Be sure to use capital letters!">Date</abbr>:
-        </label>
-        <input type="text" id="datePattern" placeholder="D M Y">
-      </div>
-    </section>
-
-    <section>
-      <h3>Weather</h3>
-      <label>Location:</label>
-      <input type="text" id="location" placeholder="London,uk">
-      <div class="help">Format: "{City},{CountryCode}", ex.: "London,uk" or leave blank for automatic geolocation (relatively slower).</div>
-    </section>
-
-    <section>
-      <h3>Custom CSS</h3>
-      <small>Use <code>!important</code> to force background properties.</small>
-      <textarea id="css" cols="80"></textarea>
-    </section>
-
-    <section>
-      <h3>Debug mode</h3>
-      <label>
-        <input type="checkbox" id="activateDebugMode" /> Activate
-      </label>
-    </section>
-    <br>
-    <br>
-    <button type="submit">Save</button>
-    <span id="status"></span>
-  </form>
-  <div id="credits">
-    <h1>Credits</h1>
-    <p>
-      Based on
-      <a href="https://addons.mozilla.org/en-US/firefox/addon/moment/">
-        <cite>Moment</cite>
-      </a> by
-      <a href="https://alfredxing.com/">Alfred Xing</a>.
-    </p>
-    <p>
-      <a href="https://thenounproject.com/term/clock/621519">
-        <cite>clock icon</cite>
-      </a> by
-      <a href="https://thenounproject.com/dtiensvold/">Dennis Tiensvold</a> from
-      <a href="https://thenounproject.com">the Noun Project</a>
-    </p>
-    <p>
-      <a href="https://erikflowers.github.io/weather-icons/">
-        <cite>Weather icons</cite>
-      </a> by
-      <a href="http://www.helloerik.com/">Erik Flowers</a>
-    </p>
-  </div>
-  <script src="options.js"></script>
+        <br>
+        <button type="submit">Save</button>
+        <span id="status"></span>
+    </form>
+    <div id="credits">
+        <h1>Credits</h1>
+        <p>
+            Based on
+            <a href="https://addons.mozilla.org/en-US/firefox/addon/moment/">
+                <cite>Moment</cite>
+            </a> by
+            <a href="https://alfredxing.com/">Alfred Xing</a>.
+        </p>
+        <p>
+            <a href="https://thenounproject.com/term/clock/621519">
+                <cite>clock icon</cite>
+            </a> by
+            <a href="https://thenounproject.com/dtiensvold/">Dennis Tiensvold</a> from
+            <a href="https://thenounproject.com">the Noun Project</a>
+        </p>
+        <p>
+            <a href="https://erikflowers.github.io/weather-icons/">
+                <cite>Weather icons</cite>
+            </a> by
+            <a href="http://www.helloerik.com/">Erik Flowers</a>
+        </p>
+    </div>
+    <script src="options.js"></script>
 </body>
 
 </html>

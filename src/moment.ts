@@ -1,6 +1,4 @@
-interface ElementsMap {[key: string]: HTMLElement}
-
-let elementsMap: ElementsMap;
+let elementsMap: { [key: string]: HTMLElement };
 let interval: number;
 
 function refresh(settings: Settings, language: string): void {
@@ -150,7 +148,7 @@ async function getSettings() {
     return browser.storage.sync.get(defaultSettings);
 }
 
-// @ts-ignore // need update @types/firefox-webext-browser
+// @ts-ignore // TODO need update @types/firefox-webext-browser
 browser.theme.onUpdated.addListener(() => setColorScheme());
 
 browser.storage.onChanged.addListener(async () => load());
