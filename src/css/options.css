@@ -1,5 +1,6 @@
 body {
 	font-size: larger;
+	padding: 10px;
 }
 
 label {
@@ -32,6 +33,17 @@ section {
 }
 
 #homepage-url {
-	width: 420px;
-	background-color: lightgrey;
+    width: 420px;
+    background-color: lightgrey;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #23222b;
+        color: #f9f9fa;
+    }
+    textarea {
+        background-color: #23222b;
+        color: #f9f9fa;
+    }
 }
