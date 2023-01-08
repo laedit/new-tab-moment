@@ -1,3 +1,8 @@
+interface ElementsMap {[key: string]: HTMLElement}
+
+let elementsMap: ElementsMap;
+let interval: number;
+
 function refresh(settings: Settings, language: string): void {
     var dateTimeParts = new Intl.DateTimeFormat(language, {
         year: "numeric", month: "long", day: "numeric",
@@ -9,38 +14,36 @@ function refresh(settings: Settings, language: string): void {
     if (settings.leadingZero && settings.clock === "12" && hour.length === 1) {
         hour = "0" + hour;
     }
-    const timeText: string = settings.timePattern.replace("H", hour)
+    const timeText = settings.timePattern.replace("H", hour)
         .replace("M", dateTimeParts.find(part => part.type == 'minute')?.value!)
         .replace("S", dateTimeParts.find(part => part.type == 'second')?.value!);
-    document.getElementById("time")!.textContent = timeText;
+    setValue(elementsMap.time, timeText);
 
-    const dateText: string = settings.datePattern.replace("D", dateTimeParts.find(part => part.type == 'day')?.value!)
+    const dateText = settings.datePattern.replace("D", dateTimeParts.find(part => part.type == 'day')?.value!)
         .replace("Y", dateTimeParts.find(part => part.type == 'year')?.value!)
         .replace("M", dateTimeParts.find(part => part.type == 'month')?.value!);
-    document.getElementById("date")!.textContent = dateText;
+    setValue(elementsMap.date, dateText);
 }
 
 async function displayWeather({ tempUnit, location, displayIcon, activateDebugMode }: Settings, language: string): Promise<void> {
     try {
         const weatherResult = await Weather.getWeather(tempUnit, location, language, activateDebugMode);
 
-        const conditionsElement: HTMLLinkElement = document.getElementById("weather-link") as HTMLLinkElement;
+        const conditionsElement = elementsMap.weatherLink as HTMLLinkElement;
 
         const { degrees, description, link, code }: weather = weatherResult as weather;
-        const weatherDegreesElement = document.getElementById("weather-degrees")!;
-        weatherDegreesElement.textContent = degrees;
-        weatherDegreesElement.after("°");
-        document.getElementById("weather-description")!.textContent = `— ${description}`;
+        setValue(elementsMap.weatherDegrees, `${degrees}°`);
+        setValue(elementsMap.weatherDescription, `— ${description}`);
 
         conditionsElement.href = link;
 
         if (displayIcon) {
-            const iconElement: HTMLElement = document.getElementById("weather-icon") as HTMLElement;
+            const iconElement = elementsMap.weatherIcon;
             iconElement.classList.add(`wi-owm-${code}`);
             iconElement.style.display = "block";
             iconElement.title = description;
 
-            document.getElementById("weather-description")!.style.display = "none";
+            elementsMap.weatherDescription.style.display = "none";
         }
     } catch (error) {
         console.error("Error during weather display", error);
@@ -76,31 +79,62 @@ function IsPositionError(error: any): error is GeolocationPositionError {
 function startTime(settings: Settings, language: string): void {
     // set time
     refresh(settings, language);
-    setInterval(() => {
+    clearInterval(interval);
+    interval = setInterval(() => {
         refresh(settings, language);
     }, 1000);
 
     // display loaded page
-    document.querySelector("body")!.classList.add("body-fadeIn");
+    document.body.classList.add("body-fadeIn");
+}
+
+async function setColorScheme(settings?: Settings) {
+    settings = settings || await getSettings();
+    let foregroundColor: string = '';
+    let backgroundColor: string = '';
+
+    if (settings.colorScheme === "custom") {
+        backgroundColor = settings.background;
+        foregroundColor = settings.foreground;
+    }
+    document.documentElement.dataset.colorScheme = settings.colorScheme;
+    document.documentElement.style.background = backgroundColor;
+    document.documentElement.style.color = foregroundColor;
+    elementsMap.weatherLink.style.color = foregroundColor;
+}
+
+function setFont(settings: Settings) {
+    document.documentElement.dataset.fontType = settings.font;
 }
 
 function setStyle(settings: Settings): void {
-    document.body.style.background = settings.background;
-    const foreground: string = settings.foreground.toUpperCase();
-    document.body.style.color = foreground;
-    (document.getElementById("weather-link") as HTMLElement)!.style.color = foreground;
-
-    if (settings.font === "thin") {
-        (document.querySelector("body") as HTMLElement)!.style.fontWeight = "100";
-        document.getElementById("date")!.style.fontWeight = "100";
-        document.getElementById("weather-degrees")!.style.fontWeight = "300";
-        document.getElementById("weather-description")!.style.fontWeight = "300";
-    }
-
-    document.getElementById("custom")!.textContent = settings.customCss;
+    setColorScheme(settings);
+    setFont(settings);
+    setValue(document.getElementById("custom")!, settings.customCss);
 }
 
-async function load(userSettings: Settings, language: string): Promise<void> {
+function setValue(elm: HTMLElement, value: string | number) {
+    const strVal = typeof value === "string" ? value : value.toString();
+    if (elm.textContent !== strVal) {
+        elm.textContent = strVal;
+    }
+}
+
+async function load(): Promise<void> {
+    const userSettings = await getSettings();
+    const language = navigator.language;
+
+    if (!elementsMap) {
+        elementsMap = {
+            time: document.getElementById("time")!,
+            date: document.getElementById("date")!,
+            weatherLink: document.getElementById("weather-link")!,
+            weatherIcon: document.getElementById("weather-icon")!,
+            weatherDegrees: document.getElementById("weather-degrees")!,
+            weatherDescription: document.getElementById("weather-description")!,
+        };
+    }
+
     // apply style settings
     setStyle(userSettings);
 
@@ -109,10 +143,15 @@ async function load(userSettings: Settings, language: string): Promise<void> {
     // get weather
     displayWeather(userSettings, language);
 
-    return Promise.resolve();
+    return;
 }
 
-document.addEventListener("DOMContentLoaded", async () => {
-    const settings = await browser.storage.sync.get(defaultSettings);
-    await load(settings, navigator.language);
-});
+async function getSettings() {
+    return browser.storage.sync.get(defaultSettings);
+}
+
+// @ts-ignore // need update @types/firefox-webext-browser
+browser.theme.onUpdated.addListener(() => setColorScheme());
+
+browser.storage.onChanged.addListener(async () => load());
+document.addEventListener("DOMContentLoaded", async () => load());

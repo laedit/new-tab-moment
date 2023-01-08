@@ -1,13 +1,36 @@
+:root,
+:root[data-color-scheme="light"] {
+  --bg-color: #fafafa;
+  --fg-color: #424242;
+}
+
+:root[data-color-scheme="dark"] {
+  --bg-color: #424242;
+  --fg-color: #fafafa;
+}
+
+:root[data-font-type="thin"] {
+  --font-weight: 100;
+  --font-weight-weather: 300;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root[data-color-scheme="default"] {
+    --bg-color: #424242;
+    --fg-color: #fafafa;
+  }
+}
+
 html {
   height: 100%;
+  background-color: var(--bg-color);
+  color: var(--fg-color);
 }
 
 body {
-  color: #424242;
   font-family: "Lato";
   font-size: 12em;
-  font-weight: 700;
-  background: #fafafa;
+  font-weight: var(--font-weight, 700);
   margin: 0;
   padding: 0;
   text-align: center;
@@ -29,7 +52,7 @@ a {
 }
 
 #date {
-  font-weight: 300;
+  font-weight: var(--font-weight, 300);
   font-size: 0.25em;
 }
 
@@ -38,7 +61,11 @@ a {
   cursor: pointer;
   display: none;
   font-size: 0.15em;
-  font-weight: 100;
+  font-weight: var(--font-weight-weather, 100);
+}
+
+#weather-link {
+  color: var(--fg-color);
 }
 
 #weather-icon {
