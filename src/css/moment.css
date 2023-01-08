@@ -15,7 +15,7 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  :root[data-color-scheme="default"] {
+  :root[data-color-scheme="system"] {
     --bg-color: #424242;
     --fg-color: #fafafa;
   }

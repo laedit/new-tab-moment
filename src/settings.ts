@@ -1,7 +1,7 @@
 const defaultSettings: Settings = {
     background: "#fafafa",
     foreground: "#424242",
-    colorScheme: "default",
+    colorScheme: "custom",
     tempUnit: "celsius",
     location: "",
     timePattern: "H:M:S",
@@ -17,7 +17,7 @@ const defaultSettings: Settings = {
 type TempUnit = "celsius" | "fahrenheit";
 type ClockType = "12" | "24";
 type FontType = "thin" | "bold";
-type ColorScheme = "default" | "light" | "dark" | "custom";
+type ColorScheme = "system" | "light" | "dark" | "custom";
 
 type Settings = {
     background: string;
