@@ -37,6 +37,10 @@ section {
     background-color: lightgrey;
 }
 
+#backgroundImageUrl {
+    width: 420px;
+}
+
 @media (prefers-color-scheme: dark) {
     body {
         background-color: #23222b;

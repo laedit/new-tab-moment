@@ -105,9 +105,17 @@ function setFont(settings: Settings) {
     document.documentElement.dataset.fontType = settings.font;
 }
 
+function setBackgroundImage(settings: Settings) {
+    document.body.style.backgroundImage = `url(${settings.backgroundImageUrl})`;
+    document.body.style.backgroundPosition = "center";
+    document.body.style.backgroundRepeat = "no-repeat";
+    document.body.style.backgroundSize = "contain";
+}
+
 function setStyle(settings: Settings): void {
     setColorScheme(settings);
     setFont(settings);
+    setBackgroundImage(settings);
     setValue(document.getElementById("custom")!, settings.customCss);
 }
 

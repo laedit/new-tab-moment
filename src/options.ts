@@ -46,6 +46,7 @@ function saveOptions(e: Event): void {
         customCss: getInputValue("css") as string,
         displayIcon: getInputValue("icon") as boolean,
         activateDebugMode: getInputValue("activateDebugMode") as boolean,
+        backgroundImageUrl: getInputValue("backgroundImageUrl") as string
     };
 
     browser.storage.sync.set(settings)
@@ -74,6 +75,7 @@ function restoreOptions(): void {
             setInputValue("css", settings.customCss);
             setInputValue("icon", settings.displayIcon);
             setInputValue("activateDebugMode", settings.activateDebugMode);
+            setInputValue("backgroundImageUrl", settings.backgroundImageUrl);
             colorSchemeOnChange(document.getElementById("colorScheme") as HTMLSelectElement);
         }, error => setStatus(`Error: ${error}`));
 }
