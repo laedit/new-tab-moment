@@ -1,6 +1,7 @@
 # New tab Moment
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/laedit/new-tab-moment.svg)](https://greenkeeper.io/)
+[![Known Vulnerabilities](https://snyk.io/test/github/laedit/new-tab-moment/badge.svg)](https://snyk.io/test/github/laedit/new-tab-moment)
+[![Mozilla Add-on](https://img.shields.io/amo/v/new-tab-moment@laedit.net)](https://addons.mozilla.org/en-US/firefox/addon/new-tab-moment/)
 
 Minimalist clock and weather on the new tab page, based on [Moment](https://github.com/alfredxing/moment) from [Alfred Xing](https://alfredxing.com/).
 
