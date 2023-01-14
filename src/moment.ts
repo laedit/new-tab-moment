@@ -106,10 +106,15 @@ function setFont(settings: Settings) {
 }
 
 function setBackgroundImage(settings: Settings) {
-    document.body.style.backgroundImage = `url(${settings.backgroundImageUrl})`;
-    document.body.style.backgroundPosition = "center";
-    document.body.style.backgroundRepeat = "no-repeat";
-    document.body.style.backgroundSize = "contain";
+    if (settings.backgroundImageUrl) {
+        document.body.style.backgroundImage = `url(${settings.backgroundImageUrl})`;
+        document.body.style.backgroundPosition = "center";
+        document.body.style.backgroundRepeat = "no-repeat";
+        document.body.style.backgroundSize = "contain";
+    }
+    else {
+        document.body.removeAttribute('style');
+    }
 }
 
 function setStyle(settings: Settings): void {
