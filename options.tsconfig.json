@@ -1,10 +1,10 @@
 {
-  "extends": "./tsconfig.json",
-  "compilerOptions": {
-    "outFile": "./build/options.js"
-  },
-  "files": [
-   "src/options.ts",
-    "src/settings.ts"
-  ]
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outFile": "./build/options.js"
+  },
+  "files": [
+    "src/options.ts",
+    "src/settings.ts"
+  ]
 }
