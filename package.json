@@ -16,7 +16,7 @@
     "transpile": "yarn run transpile:moment && yarn run transpile:options",
     "copy": "cpx \"src/**/*.{html,css,woff2,svg,json}\" build",
     "copy:watch": "yarn run copy --watch",
-    "build": "yarn run transpile && yarn run copy && web-ext build --source-dir=build --overwrite-dest",
+    "build": "yarn run transpile && yarn run copy && web-ext build --source-dir=build --overwrite-dest && web-ext lint --source-dir=build",
     "web-ext:run": "web-ext run --source-dir=build --firefox=firefoxdeveloperedition",
     "test": "concurrently \"yarn run copy:watch\" \"yarn run transpile:moment -w\" \"yarn run transpile:options -w\" \"yarn run web-ext:run\" --kill-others",
     "test:fr": "concurrently \"yarn run copy:watch\" \"yarn run transpile:moment -w\" \"yarn run transpile:options -w\" \"yarn run web-ext:run --pref intl.accept_languages=fr-fr\" --kill-others",
