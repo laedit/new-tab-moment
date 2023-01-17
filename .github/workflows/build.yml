@@ -25,14 +25,14 @@ jobs:
 
     - run: yarn
 
-    - name: Create and populate .Renviron file
+    - name: Create secrets.ts
       env:
         OWM_GEO: ${{ secrets.OWM_GEO }}
         OWM_CURRENT: ${{ secrets.OWM_CURRENT }}
       run: |
         cat <<EOF > ./src/secrets.ts
-        OwmGeocodingKey="$OWM_GEO";
-        OwmCurrentWeatherKey="$OWM_CURRENT";
+        const OwmGeocodingKey="$OWM_GEO";
+        const OwmCurrentWeatherKey="$OWM_CURRENT";
         EOF
 
     - run: yarn build
