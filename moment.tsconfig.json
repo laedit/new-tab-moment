@@ -1,11 +1,14 @@
 {
-  "extends": "./tsconfig.json",
-  "compilerOptions": {
-    "outFile": "./build/moment.js"
-  },
-  "files": [
-    "src/moment.ts",
-    "src/settings.ts",
-    "src/weather.ts"
-  ]
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outFile": "./build/moment.js"
+  },
+  "files": [
+    "src/moment.ts",
+    "src/settings.ts",
+    "src/weather.ts",
+    "src/openWeatherMapApi.ts",
+    "src/storage.ts",
+    "src/secrets.ts"
+  ]
 }

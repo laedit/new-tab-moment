@@ -1,4 +1,4 @@
-let elementsMap: { [key: string]: HTMLElement };
+let elementsMap: Record<string, HTMLElement>;
 let interval: number;
 
 function refresh(settings: Settings, language: string): void {
@@ -25,6 +25,9 @@ function refresh(settings: Settings, language: string): void {
 
 async function displayWeather({ tempUnit, location, displayIcon, activateDebugMode }: Settings, language: string): Promise<void> {
     try {
+        elementsMap.error.replaceChildren(); // reset display
+        elementsMap.weatherLink.style.display = "block";
+
         const weatherResult = await Weather.getWeather(tempUnit, location, language, activateDebugMode);
 
         const conditionsElement = elementsMap.weatherLink as HTMLLinkElement;
@@ -45,17 +48,15 @@ async function displayWeather({ tempUnit, location, displayIcon, activateDebugMo
         }
     } catch (error) {
         console.error("Error during weather display", error);
-        let errorElement = document.getElementById("error")!;
 
         if (error instanceof GeolocationUndefinedError || IsPositionError(error)) {
-            let errorLink = document.createElement("a");
-            errorLink.text = "Your browser doesn't handle geolocation, please provide a location in the options.";
-            errorLink.onclick = () => browser.runtime.openOptionsPage();
-            errorElement.appendChild(errorLink);
-
+            SetErrorMessage("Your browser doesn't handle geolocation, please provide a location in the options.", true);
+        }
+        if (error instanceof GeocodingError) {
+            SetErrorMessage(`Error when getting latitude and longitude of '${location}'. Please check the location in the options.`, true);
         }
         else {
-            errorElement.innerText = "An error occurred during weather display. See browser console for details.";
+            SetErrorMessage("An error occurred during weather display. See browser console for details.");
         }
     }
     finally {
@@ -64,6 +65,20 @@ async function displayWeather({ tempUnit, location, displayIcon, activateDebugMo
         const weatherBlock: HTMLLinkElement = document.getElementById("weather") as HTMLLinkElement;
         weatherBlock.style.display = "block";
         weatherBlock.classList.add("conditions-fadeIn");
+    }
+}
+
+function SetErrorMessage(errorMessage: string, linkToOptions: boolean = false): void {
+    elementsMap.weatherLink.style.display = "none";
+
+    if (linkToOptions) {
+        let errorLink = document.createElement("a");
+        errorLink.text = errorMessage;
+        errorLink.onclick = () => browser.runtime.openOptionsPage();
+        elementsMap.error.appendChild(errorLink);
+    }
+    else {
+        elementsMap.error.innerText = errorMessage;
     }
 }
 
@@ -143,6 +158,7 @@ async function load(): Promise<void> {
             weatherIcon: document.getElementById("weather-icon")!,
             weatherDegrees: document.getElementById("weather-degrees")!,
             weatherDescription: document.getElementById("weather-description")!,
+            error: document.getElementById("error")!,
         };
     }
 

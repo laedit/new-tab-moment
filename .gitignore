@@ -63,3 +63,6 @@ build/
 
 # only .ts files are allowed
 *.js
+
+# secrets
+secrets.ts
