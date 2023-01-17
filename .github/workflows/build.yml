@@ -1,7 +1,7 @@
 # This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
 
-name: Node.js CI
+name: Build
 
 on:
   push:
@@ -16,10 +16,23 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+
     - name: Use Node.js lts/*
       uses: actions/setup-node@v3
       with:
         node-version: lts/*
         cache: 'npm'
+
     - run: yarn
+
+    - name: Create and populate .Renviron file
+      env:
+        OWM_GEO: ${{ secrets.OWM_GEO }}
+        OWM_CURRENT: ${{ secrets.OWM_CURRENT }}
+      run: |
+        cat <<EOF > ./src/secrets.ts
+        OwmGeocodingKey="$OWM_GEO";
+        OwmCurrentWeatherKey="$OWM_CURRENT";
+        EOF
+
     - run: yarn build
