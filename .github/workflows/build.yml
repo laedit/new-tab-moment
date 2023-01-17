@@ -1,0 +1,38 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+
+name: Build
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Use Node.js lts/*
+      uses: actions/setup-node@v3
+      with:
+        node-version: lts/*
+        cache: 'npm'
+
+    - run: yarn
+
+    - name: Create secrets.ts
+      env:
+        OWM_GEO: ${{ secrets.OWM_GEO }}
+        OWM_CURRENT: ${{ secrets.OWM_CURRENT }}
+      run: |
+        cat <<EOF > ./src/secrets.ts
+        const OwmGeocodingKey="$OWM_GEO";
+        const OwmCurrentWeatherKey="$OWM_CURRENT";
+        EOF
+
+    - run: yarn build
