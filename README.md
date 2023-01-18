@@ -37,15 +37,17 @@ Require `yarn`.
 
 Clone the repo and run `yarn install`.
 
+## Build
+
+run `yarn build`.
+
 ## Test
 
 run `yarn test`.
 
 By default it's Firefox Developer Edition which is used, you can change that in the `web-ext:run` scripts in `package.json`.
 
-## Build
-
-run `yarn build`.
+If necessary you can create a free account on [OpenWeatherMap](https://openweathermap.org/) and generate two api keys: one for current weather and the second for the geocoding and add them in the `secrets.ts`.
 
 ## Credits
 Thanks to :
