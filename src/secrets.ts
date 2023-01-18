@@ -1,0 +1,2 @@
+const OwmCurrentWeatherKey = "";
+const OwmGeocodingKey = "";
