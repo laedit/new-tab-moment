@@ -52,8 +52,8 @@ async function displayWeather({ tempUnit, location, displayIcon, activateDebugMo
         if (error instanceof GeolocationUndefinedError || IsPositionError(error)) {
             SetErrorMessage("Your browser doesn't handle geolocation, please provide a location in the options.", true);
         }
-        if (error instanceof GeocodingError) {
-            SetErrorMessage(`Error when getting latitude and longitude of '${location}'. Please check the location in the options.`, true);
+        if (error instanceof GeocodingNoResultsError) {
+            SetErrorMessage(`No results when getting latitude and longitude of '${location}'. Please check the location in the options.`, true);
         }
         else {
             SetErrorMessage("An error occurred during weather display. See browser console for details.");

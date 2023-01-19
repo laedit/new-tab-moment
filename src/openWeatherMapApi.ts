@@ -39,7 +39,7 @@ class OpenWeatherMapApi {
         const geocodingData = await response.json();
 
         if (geocodingData.length === 0) {
-            throw new GeocodingError(location);
+            throw new GeocodingNoResultsError(location);
         }
 
         const latLon = {
@@ -100,9 +100,9 @@ class OpenWeatherMapApi {
     }
 }
 
-class GeocodingError extends Error {
+class GeocodingNoResultsError extends Error {
     constructor(location:string) {
-        super(`Error when getting latitude and longitude of '${location}'.`);
+        super(`No results when getting latitude and longitude of '${location}'.`);
         this.name = 'GeocodingError';
     }
 }
