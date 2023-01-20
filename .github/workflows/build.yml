@@ -36,3 +36,8 @@ jobs:
         EOF
 
     - run: yarn build
+    
+    - uses: actions/upload-artifact@v3
+      with:
+        name: new-tab-moment-packed
+        path: web-ext-artifacts/new_tab_-_moment-*.zip
