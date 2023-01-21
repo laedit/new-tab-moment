@@ -4,6 +4,7 @@
     "outFile": "./build/options.js"
   },
   "files": [
+    "src/chromedef.ts",
     "src/options.ts",
     "src/settings.ts"
   ]
