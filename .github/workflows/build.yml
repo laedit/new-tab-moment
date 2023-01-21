@@ -23,7 +23,7 @@ jobs:
         node-version: lts/*
         cache: 'yarn'
 
-    - run: yarn install --frozen-lockfile
+    - run: yarn --prefer-offline --frozen-lockfile
 
     - name: Create secrets.ts
       env:
