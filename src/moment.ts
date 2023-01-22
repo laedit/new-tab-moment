@@ -177,8 +177,5 @@ async function getSettings() {
     return browser.storage.sync.get(defaultSettings);
 }
 
-// @ts-ignore // TODO need update @types/firefox-webext-browser
-browser.theme.onUpdated.addListener(() => setColorScheme());
-
 browser.storage.onChanged.addListener(async () => load());
 document.addEventListener("DOMContentLoaded", async () => load());

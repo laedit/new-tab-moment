@@ -21,9 +21,9 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: lts/*
-        cache: 'npm'
+        cache: 'yarn'
 
-    - run: yarn
+    - run: yarn --prefer-offline --frozen-lockfile
 
     - name: Create secrets.ts
       env:
@@ -36,7 +36,7 @@ jobs:
         EOF
 
     - run: yarn build
-    
+
     - uses: actions/upload-artifact@v3
       with:
         name: new-tab-moment-packed

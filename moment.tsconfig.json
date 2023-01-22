@@ -4,6 +4,7 @@
     "outFile": "./build/moment.js"
   },
   "files": [
+    "src/chromedef.ts",
     "src/moment.ts",
     "src/settings.ts",
     "src/weather.ts",

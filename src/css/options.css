@@ -1,12 +1,24 @@
 body {
     font-size: larger;
     padding: 10px;
+    width: 800px;
+    height: 600px;
 }
 
 label {
     cursor: default;
     display: block;
     font-weight: bold;
+}
+
+#ffHomePage {
+    display: none;
+}
+
+@supports(-moz-appearance: none) {
+    #ffHomePage {
+        display: block;
+    }
 }
 
 #save {
