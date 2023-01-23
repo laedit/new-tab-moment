@@ -1,31 +1,36 @@
 # New tab Moment
 
 [![Known Vulnerabilities](https://snyk.io/test/github/laedit/new-tab-moment/badge.svg)](https://snyk.io/test/github/laedit/new-tab-moment)
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/laedit/new-tab-moment)](https://github.com/laedit/new-tab-moment/releases/latest)
 [![Mozilla Add-on](https://img.shields.io/amo/v/new-tab-moment@laedit.net)](https://addons.mozilla.org/en-US/firefox/addon/new-tab-moment/)
 
 Minimalist clock and weather on the new tab page, based on [Moment](https://github.com/alfredxing/moment) from [Alfred Xing](https://alfredxing.com/).
 
 ## Screenshots
 
-### Default theme
+### Light theme
 
-![Default theme](./images/Default-theme.png)
+![Light theme](./images/Light-theme.png)
 
-### Default theme with icon
+### Light theme with icon
 
-![Default theme - icon](./images/Default-theme-icon.png)
+![Light theme - icon](./images/Light-theme-icon.png)
+
+### Dark theme
+
+![Dark theme](./images/Dark-theme.png)
+
+### Dark theme with icon
+
+![Dark theme - icon](./images/Dark-theme-icon.png)
+
+### Custom CSS
+
+![Custom css](./images/Custom-css.png)
 
 ### Options page
 
 ![Options](./images/Options.png)
-
-### Custom theme
-
-![Custom theme](./images/Custom-theme.png)
-
-### Custom theme with icon
-
-![Custom theme - icon](./images/Custom-theme-icon.png)
 
 ## Contribute
 
