@@ -3,6 +3,7 @@
 [![Known Vulnerabilities](https://snyk.io/test/github/laedit/new-tab-moment/badge.svg)](https://snyk.io/test/github/laedit/new-tab-moment)
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/laedit/new-tab-moment)](https://github.com/laedit/new-tab-moment/releases/latest)
 [![Mozilla Add-on](https://img.shields.io/amo/v/new-tab-moment@laedit.net)](https://addons.mozilla.org/en-US/firefox/addon/new-tab-moment/)
+[![Edge Add-on](https://img.shields.io/badge/edge-add--on-blue)](https://microsoftedge.microsoft.com/addons/detail/new-tab-moment/lcacfcmcnhmjoleiabongjmbcclnogan)
 
 Minimalist clock and weather on the new tab page, based on [Moment](https://github.com/alfredxing/moment) from [Alfred Xing](https://alfredxing.com/).
 
