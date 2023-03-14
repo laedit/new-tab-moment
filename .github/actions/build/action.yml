@@ -1,0 +1,45 @@
+name: "Build and lint"
+description: "Builds and lints extension"
+
+# inputs:
+#   doNotPackZip:
+#     description: 'Set `true` to omit pack step'
+#     required: true
+
+runs:
+  using: "composite"
+  steps:
+    # Add additional build and test steps here
+
+    # - name: Pack directory to zip
+    #   if: inputs.doNotPackZip != 'true'
+    #   uses: cardinalby/webext-buildtools-pack-extension-dir-action@v1
+    #   with:
+    #     extensionDir: ${{ env.EXTENSION_DIR }}
+    #     zipFilePath: ${{ env.ZIP_FILE_PATH }}
+
+    - uses: actions/checkout@v3
+
+    - name: Use Node.js lts/*
+      uses: actions/setup-node@v3
+      with:
+        node-version: lts/*
+        cache: 'yarn'
+
+    - run: yarn --prefer-offline --frozen-lockfile
+      shell: bash
+
+    - name: Create secrets.ts
+    #   env:
+        # OWM_GEO: ${{ secrets.OWM_GEO }}
+        # OWM_CURRENT: ${{ secrets.OWM_CURRENT }}
+      run: |
+        cat <<EOF > ./src/secrets.ts
+        const OwmGeocodingKey="${{ secrets.OWM_GEO }}";
+        const OwmCurrentWeatherKey="${{ secrets.OWM_CURRENT }}";
+        EOF
+      shell: bash
+
+    - run: yarn build
+      shell: bash
+
