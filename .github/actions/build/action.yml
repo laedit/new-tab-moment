@@ -4,8 +4,6 @@ description: "Builds and lints extension"
 runs:
   using: "composite"
   steps:
-    - uses: actions/checkout@v3
-
     - name: Use Node.js lts/*
       uses: actions/setup-node@v3
       with:
