@@ -15,3 +15,6 @@ jobs:
     - uses: actions/checkout@v3
 
     - uses: ./.github/actions/build
+      with:
+          owm-geo-key: ${{ secrets.OWM_GEO }}
+          owm-current-key: ${{ secrets.OWM_CURRENT }}
