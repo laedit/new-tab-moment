@@ -13,7 +13,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - uses: ./.gitHub/actions/build
+    - uses: ./.github/actions/build
 
     - name: Extract release notes
       id: extract-release-notes
