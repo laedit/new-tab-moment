@@ -1,0 +1,79 @@
+name: Release and publish on tag
+
+on:
+  push:
+    tags:
+      - '*.*.*'
+
+jobs:
+  build:
+    if: github.ref_type == 'tag'
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: ./.gitHub/actions/build
+
+    - name: Extract release notes
+      id: extract-release-notes
+      uses: ffurrer2/extract-release-notes@v1
+
+    outputs:
+      release_notes: ${{ steps.extract-release-notes.outputs.release_notes }}
+
+  release-firefox:
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use Node.js lts/*
+        uses: actions/setup-node@v3
+        with:
+          node-version: lts/*
+          cache: 'yarn'
+
+      - run: yarn global add web-ext --prefer-offline
+
+      - run: yarn build
+
+      - name: Create version metadata
+        run: |
+          cat <<EOF > ./version-metadata.json
+          {
+            "release_notes": {
+              "en-US": "${{ needs.build.outputs.release_notes }}",
+              "_default": "en-US"
+          }
+          EOF
+        shell: bash
+
+      - run: web-ext sign --api-key ${{ secrets.AMO_ISSUER }} --api-secret ${{ secrets.AMO_SECRET }} --use-submission-api --channel=listed --source-dir build --amo-metadata ./version-metadata.json
+
+      - uses: actions/upload-artifact@v3
+        with:
+          path: web-ext-artifacts/*.xpi
+
+    outputs:
+      release_notes: ${{ needs.build.outputs.release_notes }}
+
+  release-github:
+    needs: [release-firefox]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v3
+
+      - name: Display structure of downloaded files
+        run: ls -R
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ github.ref }}
+          name: ${{ github.ref }}
+          body: ${{ needs.build.outputs.release_notes }}
+          draft: false
+          prerelease: false
+          token: ${{ secrets.GITHUB_TOKEN }}
+          files: |
+            artifact/new_tab_-_moment-${{ github.ref }}.zip
+            artifact/new_tab_moment-${{ github.ref }}.xpi
