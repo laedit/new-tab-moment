@@ -14,7 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- Options page width
+- Options page width (#197)
 
 ## [0.8.0] - 2023-01-22
 
