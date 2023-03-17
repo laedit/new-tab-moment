@@ -12,6 +12,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Upgrade dependencies: Typescript 4.9.5, web-ext 7.5.0, etc.
 - Add images to ReadMe
 
+### Fixed
+
+- Options page width
+
 ## [0.8.0] - 2023-01-22
 
 ### Added
