@@ -24,10 +24,11 @@ jobs:
 
     - name: Create version metadata
       run: |
+          release='${{ steps.extract-release-notes.outputs.release_notes }}'
           cat <<EOF > ./version-metadata.json
           {
           "release_notes": {
-            "en-US": "$(${{ steps.extract-release-notes.outputs.release_notes }} | jq -sR .)",
+            "en-US": "$($release | jq -sR .)",
             "_default": "en-US"
           }
           EOF
