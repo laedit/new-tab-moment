@@ -32,7 +32,7 @@ jobs:
           }
           EOF
 
-    - run: web-ext sign --api-key ${{ secrets.AMO_ISSUER }} --api-secret ${{ secrets.AMO_SECRET }} --use-submission-api --channel=listed --source-dir build --amo-metadata ./version-metadata.json
+    - run: yarn web-ext sign --api-key ${{ secrets.AMO_ISSUER }} --api-secret ${{ secrets.AMO_SECRET }} --use-submission-api --channel=listed --source-dir build --amo-metadata ./version-metadata.json
 
     - uses: actions/upload-artifact@v3
       with:
