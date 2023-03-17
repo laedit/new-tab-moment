@@ -1,0 +1,38 @@
+name: "Build and lint"
+description: "Builds and lints extension"
+
+inputs:
+  owm-geo-key:
+    description: 'OpenWeatherMap geocoding key'
+    required: true
+  owm-current-key:
+    description: 'OpenWeatherMap current weather key'
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - name: Use Node.js lts/*
+      uses: actions/setup-node@v3
+      with:
+        node-version: lts/*
+        cache: 'yarn'
+
+    - run: yarn --prefer-offline --frozen-lockfile
+      shell: bash
+
+    - name: Create secrets.ts
+      run: |
+        cat <<EOF > ./src/secrets.ts
+        const OwmGeocodingKey="${{ inputs.owm-geo-key }}";
+        const OwmCurrentWeatherKey="${{ inputs.owm-current-key }}";
+        EOF
+      shell: bash
+
+    - run: yarn build
+      shell: bash
+
+    - uses: actions/upload-artifact@v3
+      with:
+        path: web-ext-artifacts/new_tab_-_moment-*.zip
+
