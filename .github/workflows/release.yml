@@ -27,7 +27,7 @@ jobs:
           cat <<EOF > ./version-metadata.json
           {
           "release_notes": {
-            "en-US": "${{ steps.extract-release-notes.outputs.release_notes }}",
+            "en-US": "$(${{ steps.extract-release-notes.outputs.release_notes }} | jq -sR .)",
             "_default": "en-US"
           }
           EOF
