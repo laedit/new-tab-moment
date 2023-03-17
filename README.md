@@ -55,6 +55,13 @@ By default it's Firefox Developer Edition which is used, you can change that in 
 
 If necessary you can create a free account on [OpenWeatherMap](https://openweathermap.org/) and generate two api keys: one for current weather and the second for the geocoding and add them in the `secrets.ts`.
 
+## Deploy
+
+Make sure that [CHANGELOG.md](./CHANGELOG.md) is up to date.  
+Tag the branch with a semver x.y.z.  
+That will create a github release and publish the addon to firefox.  
+The edge draft is created but [publication must be done manually](https://partner.microsoft.com/en-us/dashboard/microsoftedge/overview).
+
 ## Credits
 Thanks to :
 - [Alfred Xing](https://alfredxing.com/) for the original [Moment addon](https://github.com/alfredxing/moment)
