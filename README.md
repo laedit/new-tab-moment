@@ -57,8 +57,8 @@ If necessary you can create a free account on [OpenWeatherMap](https://openweath
 
 ## Deploy
 
-Make sure that [CHANGELOG.md](./CHANGELOG.md) is up to date.  
-Tag the branch with a semver x.y.z.  
+Make sure that [CHANGELOG.md](./CHANGELOG.md) and the version number in the manifest are up to date.  
+Tag the branch with the same version.  
 That will create a github release and publish the addon to firefox.  
 The edge draft is created but [publication must be done manually](https://partner.microsoft.com/en-us/dashboard/microsoftedge/overview).
 
