@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "New Tab - Moment",
   "short_name": "new-tab-moment",
-  "version": "0.9.4",
+  "version": "0.9.5",
   "description": "A minimalist clock on the new tab page showing the current time, date, and weather. Based on Moment from Alfred Xing.",
   "author": "laedit",
   "homepage_url": "https://github.com/laedit/new-tab-moment",

@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
-## [0.9.4] - 2023-03-17
+## [0.9.5] - 2023-03-17
 
 ### Changed
 
@@ -85,8 +85,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Homepage option.
 
-[unreleased]: https://github.com/laedit/new-tab-moment/compare/0.9.4...HEAD
-[0.9.4]: https://github.com/laedit/new-tab-moment/compare/0.8.0...0.9.4
+[unreleased]: https://github.com/laedit/new-tab-moment/compare/0.9.5...HEAD
+[0.9.5]: https://github.com/laedit/new-tab-moment/compare/0.8.0...0.9.5
 [0.8.0]: https://github.com/laedit/new-tab-moment/compare/0.7.0...0.8.0
 [0.7.0]: https://github.com/laedit/new-tab-moment/releases/tag/0.7.0
 [0.5.2]: https://github.com/laedit/new-tab-moment/releases/tag/0.5.2
