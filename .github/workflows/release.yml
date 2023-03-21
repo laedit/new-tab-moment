@@ -27,9 +27,11 @@ jobs:
           release='${{ steps.extract-release-notes.outputs.release_notes }}'
           cat <<EOF > ./version-metadata.json
           {
-            "release_notes": {
-              "en-US": $(echo "${release//### }" | jq -sR .),
-              "_default": "en-US"
+            "version": {
+              "release_notes": {
+                "en-US": $(echo "${release//### }" | jq -sR .),
+                "_default": "en-US"
+              }
             }
           }
           EOF
