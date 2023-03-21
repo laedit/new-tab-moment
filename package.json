@@ -7,7 +7,7 @@
     "concurrently": "7.6.0",
     "cpx": "1.5.0",
     "typescript": "5.0.2",
-    "web-ext": "7.5.0",
+    "web-ext": "7.6.0",
     "web-ext-types": "3.2.1"
   },
   "scripts": {
