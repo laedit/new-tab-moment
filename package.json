@@ -13,13 +13,14 @@
   "scripts": {
     "transpile:options": "tsc -p options.tsconfig.json",
     "transpile:moment": "tsc -p moment.tsconfig.json",
-    "transpile": "yarn run transpile:moment && yarn run transpile:options",
+    "transpile:background": "tsc -p background.tsconfig.json",
+    "transpile": "yarn run transpile:moment && yarn run transpile:options && yarn run transpile:background",
     "copy": "cpx \"src/**/*.{html,css,woff2,png,json}\" build",
     "copy:watch": "yarn run copy --watch",
     "build": "yarn run transpile && yarn run copy && web-ext build --source-dir=build --overwrite-dest && web-ext lint --source-dir=build",
     "web-ext:run": "web-ext run --source-dir=build --firefox=firefoxdeveloperedition",
-    "test": "concurrently \"yarn run copy:watch\" \"yarn run transpile:moment -w\" \"yarn run transpile:options -w\" \"yarn run web-ext:run\" --kill-others",
-    "test:fr": "concurrently \"yarn run copy:watch\" \"yarn run transpile:moment -w\" \"yarn run transpile:options -w\" \"yarn run web-ext:run --pref intl.accept_languages=fr-fr\" --kill-others",
-    "test:cs": "concurrently \"yarn run copy:watch\" \"yarn run transpile:moment -w\" \"yarn run transpile:options -w\" \"yarn run web-ext:run --pref intl.accept_languages=cs\" --kill-others"
+    "test": "concurrently \"yarn run copy:watch\" \"yarn run transpile:moment -w\" \"yarn run transpile:options -w\" \"yarn run transpile:background -w\" \"yarn run web-ext:run\" --kill-others",
+    "test:fr": "concurrently \"yarn run copy:watch\" \"yarn run transpile:moment -w\" \"yarn run transpile:options -w\" \"yarn run transpile:background -w\" \"yarn run web-ext:run --pref intl.accept_languages=fr-fr\" --kill-others",
+    "test:cs": "concurrently \"yarn run copy:watch\" \"yarn run transpile:moment -w\" \"yarn run transpile:options -w\" \"yarn run transpile:background -w\" \"yarn run web-ext:run --pref intl.accept_languages=cs\" --kill-others"
   }
 }

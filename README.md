@@ -68,3 +68,4 @@ Thanks to :
 - [OpenWeatherMap](https://openweathermap.org/) for the weather data
 - [Dennis Tiensvold](https://thenounproject.com/dtiensvold/) for the [clock icon](https://thenounproject.com/term/clock/621519) from [the Noun Project](https://thenounproject.com)
 - [Erik Flowers](http://www.helloerik.com/) for the [weather icons](https://erikflowers.github.io/weather-icons/)
+- [Fuse Studio](https://thenounproject.com/fusestudio/) for the [cog icon](https://thenounproject.com/icon/cog-1049477/) from [the Noun Project](https://thenounproject.com)

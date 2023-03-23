@@ -111,7 +111,7 @@ async function setColorScheme(settings?: Settings) {
         foregroundColor = settings.foreground;
     }
     document.documentElement.dataset.colorScheme = settings.colorScheme;
-    document.documentElement.style.background = backgroundColor;
+    document.documentElement.style.backgroundColor = backgroundColor;
     document.documentElement.style.color = foregroundColor;
     elementsMap.weatherLink.style.color = foregroundColor;
 }
@@ -170,7 +170,37 @@ async function load(): Promise<void> {
     // get weather
     displayWeather(userSettings, language);
 
-    return;
+    // display cog icon
+    if (userSettings.displayOptionsButton) {
+        let optionsLink = document.createElement("a");
+        optionsLink.setAttribute('id', 'options');
+
+        if (isBackgroundDark(userSettings)) {
+            optionsLink.style.backgroundImage = "url('../images/cog-light.png')";
+        }
+        else {
+            optionsLink.style.backgroundImage = "url('../images/cog-dark.png')";
+        }
+
+        optionsLink.onclick = () => browser.runtime.openOptionsPage();
+        document.body.appendChild(optionsLink);
+    }
+}
+
+function isBackgroundDark(settings: Settings): boolean {
+    switch (settings.colorScheme) {
+        case 'dark': return true;
+        case 'light': return false;
+        case 'system': return window?.matchMedia?.('(prefers-color-scheme:dark)')?.matches;
+    }
+    var rgbRegex = /^rgb\(([0-9]{1,3}),[ +]?([0-9]{1,3}),[ +]?([0-9]{1,3})\)$/;
+    var rgbMatch = document.documentElement.style.backgroundColor.match(rgbRegex)!;
+    var r = parseFloat(rgbMatch[1]);
+    var g = parseFloat(rgbMatch[2]);
+    var b = parseFloat(rgbMatch[3]);
+
+    var luma = 0.2126 * r + 0.7152 * g + 0.0722 * b; // per ITU-R BT.709
+    return luma < 128;
 }
 
 async function getSettings() {

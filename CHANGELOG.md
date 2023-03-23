@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Added
+
+- Cog icon to go to options page and a setting to enable/disable it
+
 ## [0.9.7] - 2023-03-17
 
 ### Changed

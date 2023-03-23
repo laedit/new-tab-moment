@@ -12,7 +12,8 @@ const defaultSettings: Settings = {
     customCss: "",
     displayIcon: false,
     activateDebugMode: false,
-    backgroundImageUrl: ""
+    backgroundImageUrl: "",
+    displayOptionsButton: false
 };
 
 type TempUnit = "celsius" | "fahrenheit";
@@ -34,5 +35,6 @@ type Settings = {
     customCss: string;
     displayIcon: boolean;
     activateDebugMode: boolean;
-    backgroundImageUrl: string
+    backgroundImageUrl: string;
+    displayOptionsButton: boolean;
 };

@@ -52,6 +52,10 @@ section {
     width: 350px;
 }
 
+hr {
+    margin: 20px 40px 0 40px;
+}
+
 @media (prefers-color-scheme: dark) {
     body {
         background-color: #23222b;

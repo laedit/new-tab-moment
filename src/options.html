@@ -17,7 +17,9 @@
                 <input type="url" id="homepage-url" readonly>
                 <button type="button" id="copy-link">Copy link</button>
             </div>
+            <hr />
         </section>
+
         <section>
             <h3>Appearance</h3>
 
@@ -74,7 +76,16 @@
                     </label>
                 </div>
             </section>
+            <section>
+                <div class="input-group">
+                    <label>
+                        Display options button:
+                        <input type="checkbox" id="displayOptionsButton" />
+                    </label>
+            </section>
         </section>
+
+        <hr />
 
         <section>
             <h3>Units</h3>
@@ -92,6 +103,8 @@
             </select>
         </section>
 
+        <hr />
+
         <section>
             <h3>Formats</h3>
             <div class="input-group">
@@ -108,6 +121,8 @@
             </div>
         </section>
 
+        <hr />
+
         <section>
             <h3>Weather</h3>
             <label>Location:</label>
@@ -115,11 +130,15 @@
             <div class="help">Format: "{City},{CountryCode}", ex.: "London,gb" or leave blank for automatic geolocation (relatively slower).</div>
         </section>
 
+        <hr />
+
         <section>
             <h3>Custom CSS</h3>
             <small>Use <code>!important</code> to force background properties.</small><br />
             <textarea id="css" cols="80"></textarea>
         </section>
+
+        <hr />
 
         <section>
             <h3>Debug mode</h3>
@@ -156,6 +175,13 @@
         </p>
         <p>
             <cite>Weather data</cite> by <a href="https://openweathermap.org/">OpenWeatherMap</a>.
+        </p>
+        <p>
+            <a href="https://thenounproject.com/icon/cog-1049477/">
+                <cite>cog icon</cite>
+            </a> by
+            <a href="https://thenounproject.com/fusestudio/">Fuse Studio</a> from
+            <a href="https://thenounproject.com">the Noun Project</a>.
         </p>
     </div>
     <script src="options.js"></script>
