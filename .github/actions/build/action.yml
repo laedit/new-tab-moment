@@ -29,11 +29,11 @@ runs:
         EOF
       shell: bash
 
-    - run: yarn build
+    - run: yarn build && yarn package
       shell: bash
 
     - uses: actions/upload-artifact@v3
       with:
-        path: web-ext-artifacts/new_tab_-_moment-*.zip
+        path: web-ext-artifacts/**/new_tab_-_moment-*.zip
         if-no-files-found: error
 
