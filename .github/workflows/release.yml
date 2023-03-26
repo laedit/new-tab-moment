@@ -39,7 +39,7 @@ jobs:
       with:
         path: ./version-metadata.json
 
-    - run: yarn web-ext sign --api-key ${{ secrets.AMO_ISSUER }} --api-secret ${{ secrets.AMO_SECRET }} --use-submission-api --channel=listed --source-dir build --amo-metadata ./version-metadata.json
+    - run: yarn web-ext sign --api-key ${{ secrets.AMO_ISSUER }} --api-secret ${{ secrets.AMO_SECRET }} --use-submission-api --channel=listed --source-dir build/firefox --amo-metadata ./version-metadata.json
 
     - uses: actions/upload-artifact@v3
       with:
@@ -68,7 +68,7 @@ jobs:
           prerelease: false
           token: ${{ secrets.GITHUB_TOKEN }}
           files: |
-            artifact/new_tab_-_moment-${{ github.ref_name }}.zip
+            artifact/**/new_tab_-_moment-${{ github.ref_name }}.zip
             artifact/new_tab_moment-${{ github.ref_name }}.xpi
 
   release-edge:
