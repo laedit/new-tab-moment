@@ -23,15 +23,5 @@
   "options_ui": {
     "page": "options.html",
     "browser_style": true
-  },
-  "background": {
-    "scripts": ["background.js"]
-  },
-  "browser_specific_settings": {
-    "gecko": {
-      "id": "new-tab-moment@laedit.net",
-      "strict_min_version": "109.0"
-    }
-  },
-  "minimum_chrome_version": "109"
+  }
 }

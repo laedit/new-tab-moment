@@ -1,7 +1,7 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "outFile": "./build/options.js"
+    "outFile": "./build/base/options.js"
   },
   "files": [
     "src/chromedef.ts",

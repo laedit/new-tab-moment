@@ -1,7 +1,7 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "outFile": "./build/moment.js"
+    "outFile": "./build/base/moment.js"
   },
   "files": [
     "src/chromedef.ts",

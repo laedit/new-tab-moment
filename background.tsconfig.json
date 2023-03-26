@@ -1,11 +1,9 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "outFile": "./build/background.js"
+    "outFile": "./build/base/background.js"
   },
   "files": [
-    "src/chromedef.ts",
-    "src/background.ts",
-    "src/settings.ts"
+    "src/background.ts"
   ]
 }
