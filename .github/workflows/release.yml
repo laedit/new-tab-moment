@@ -33,8 +33,7 @@ jobs:
                 "_default": "en-US"
               }
             }
-          }
-          EOF
+          }EOF
 
     - uses: actions/upload-artifact@v3
       with:
@@ -44,7 +43,8 @@ jobs:
 
     - uses: actions/upload-artifact@v3
       with:
-        path: web-ext-artifacts/*.xpi
+        path: web-ext-artifacts/new_tab_moment-${{ github.ref_name }}.xpi
+        if-no-files-found: error
 
     outputs:
       release_notes: ${{ steps.extract-release-notes.outputs.release_notes }}
