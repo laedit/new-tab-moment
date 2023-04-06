@@ -29,8 +29,7 @@ jobs:
           {
             "version": {
               "release_notes": {
-                "en-US": $(echo "${release//### }" | jq -sR .),
-                "_default": "en-US"
+                "en-US": $(echo "${release//### }" | jq -sR .)
               }
             }
           }EOF
