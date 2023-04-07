@@ -58,8 +58,6 @@ function saveOptions(e: Event): void {
             error => setStatus(`Error: ${error}`)
         );
 
-    localStorage.removeItem("expires");
-
     e.preventDefault();
 }
 

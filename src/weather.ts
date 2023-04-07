@@ -2,7 +2,7 @@ class Weather {
 
     public static async getWeather(measurementUnits: MeasurementUnits, location: string, language: string, debugMode: boolean): Promise<weather> {
         location = location.replace(/\s/g, "").toLocaleLowerCase();
-        return LocalStorage.get(`currentWeather:${location}`, async () => await this.getCurrentWeather(measurementUnits, location, language, debugMode), 60 * 5000); // 5 min
+        return LocalStorage.get(`currentWeather:${location}:${language}:${measurementUnits}`, async () => await this.getCurrentWeather(measurementUnits, location, language, debugMode), 60 * 5000); // 5 min
     }
 
     private static async getCurrentWeather(measurementUnits: MeasurementUnits, location: string, language: string, debugMode: boolean): Promise<weather> {
