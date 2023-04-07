@@ -23,16 +23,16 @@ function refresh(settings: Settings, language: string): void {
     setValue(elementsMap.date, dateText);
 }
 
-async function displayWeather({ tempUnit, location, displayIcon, activateDebugMode }: Settings, language: string): Promise<void> {
+async function displayWeather({ measurementUnits, location, displayIcon, activateDebugMode, displayHumidity, displayPressure, displayWind }: Settings, language: string): Promise<void> {
     try {
         elementsMap.error.replaceChildren(); // reset display
         elementsMap.weatherLink.style.display = "block";
 
-        const weatherResult = await Weather.getWeather(tempUnit, location, language, activateDebugMode);
+        const weatherResult = await Weather.getWeather(measurementUnits, location, language, activateDebugMode);
 
         const conditionsElement = elementsMap.weatherLink as HTMLLinkElement;
 
-        const { degrees, description, link, code }: weather = weatherResult as weather;
+        const { degrees, description, link, code }: weather = weatherResult;
         setValue(elementsMap.weatherDegrees, `${degrees}°`);
         setValue(elementsMap.weatherDescription, `— ${description}`);
 
@@ -46,6 +46,39 @@ async function displayWeather({ tempUnit, location, displayIcon, activateDebugMo
 
             elementsMap.weatherDescription.style.display = "none";
         }
+
+        let columnIndex = 1;
+        elementsMap.pressure.style.display = "none";
+        if (displayPressure) {
+            setValue(elementsMap.pressureText, `${weatherResult.pressure} hPa`);
+            elementsMap.pressure.style.display = "block";
+            elementsMap.pressure.style.gridColumn = columnIndex.toString();
+            columnIndex++;
+        }
+
+        elementsMap.humidity.style.display = "none";
+        if (displayHumidity) {
+            setValue(elementsMap.humidityText, `${weatherResult.humidity} %`);
+            elementsMap.humidity.style.display = "block";
+            elementsMap.humidity.style.gridColumn = columnIndex.toString();
+            columnIndex++;
+        }
+
+        elementsMap.wind.style.display = "none";
+        if (displayWind) {
+            let windUnit = measurementUnits === "metric" ? 'm/s' : 'm/h'; // MeasurementUnits = imperial -> miles/hour
+            setValue(elementsMap.windText, `${weatherResult.windSpeed} ${windUnit}`);
+            elementsMap.gust.style.display = 'none';
+            if (weatherResult.windGust) {
+                elementsMap.gust.style.display = 'block';
+                setValue(elementsMap.windGustText, `${weatherResult.windGust} ${windUnit}`); // MeasurementUnits // imperial -> miles/hour
+            }
+            elementsMap.windIcon.classList.add(`towards-${weatherResult.windDegrees}-deg`);
+            elementsMap.wind.style.display = "block";
+            elementsMap.wind.style.gridColumn = columnIndex.toString();
+            columnIndex++;
+        }
+
     } catch (error) {
         console.error("Error during weather display", error);
 
@@ -158,6 +191,15 @@ async function load(): Promise<void> {
             weatherIcon: document.getElementById("weather-icon")!,
             weatherDegrees: document.getElementById("weather-degrees")!,
             weatherDescription: document.getElementById("weather-description")!,
+            pressureText: document.getElementById("pressure-text")!,
+            pressure: document.getElementById("pressure")!,
+            humidityText: document.getElementById("humidity-text")!,
+            humidity: document.getElementById("humidity")!,
+            windText: document.getElementById("wind-text")!,
+            wind: document.getElementById("wind")!,
+            windIcon: document.getElementById("wind-icon")!,
+            windGustText: document.getElementById("wind-gust-text")!,
+            gust: document.getElementById("gust")!,
             error: document.getElementById("error")!,
         };
     }

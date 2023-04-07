@@ -83,15 +83,31 @@
                         <input type="checkbox" id="displayOptionsButton" />
                     </label>
             </section>
+            <section>
+                <div class="input-group">
+                    <h4>Additional weather infos:</h4>
+                    <label>
+                        Display pressure:
+                        <input type="checkbox" id="displayPressure" />
+                    </label>
+                    <label>
+                        Display humidity:
+                        <input type="checkbox" id="displayHumidity" />
+                    </label>
+                    <label>
+                        Display wind:
+                        <input type="checkbox" id="displayWind" />
+                    </label>
+            </section>
         </section>
 
         <hr />
 
         <section>
             <h3>Units</h3>
-            <select id="tempUnit">
-                <option value="celsius">Celsius</option>
-                <option value="fahrenheit">Fahrenheit</option>
+            <select id="measurementUnits">
+                <option value="metric">Metric (celsius)</option>
+                <option value="imperial">Imperial (fahrenheit)</option>
             </select>
             <select id="clock">
                 <option value="24">24-hour time</option>

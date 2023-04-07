@@ -6,6 +6,8 @@
     <title>New Tab</title>
     <link href="css/fonts.css" rel="stylesheet" type="text/css" />
     <link href="css/moment.css" rel="stylesheet" type="text/css" />
+    <link href="css/weather-icons-wind.min.css" rel="stylesheet" type="text/css" />
+    <link href="css/weather-icons.min.css" rel="stylesheet" type="text/css" />
     <style id="custom"></style>
 </head>
 
@@ -26,6 +28,26 @@
                 </div>
                 <i id="weather-icon" class="wi"></i>
             </a>
+            <br />
+            <div id="additional-infos">
+                <div id="pressure">
+                    <i id="pressure-icon" class="wi wi-barometer"></i>
+                    <span id="pressure-text"></span>
+                </div>
+                <div id="humidity">
+                    <i id="humidity-icon" class="wi wi-humidity"></i>
+                    <span id="humidity-text"></span>
+                </div>
+                <div id="wind">
+                    <i id="wind-icon" class="wi wi-wind"></i>
+                    <span id="wind-text"></span>
+                    <div id="gust">
+                        /
+                        <i id="gust-icon" class="wi wi-strong-wind"></i>
+                        <span id="gust-text"></span>
+                    </div>
+                </div>
+            </div>
             <div id="error"></div>
         </div>
     </section>

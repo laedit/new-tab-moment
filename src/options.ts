@@ -36,7 +36,7 @@ function saveOptions(e: Event): void {
         background: getInputValue("background") as string,
         foreground: getInputValue("foreground") as string,
         colorScheme: getInputValue("colorScheme") as ColorScheme,
-        tempUnit: getInputValue("tempUnit") as TempUnit,
+        measurementUnits: getInputValue("measurementUnits") as MeasurementUnits,
         location: getInputValue("location") as string,
         timePattern: getInputValue("timePattern") as string,
         datePattern: getInputValue("datePattern") as string,
@@ -48,6 +48,9 @@ function saveOptions(e: Event): void {
         activateDebugMode: getInputValue("activateDebugMode") as boolean,
         backgroundImageUrl: getInputValue("backgroundImageUrl") as string,
         displayOptionsButton: getInputValue("displayOptionsButton") as boolean,
+        displayPressure: getInputValue("displayPressure") as boolean,
+        displayHumidity: getInputValue("displayHumidity") as boolean,
+        displayWind: getInputValue("displayWind") as boolean
     };
 
     browser.storage.sync.set(settings)
@@ -66,7 +69,7 @@ function restoreOptions(): void {
             setInputValue("background", settings.background);
             setInputValue("foreground", settings.foreground);
             setInputValue("colorScheme", settings.colorScheme);
-            setInputValue("tempUnit", settings.tempUnit);
+            setInputValue("measurementUnits", settings.tempUnit ? (settings.tempUnit == "celsius" ? "metric" : "imperial") : settings.measurementUnits);
             setInputValue("location", settings.location);
             setInputValue("timePattern", settings.timePattern);
             setInputValue("datePattern", settings.datePattern);
@@ -78,6 +81,9 @@ function restoreOptions(): void {
             setInputValue("activateDebugMode", settings.activateDebugMode);
             setInputValue("backgroundImageUrl", settings.backgroundImageUrl);
             setInputValue("displayOptionsButton", settings.displayOptionsButton);
+            setInputValue("displayPressure", settings.displayPressure);
+            setInputValue("displayHumidity", settings.displayHumidity);
+            setInputValue("displayWind", settings.displayWind);
             colorSchemeOnChange(document.getElementById("colorScheme") as HTMLSelectElement);
         }, error => setStatus(`Error: ${error}`));
 }

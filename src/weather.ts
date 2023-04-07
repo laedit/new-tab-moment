@@ -1,11 +1,11 @@
 class Weather {
 
-    public static async getWeather(tempUnit: TempUnit, location: string, language: string, debugMode: boolean): Promise<weather> {
+    public static async getWeather(measurementUnits: MeasurementUnits, location: string, language: string, debugMode: boolean): Promise<weather> {
         location = location.replace(/\s/g, "").toLocaleLowerCase();
-        return LocalStorage.get(`currentWeather:${location}`, async () => await this.getCurrentWeather(tempUnit, location, language, debugMode), 60 * 5000); // 5 min
+        return LocalStorage.get(`currentWeather:${location}`, async () => await this.getCurrentWeather(measurementUnits, location, language, debugMode), 60 * 5000); // 5 min
     }
 
-    private static async getCurrentWeather(tempUnit: TempUnit, location: string, language: string, debugMode: boolean): Promise<weather> {
+    private static async getCurrentWeather(measurementUnits: MeasurementUnits, location: string, language: string, debugMode: boolean): Promise<weather> {
         let latitude: number;
         let longitude: number;
 
@@ -41,7 +41,7 @@ class Weather {
             }
         }
 
-        return await OpenWeatherMapApi.getCurrentWeather(latitude, longitude, tempUnit, language, debugMode);
+        return await OpenWeatherMapApi.getCurrentWeather(latitude, longitude, measurementUnits, language, debugMode);
     }
 }
 
@@ -50,6 +50,11 @@ type weather = {
     description: string;
     link: string;
     code: string;
+    pressure: string;
+    humidity: string;
+    windSpeed: string;
+    windDegrees: string;
+    windGust: string;
 }
 
 type geocodingMap = Record<string, { lat: number, lon: number }>

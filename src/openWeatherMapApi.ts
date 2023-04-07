@@ -49,12 +49,12 @@ class OpenWeatherMapApi {
         return latLon;
     }
 
-    public static async getCurrentWeather(latitude: number, longitude: number, tempUnit: TempUnit, language: string, debugMode: boolean): Promise<weather> {
+    public static async getCurrentWeather(latitude: number, longitude: number, measurementUnits: MeasurementUnits, language: string, debugMode: boolean): Promise<weather> {
         const apiParameters: currentWeatherApiParameters = {
             lat: latitude,
             lon: longitude,
             lang: this.getLanguageForRequest(language),
-            units: tempUnit === "celsius" ? "metric" : "imperial",
+            units: measurementUnits,
             appid: OwmCurrentWeatherKey
         };
         if (debugMode) {
@@ -73,7 +73,12 @@ class OpenWeatherMapApi {
             degrees: Math.round(weatherData.main.temp).toString(),
             description: weatherData.weather[0].description,
             link: `https://openweathermap.org/city/${weatherData.id}`,
-            code: weatherData.weather[0].id
+            code: weatherData.weather[0].id,
+            pressure: (weatherData.main.grnd_level | weatherData.main.sea_level | weatherData.main.pressure).toString(),
+            humidity: weatherData.main.humidity,
+            windSpeed: weatherData.wind.speed,
+            windDegrees: weatherData.wind.deg,
+            windGust: weatherData.wind.gust
         };
 
         return Promise.resolve(weather);
