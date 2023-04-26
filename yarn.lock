@@ -3728,9 +3728,9 @@ web-ext-types@3.2.1:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/web-ext-types/-/web-ext-types-3.2.1.tgz#3edc0e3c2e8fe121d7d7e4ca0b7ee0c883cea832"
 
-web-ext@7.6.1:
-  version "7.6.1"
-  resolved "https://registry.yarnpkg.com/web-ext/-/web-ext-7.6.1.tgz#cadfdd98cdeb7fdd6edadc6e1746705e140f180a"
+web-ext@7.6.2:
+  version "7.6.2"
+  resolved "https://registry.yarnpkg.com/web-ext/-/web-ext-7.6.2.tgz#70c3cd64b915e32819a99630c4c60758017e6512"
   dependencies:
     "@babel/runtime" "7.21.0"
     "@devicefarmer/adbkit" "3.2.3"
