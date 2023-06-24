@@ -23,7 +23,7 @@ function refresh(settings: Settings, language: string): void {
     setValue(elementsMap.date, dateText);
 }
 
-async function displayWeather({ measurementUnits, location, displayIcon, activateDebugMode, displayHumidity, displayPressure, displayWind }: Settings, language: string): Promise<void> {
+async function displayWeather({ measurementUnits, location, displayIcon, activateDebugMode, displayHumidity, displayPressure, displayWind, useFeelsLikeTemperature }: Settings, language: string): Promise<void> {
     try {
         elementsMap.error.replaceChildren(); // reset display
         elementsMap.weatherLink.style.display = "block";
@@ -32,8 +32,8 @@ async function displayWeather({ measurementUnits, location, displayIcon, activat
 
         const conditionsElement = elementsMap.weatherLink as HTMLLinkElement;
 
-        const { degrees, description, link, code }: weather = weatherResult;
-        setValue(elementsMap.weatherDegrees, `${degrees}°`);
+        const { degrees, description, link, code, feels_like }: weather = weatherResult;
+        setValue(elementsMap.weatherDegrees, `${useFeelsLikeTemperature ? feels_like : degrees}°`);
         setValue(elementsMap.weatherDescription, `— ${description}`);
 
         conditionsElement.href = link;

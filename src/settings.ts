@@ -16,7 +16,8 @@ const defaultSettings: Settings = {
     displayOptionsButton: false,
     displayPressure: false,
     displayHumidity: false,
-    displayWind: false
+    displayWind: false,
+    useFeelsLikeTemperature: false
 };
 
 type TempUnit = "celsius" | "fahrenheit";
@@ -45,4 +46,5 @@ type Settings = {
     displayPressure: boolean;
     displayHumidity: boolean;
     displayWind: boolean;
+    useFeelsLikeTemperature: boolean;
 };

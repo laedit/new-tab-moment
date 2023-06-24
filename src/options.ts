@@ -50,7 +50,8 @@ function saveOptions(e: Event): void {
         displayOptionsButton: getInputValue("displayOptionsButton") as boolean,
         displayPressure: getInputValue("displayPressure") as boolean,
         displayHumidity: getInputValue("displayHumidity") as boolean,
-        displayWind: getInputValue("displayWind") as boolean
+        displayWind: getInputValue("displayWind") as boolean,
+        useFeelsLikeTemperature: getInputValue("useFeelsLikeTemperature") as boolean
     };
 
     browser.storage.sync.set(settings)
@@ -82,6 +83,7 @@ function restoreOptions(): void {
             setInputValue("displayPressure", settings.displayPressure);
             setInputValue("displayHumidity", settings.displayHumidity);
             setInputValue("displayWind", settings.displayWind);
+            setInputValue("useFeelsLikeTemperature", settings.useFeelsLikeTemperature);
             colorSchemeOnChange(document.getElementById("colorScheme") as HTMLSelectElement);
         }, error => setStatus(`Error: ${error}`));
 }

@@ -55,6 +55,7 @@ type weather = {
     windSpeed: string;
     windDegrees: string;
     windGust: string;
+    feels_like: string;
 }
 
 type geocodingMap = Record<string, { lat: number, lon: number }>

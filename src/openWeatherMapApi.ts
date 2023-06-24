@@ -78,7 +78,8 @@ class OpenWeatherMapApi {
             humidity: weatherData.main.humidity,
             windSpeed: weatherData.wind.speed,
             windDegrees: weatherData.wind.deg,
-            windGust: weatherData.wind.gust
+            windGust: weatherData.wind.gust,
+            feels_like: Math.round(weatherData.main.feels_like).toString()
         };
 
         return Promise.resolve(weather);

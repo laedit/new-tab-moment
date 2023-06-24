@@ -5,7 +5,10 @@ if (typeof chrome === "undefined" || Object.getPrototypeOf(chrome) !== Object.pr
 }
 
 browserInstance.runtime.onInstalled.addListener(function (details) {
-    if (details.reason == "install") {
-        browserInstance.storage.sync.set({ displayOptionsButton: true });
+    switch (details.reason) {
+        case "install": browserInstance.storage.sync.set({ displayOptionsButton: true });
+            break;
+        case "update": localStorage.clear();
+            break;
     }
 });
