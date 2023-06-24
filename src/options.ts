@@ -101,17 +101,12 @@ document.addEventListener("DOMContentLoaded", () => {
     setInputValue("homepage-url", browser.runtime.getURL("moment.html"));
 
     document.getElementById("copy-link")!.onclick = () => {
-        document.addEventListener("copy", (e: ClipboardEvent) => {
-            e.clipboardData!.setData("text/plain", browser.runtime.getURL("moment.html"));
-            e.preventDefault();
-        }, { once: true });
-
-        document.execCommand("copy");
+        navigator.clipboard.writeText(browser.runtime.getURL("moment.html"))
     };
 
     document.getElementById("colorScheme")!.addEventListener("change", ({ target }) => {
         colorSchemeOnChange(target as HTMLSelectElement);
-    })
+    });
 });
 
 document.querySelector("form")!.addEventListener("submit", saveOptions);
