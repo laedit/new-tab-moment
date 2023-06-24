@@ -32,7 +32,8 @@ jobs:
                 "en-US": $(echo "${release//### }" | jq -sR .)
               }
             }
-          }EOF
+          }
+          EOF
 
     - uses: actions/upload-artifact@v3
       with:
