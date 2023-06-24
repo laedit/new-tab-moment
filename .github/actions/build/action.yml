@@ -29,11 +29,18 @@ runs:
         EOF
       shell: bash
 
-    - run: yarn build && yarn package
+    - run: |
+        yarn build
+        yarn package
+        filename=`ls web-ext-artifacts/firefox/new_tab_-_moment-*.zip | head`
+        versionZip=${filename##*-}
+        version=${versionZip%.*}
+        cp web-ext-artifacts/firefox/new_tab_-_moment-$version.zip web-ext-artifacts/new_tab_-_moment-$version.firefox.zip
+        cp web-ext-artifacts/edge/new_tab_-_moment-$version.zip web-ext-artifacts/new_tab_-_moment-$version.edge.zip
       shell: bash
 
     - uses: actions/upload-artifact@v3
       with:
-        path: web-ext-artifacts/**/new_tab_-_moment-*.zip
+        path: web-ext-artifacts/new_tab_-_moment-*.zip
         if-no-files-found: error
 

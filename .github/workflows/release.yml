@@ -68,7 +68,7 @@ jobs:
           prerelease: false
           token: ${{ secrets.GITHUB_TOKEN }}
           files: |
-            artifact/**/new_tab_-_moment-${{ github.ref_name }}.zip
+            artifact/new_tab_-_moment-${{ github.ref_name }}.*.zip
             artifact/new_tab_moment-${{ github.ref_name }}.xpi
 
   release-edge:
@@ -83,5 +83,5 @@ jobs:
       - name: Upload draft
         run: |
           token=$(curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d "client_id=${{ secrets.EDGE_CLIENT }}" -d "scope=https://api.addons.microsoftedge.microsoft.com/.default" -d "client_secret=${{ secrets.EDGE_SECRET }}" -d "grant_type=client_credentials" -v ${{ secrets.EDGE_TOKEN_URL }} | jq --raw-output '.access_token')
-          curl -H "Authorization: Bearer ${token}" -H "Content-Type: application/zip" -X POST -T artifact/new_tab_-_moment-${{ github.ref_name }}.zip -v https://api.addons.microsoftedge.microsoft.com/v1/products/${{ secrets.EDGE_PRODUCT }}/submissions/draft/package
+          curl -H "Authorization: Bearer ${token}" -H "Content-Type: application/zip" -X POST -T artifact/new_tab_-_moment-${{ github.ref_name }}.edge.zip -v https://api.addons.microsoftedge.microsoft.com/v1/products/${{ secrets.EDGE_PRODUCT }}/submissions/draft/package
         # wait for the upload to complete and publish
