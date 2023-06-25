@@ -1,7 +1,10 @@
 body {
-    font-size: larger;
+    margin: 0;
+    font-size: 14px;
+    line-height: 20px;
     padding: 10px;
     height: 600px;
+    font-family: 'FiraGO', 'Firas Sans Condensed', 'Firas Sans', 'Segoe UI', 'Calibri', 'Open Sans', sans-serif;
 }
 
 label {

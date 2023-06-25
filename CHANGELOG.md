@@ -10,6 +10,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No need to click on the save options button anymore
 
+### Fixed
+- Options UI browser style deprecated in manifest v3; Option page can change slightly
+
 ## [0.11.1] - 2023-06-24
 
 ### Added
