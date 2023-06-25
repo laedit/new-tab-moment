@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "new tab moment",
   "author": "laedit",
+  "type": "module",
   "devDependencies": {
     "concurrently": "8.2.0",
     "cpx": "1.5.0",
