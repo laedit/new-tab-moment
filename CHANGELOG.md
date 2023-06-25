@@ -104,7 +104,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Homepage option.
 
-[unreleased]: https://github.com/laedit/new-tab-moment/compare/0.9.7...HEAD
+[unreleased]: https://github.com/laedit/new-tab-moment/compare/0.11.1...HEAD
+[0.11.1]: https://github.com/laedit/new-tab-moment/compare/0.10.0...0.11.1
+[0.10.0]: https://github.com/laedit/new-tab-moment/compare/0.9.7...0.10.0
 [0.9.7]: https://github.com/laedit/new-tab-moment/compare/0.8.0...0.9.7
 [0.8.0]: https://github.com/laedit/new-tab-moment/compare/0.7.0...0.8.0
 [0.7.0]: https://github.com/laedit/new-tab-moment/releases/tag/0.7.0
