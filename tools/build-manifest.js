@@ -6,6 +6,10 @@ const writeFile = promisify(fs.writeFile);
 async function main(browser) {
     const buildDir = `build/${browser}`;
 
+    if (!fs.existsSync(buildDir)) {
+        fs.mkdirSync(buildDir, { recursive: true });
+    }
+
     const manifestJson = JSON.parse(await readFile("src/manifest.json"));
     const browserManifestJson = JSON.parse(await readFile(`src/manifest.${browser}.json`));
 
