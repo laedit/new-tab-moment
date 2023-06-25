@@ -56,6 +56,10 @@ hr {
     margin: 20px 40px 0 40px;
 }
 
+dialog::backdrop {
+    background: rgba(255, 0, 0, 0.25);
+}
+
 @media (prefers-color-scheme: dark) {
     body {
         background-color: #23222b;

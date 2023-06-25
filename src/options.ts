@@ -25,10 +25,15 @@ function setInputValue(elementId: string, value: string | number | boolean): voi
     }
 }
 
-function setStatus(statusText: string): void {
-    const status: HTMLElement | null = document.getElementById("status")!;
-    status.textContent = statusText;
-    setTimeout(() => status.textContent = "", 1000);
+function displayError(error: Error): void {
+    console.error(error);
+    const errorDetails = document.getElementById("errorDetails") as HTMLParagraphElement;
+
+    errorDetails.innerText = error.toString();
+
+    const saveErrorDialog = document.getElementById("saveErrorDialog") as HTMLDialogElement;
+
+    saveErrorDialog.showModal();
 }
 
 function saveOptions(e: Event): void {
@@ -54,10 +59,7 @@ function saveOptions(e: Event): void {
         useFeelsLikeTemperature: getInputValue("useFeelsLikeTemperature") as boolean
     };
 
-    browser.storage.sync.set(settings)
-        .then(() => setStatus("Options saved."),
-            error => setStatus(`Error: ${error}`)
-        );
+    browser.storage.sync.set(settings).catch(displayError);
 
     e.preventDefault();
 }
@@ -85,7 +87,8 @@ function restoreOptions(): void {
             setInputValue("displayWind", settings.displayWind);
             setInputValue("useFeelsLikeTemperature", settings.useFeelsLikeTemperature);
             colorSchemeOnChange(document.getElementById("colorScheme") as HTMLSelectElement);
-        }, error => setStatus(`Error: ${error}`));
+        })
+        .catch(displayError);
 }
 
 function colorSchemeOnChange(elm: HTMLSelectElement) {
@@ -107,6 +110,15 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("colorScheme")!.addEventListener("change", ({ target }) => {
         colorSchemeOnChange(target as HTMLSelectElement);
     });
-});
 
-document.querySelector("form")!.addEventListener("submit", saveOptions);
+    document.getElementById("closeBtn")?.addEventListener("click", event => {
+        event.preventDefault();
+        var saveErrorDialog = document.getElementById("saveErrorDialog") as HTMLDialogElement;
+        saveErrorDialog.close();
+    });
+
+    Array.from(document.forms[0].elements).forEach(element => {
+        if (element.id != "homepage-url" && element.id != "copy-link")
+            element.addEventListener("change", saveOptions);
+    });
+});
