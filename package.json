@@ -31,8 +31,8 @@
     "package": "yarn build && yarn package:firefox && yarn package:edge",
 
     "web-ext:run": "web-ext run --source-dir=build/firefox --firefox=firefoxdeveloperedition",
-    "test": "yarn build:manifest firefox && concurrently \"yarn copy --watch\" \"yarn build:base --watch\" \"yarn build:files:firefox --watch\" \"yarn transpile:moment -w\" \"yarn transpile:options -w\" \"yarn transpile:background -w\" \"yarn web-ext:run\" --kill-others",
-    "test:fr": "concurrently \"yarn copy --watch\" \"yarn transpile:moment -w\" \"yarn transpile:options -w\" \"yarn transpile:background -w\" \"yarn web-ext:run --pref intl.accept_languages=fr-fr\" --kill-others",
-    "test:cs": "concurrently \"yarn copy --watch\" \"yarn transpile:moment -w\" \"yarn transpile:options -w\" \"yarn transpile:background -w\" \"yarn web-ext:run --pref intl.accept_languages=cs\" --kill-others"
+    "test": "yarn build:manifest firefox && concurrently \"yarn copy --watch\" \"yarn:transpile:* -w\" \"yarn build:files:firefox --watch\" \"yarn web-ext:run\" --kill-others",
+    "test:fr": "concurrently \"yarn copy --watch\" \"yarn:transpile:* -w\" \"yarn web-ext:run --pref intl.accept_languages=fr-fr\" --kill-others",
+    "test:cs": "concurrently \"yarn copy --watch\" \"yarn:transpile:* -w\" \"yarn web-ext:run --pref intl.accept_languages=cs\" --kill-others"
   }
 }
