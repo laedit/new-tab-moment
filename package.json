@@ -28,7 +28,7 @@
 
     "package:firefox": "web-ext build --source-dir=build/firefox --overwrite-dest --artifacts-dir=./web-ext-artifacts/firefox && web-ext lint --source-dir=build/firefox",
     "package:edge": "web-ext build --source-dir=build/edge --overwrite-dest --artifacts-dir=./web-ext-artifacts/edge",
-    "package": "yarn build && yarn package:firefox && yarn package:edge",
+    "package": "yarn package:firefox && yarn package:edge",
 
     "web-ext:run": "web-ext run --source-dir=build/firefox --firefox=firefoxdeveloperedition",
     "test": "yarn build:manifest firefox && concurrently \"yarn copy --watch\" \"yarn:transpile:* -w\" \"yarn build:files:firefox --watch\" \"yarn web-ext:run\" --kill-others",
