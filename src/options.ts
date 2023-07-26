@@ -56,12 +56,38 @@ function saveOptions(e: Event): void {
         displayPressure: getInputValue("displayPressure") as boolean,
         displayHumidity: getInputValue("displayHumidity") as boolean,
         displayWind: getInputValue("displayWind") as boolean,
-        useFeelsLikeTemperature: getInputValue("useFeelsLikeTemperature") as boolean
+        useFeelsLikeTemperature: getInputValue("useFeelsLikeTemperature") as boolean,
+        subClocks: getSubClocks()
     };
 
     browser.storage.sync.set(settings).catch(displayError);
 
     e.preventDefault();
+}
+
+function getSubClocks(): SubClock[] {
+    let subClocks: SubClock[] = [];
+
+    for (let index = 1; index < 4; index++) {
+        let subClock = getSubClock(index);
+        if (subClock !== undefined) {
+            subClocks.push(subClock);
+        }
+    }
+
+    return subClocks;
+}
+
+function getSubClock(index: number): SubClock | undefined {
+    let subClockTimeZone = getInputValue(`subClock${index}TimeZone`) as string;
+    if (subClockTimeZone) {
+        return {
+            timeZone: subClockTimeZone,
+            displayTimeZone: getInputValue(`subClock${index}DisplayTimeZone`) as boolean,
+            name: getInputValue(`subClock${index}Name`) as string
+        };
+    }
+    return undefined;
 }
 
 function restoreOptions(): void {
@@ -87,8 +113,41 @@ function restoreOptions(): void {
             setInputValue("displayWind", settings.displayWind);
             setInputValue("useFeelsLikeTemperature", settings.useFeelsLikeTemperature);
             colorSchemeOnChange(document.getElementById("colorScheme") as HTMLSelectElement);
+            restoreSubClocks(settings.subClocks);
         })
         .catch(displayError);
+}
+
+function restoreSubClocks(subClocks: SubClock[] | undefined) {
+
+    for (let index = 1; index < 4; index++) {
+        const timeZonesSelect = document.getElementById(`subClock${index}TimeZone`) as HTMLSelectElement;
+        if (typeof Intl.supportedValuesOf === "undefined") {
+            // method is supported
+            let option = document.createElement("option");
+            option.innerText = "Please update your browser to use this";
+            timeZonesSelect.append(option)
+        }
+        else {
+            Intl.supportedValuesOf('timeZone').map((timeZone: string) => {
+                let option = document.createElement("option");
+                option.value = timeZone;
+                option.innerText = timeZone;
+                timeZonesSelect.append(option)
+            });
+        }
+        setInputValue(`subClock${index}DisplayTimeZone`, true);
+    }
+
+    if (subClocks) {
+        subClocks.forEach((subClock, index) => {
+            console.debug(subClock);
+            console.debug(document.getElementById(`subClock${index + 1}TimeZone`));
+            setInputValue(`subClock${index + 1}TimeZone`, subClock.timeZone);
+            setInputValue(`subClock${index + 1}DisplayTimeZone`, subClock.displayTimeZone);
+            setInputValue(`subClock${index + 1}Name`, subClock.name);
+        });
+    }
 }
 
 function colorSchemeOnChange(elm: HTMLSelectElement) {
