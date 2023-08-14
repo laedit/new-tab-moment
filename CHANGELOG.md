@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.13.0] - 2023-08-14
+## [0.13.1] - 2023-08-14
 
 ### Added
 
@@ -118,8 +118,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Homepage option.
 
-[unreleased]: https://github.com/laedit/new-tab-moment/compare/0.13.0...HEAD
-[0.13.0]: https://github.com/laedit/new-tab-moment/compare/0.12.1...0.13.0
+[unreleased]: https://github.com/laedit/new-tab-moment/compare/0.13.1...HEAD
+[0.13.1]: https://github.com/laedit/new-tab-moment/compare/0.12.1...0.13.1
 [0.12.1]: https://github.com/laedit/new-tab-moment/compare/0.11.1...0.12.1
 [0.11.1]: https://github.com/laedit/new-tab-moment/compare/0.10.0...0.11.1
 [0.10.0]: https://github.com/laedit/new-tab-moment/compare/0.9.7...0.10.0
