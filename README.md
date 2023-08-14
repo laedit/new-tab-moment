@@ -31,7 +31,16 @@ Minimalist clock and weather on the new tab page, based on [Moment](https://gith
 
 ### Options page
 
-![Options](./images/Options.png)
+![Options part 1](./images/Options-1.png)
+![Options part 2](./images/Options-2.png)
+
+### Weather info
+
+![Weather info](./images/Weather-data.png)
+
+### Additional clocks
+
+![Additional clocks](./images/Additionnal-clocks.png)
 
 ## Contribute
 
