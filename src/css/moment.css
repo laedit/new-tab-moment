@@ -93,6 +93,21 @@ a {
     display: none;
 }
 
+#subClocks {
+    font-weight: var(--font-weight-weather, 100);
+    font-size: .10em;
+    display: none;
+    margin: 20px 0;
+}
+
+#subClocks > div {
+    display: none;
+}
+
+#subClocks > div > div:nth-child(1) {
+    font-size: 1.5em;
+}
+
 @media only screen and (max-width: 700px) {
     body {
         font-size: 6em;

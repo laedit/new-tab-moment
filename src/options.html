@@ -78,10 +78,61 @@
             </section>
             <section>
                 <div class="input-group">
+                    <h4>Additional clocks:</h4>
+                    <h3>First</h3>
+                    <label>
+                        Time zone:
+                        <select id="subClock1TimeZone">
+                            <option value=""></option>
+                        </select>
+                    </label>
+                    <label>
+                        Display time zone:
+                        <input type="checkbox" id="subClock1DisplayTimeZone" />
+                    </label>
+                    <label>
+                        Name:
+                        <input type="string" id="subClock1Name" />
+                    </label>
+                    <h3>Second</h3>
+                    <label>
+                        Time zone:
+                        <select id="subClock2TimeZone">
+                            <option value=""></option>
+                        </select>
+                    </label>
+                    <label>
+                        Display time zone:
+                        <input type="checkbox" id="subClock2DisplayTimeZone" />
+                    </label>
+                    <label>
+                        Name:
+                        <input type="string" id="subClock2Name" />
+                    </label>
+                    <h3>Third</h3>
+                    <label>
+                        Time zone:
+                        <select id="subClock3TimeZone">
+                            <option value=""></option>
+                        </select>
+                    </label>
+                    <label>
+                        Display time zone:
+                        <input type="checkbox" id="subClock3DisplayTimeZone" />
+                    </label>
+                    <label>
+                        Name:
+                        <input type="string" id="subClock3Name" />
+                    </label>
+                </div>
+            </section>
+            <section>
+                <div class="input-group">
                     <label>
                         Display options button:
                         <input type="checkbox" id="displayOptionsButton" />
                     </label>
+                </div>
             </section>
             <section>
                 <div class="input-group">
@@ -98,6 +149,7 @@
                         Display wind:
                         <input type="checkbox" id="displayWind" />
                     </label>
+                </div>
             </section>
         </section>
 
@@ -168,11 +220,11 @@
         </section>
     </form>
     <dialog id="saveErrorDialog">
-          <p id="errorDetails"></p>
-          <div>
+        <p id="errorDetails"></p>
+        <div>
             <button id="closeBtn">Close</button>
-          </div>
-      </dialog>
+        </div>
+    </dialog>
     <div id="credits">
         <h1>Credits</h1>
         <p>

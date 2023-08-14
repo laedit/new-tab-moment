@@ -17,7 +17,8 @@ const defaultSettings: Settings = {
     displayPressure: false,
     displayHumidity: false,
     displayWind: false,
-    useFeelsLikeTemperature: false
+    useFeelsLikeTemperature: false,
+    subClocks: undefined
 };
 
 type TempUnit = "celsius" | "fahrenheit";
@@ -47,4 +48,11 @@ type Settings = {
     displayHumidity: boolean;
     displayWind: boolean;
     useFeelsLikeTemperature: boolean;
+    subClocks?: SubClock[];
 };
+
+type SubClock = {
+    timeZone: string;
+    displayTimeZone: boolean;
+    name: string;
+}

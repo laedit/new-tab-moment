@@ -2,14 +2,17 @@ let elementsMap: Record<string, HTMLElement>;
 let interval: number;
 
 function refresh(settings: Settings, language: string): void {
-    var dateTimeParts = new Intl.DateTimeFormat(language, {
+    let dateTimeFormatOptions: Intl.DateTimeFormatOptions = {
         year: "numeric", month: "long", day: "numeric",
         hour: "numeric", minute: "numeric", second: "numeric",
         hour12: settings.clock === "12"
-    }).formatToParts(new Date());
+    };
+    const currentDate = new Date();
+    const dateTimeParts = new Intl.DateTimeFormat(language, dateTimeFormatOptions).formatToParts(currentDate);
 
+    const useLeadingZero = settings.leadingZero && settings.clock === "12";
     let hour = dateTimeParts.find(part => part.type == 'hour')?.value!;
-    if (settings.leadingZero && settings.clock === "12" && hour.length === 1) {
+    if (useLeadingZero && hour.length === 1) {
         hour = "0" + hour;
     }
     const timeText = settings.timePattern.replace("H", hour)
@@ -21,6 +24,21 @@ function refresh(settings: Settings, language: string): void {
         .replace("Y", dateTimeParts.find(part => part.type == 'year')?.value!)
         .replace("M", dateTimeParts.find(part => part.type == 'month')?.value!);
     setValue(elementsMap.date, dateText);
+
+    // set sub clocks
+    if (settings.subClocks) {
+        for (let index = 0; index < settings.subClocks.length; index++) {
+            const subClock = settings.subClocks[index];
+
+            dateTimeFormatOptions.timeZone = subClock.timeZone;
+            const subClockParts = new Intl.DateTimeFormat(language, dateTimeFormatOptions).formatToParts(currentDate);
+            let hour = subClockParts.find(part => part.type == 'hour')?.value!;
+            if (useLeadingZero && hour.length === 1) {
+                hour = "0" + hour;
+            }
+            setValue(elementsMap[`subClock${index + 1}Time`], `${hour}:${subClockParts.find(part => part.type == 'minute')?.value!}`);
+        }
+    }
 }
 
 async function displayWeather({ measurementUnits, location, displayIcon, activateDebugMode, displayHumidity, displayPressure, displayWind, useFeelsLikeTemperature }: Settings, language: string): Promise<void> {
@@ -201,18 +219,60 @@ async function load(): Promise<void> {
             windGustText: document.getElementById("wind-gust-text")!,
             gust: document.getElementById("gust")!,
             error: document.getElementById("error")!,
+            subClocks: document.getElementById("subClocks")!,
+            subClock1: document.getElementById("subClock1")!,
+            subClock1Time: document.getElementById("subClock1Time")!,
+            subClock1TimeZone: document.getElementById("subClock1TimeZone")!,
+            subClock1Name: document.getElementById("subClock1Name")!,
+            subClock2: document.getElementById("subClock2")!,
+            subClock2Time: document.getElementById("subClock2Time")!,
+            subClock2TimeZone: document.getElementById("subClock2TimeZone")!,
+            subClock2Name: document.getElementById("subClock2Name")!,
+            subClock3: document.getElementById("subClock3")!,
+            subClock3Time: document.getElementById("subClock3Time")!,
+            subClock3TimeZone: document.getElementById("subClock3TimeZone")!,
+            subClock3Name: document.getElementById("subClock3Name")!,
         };
     }
 
     // apply style settings
     setStyle(userSettings);
 
+    displaySubClocks(userSettings);
+
+    // display cog icon
+    displayOptionIcon(userSettings);
+
     startTime(userSettings, language);
 
     // get weather
     displayWeather(userSettings, language);
+}
 
-    // display cog icon
+function displaySubClocks(userSettings: Settings) {
+    if (userSettings.subClocks && userSettings.subClocks.length > 0) {
+        elementsMap.subClocks.style.display = "grid";
+        elementsMap.subClocks.style.gridTemplateColumns = `repeat(${userSettings.subClocks.length}, 1fr)`;
+
+        for (let index = 0; index < userSettings.subClocks.length; index++) {
+            const subClock = userSettings.subClocks[index];
+
+            elementsMap[`subClock${index + 1}`].style.display = "block";
+            setValue(elementsMap[`subClock${index + 1}TimeZone`], subClock.displayTimeZone ? subClock.timeZone : '');
+            setValue(elementsMap[`subClock${index + 1}Name`], subClock.name);
+        }
+
+        if (userSettings.subClocks.length < 3) {
+            for (let index = userSettings.subClocks.length + 1; index < 4; index++) {
+                elementsMap[`subClock${index}`].style.display = "none";
+                setValue(elementsMap[`subClock${index}TimeZone`], '');
+                setValue(elementsMap[`subClock${index}Name`], '');
+            }
+        }
+    }
+}
+
+function displayOptionIcon(userSettings: Settings) {
     if (userSettings.displayOptionsButton) {
         let optionsLink = document.createElement("a");
         optionsLink.setAttribute('id', 'options');
@@ -235,19 +295,20 @@ function isBackgroundDark(settings: Settings): boolean {
         case 'light': return false;
         case 'system': return window?.matchMedia?.('(prefers-color-scheme:dark)')?.matches;
     }
-    var rgbRegex = /^rgb\(([0-9]{1,3}),[ +]?([0-9]{1,3}),[ +]?([0-9]{1,3})\)$/;
-    var rgbMatch = document.documentElement.style.backgroundColor.match(rgbRegex)!;
-    var r = parseFloat(rgbMatch[1]);
-    var g = parseFloat(rgbMatch[2]);
-    var b = parseFloat(rgbMatch[3]);
+    const rgbRegex = /^rgb\(([0-9]{1,3}),[ +]?([0-9]{1,3}),[ +]?([0-9]{1,3})\)$/;
+    const rgbMatch = document.documentElement.style.backgroundColor.match(rgbRegex)!;
+    const r = parseFloat(rgbMatch[1]);
+    const g = parseFloat(rgbMatch[2]);
+    const b = parseFloat(rgbMatch[3]);
 
-    var luma = 0.2126 * r + 0.7152 * g + 0.0722 * b; // per ITU-R BT.709
+    const luma = 0.2126 * r + 0.7152 * g + 0.0722 * b; // per ITU-R BT.709
     return luma < 128;
 }
 
-async function getSettings() {
+async function getSettings(): Promise<Settings> {
     return browser.storage.sync.get(defaultSettings);
 }
 
 browser.storage.onChanged.addListener(async () => load());
+
 document.addEventListener("DOMContentLoaded", async () => load());
