@@ -26,9 +26,9 @@
     js-tokens "^4.0.0"
     picocolors "^1.0.0"
 
-"@babel/runtime@7.24.6", "@babel/runtime@^7.21.0":
-  version "7.24.6"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.24.6.tgz#5b76eb89ad45e2e4a0a8db54c456251469a3358e"
+"@babel/runtime@7.24.7", "@babel/runtime@^7.21.0":
+  version "7.24.7"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.24.7.tgz#f4f0d5530e8dbdf59b3451b9b3e594b6ba082e12"
   dependencies:
     regenerator-runtime "^0.14.0"
 
@@ -111,9 +111,9 @@
     wrap-ansi "^8.1.0"
     wrap-ansi-cjs "npm:wrap-ansi@^7.0.0"
 
-"@mdn/browser-compat-data@5.5.29":
-  version "5.5.29"
-  resolved "https://registry.yarnpkg.com/@mdn/browser-compat-data/-/browser-compat-data-5.5.29.tgz#08753b8f94efa3f9a02cd39e0de5d6d5af745e0e"
+"@mdn/browser-compat-data@5.5.32":
+  version "5.5.32"
+  resolved "https://registry.yarnpkg.com/@mdn/browser-compat-data/-/browser-compat-data-5.5.32.tgz#8bece89fdc5478550c8a5a3c00b3bd4d4d720358"
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
@@ -229,15 +229,15 @@ acorn@^8.9.0:
   version "8.10.0"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-8.10.0.tgz#8be5b3907a67221a81ab23c7889c4c5526b62ec5"
 
-addons-linter@6.28.0:
-  version "6.28.0"
-  resolved "https://registry.yarnpkg.com/addons-linter/-/addons-linter-6.28.0.tgz#eaae7fda20ef27acf0165d17b012816e356684fb"
+addons-linter@6.29.0:
+  version "6.29.0"
+  resolved "https://registry.yarnpkg.com/addons-linter/-/addons-linter-6.29.0.tgz#7dbc6e43ce2d5b04e830d5ab75665482c6af0769"
   dependencies:
     "@fluent/syntax" "0.19.0"
-    "@mdn/browser-compat-data" "5.5.29"
+    "@mdn/browser-compat-data" "5.5.32"
     addons-moz-compare "1.3.0"
     addons-scanner-utils "9.10.1"
-    ajv "8.13.0"
+    ajv "8.16.0"
     chalk "4.1.2"
     cheerio "1.0.0-rc.12"
     columnify "1.6.0"
@@ -290,9 +290,9 @@ agent-base@^7.0.2:
   dependencies:
     debug "^4.3.4"
 
-ajv@8.13.0:
-  version "8.13.0"
-  resolved "https://registry.yarnpkg.com/ajv/-/ajv-8.13.0.tgz#a3939eaec9fb80d217ddf0c3376948c023f28c91"
+ajv@8.16.0:
+  version "8.16.0"
+  resolved "https://registry.yarnpkg.com/ajv/-/ajv-8.16.0.tgz#22e2a92b94f005f7e0f9c9d39652ef0b8f6f0cb4"
   dependencies:
     fast-deep-equal "^3.1.3"
     json-schema-traverse "^1.0.0"
@@ -1984,9 +1984,9 @@ jed@1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/jed/-/jed-1.1.1.tgz#7a549bbd9ffe1585b0cd0a191e203055bee574b4"
 
-jose@4.15.5:
-  version "4.15.5"
-  resolved "https://registry.yarnpkg.com/jose/-/jose-4.15.5.tgz#6475d0f467ecd3c630a1b5dadd2735a7288df706"
+jose@5.4.0:
+  version "5.4.0"
+  resolved "https://registry.yarnpkg.com/jose/-/jose-5.4.0.tgz#4f6c2357e7b3cd4bc10ec65bb29e677d7adfbc84"
 
 js-tokens@^4.0.0:
   version "4.0.0"
@@ -3395,13 +3395,13 @@ web-ext-types@3.2.1:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/web-ext-types/-/web-ext-types-3.2.1.tgz#3edc0e3c2e8fe121d7d7e4ca0b7ee0c883cea832"
 
-web-ext@8.0.0:
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/web-ext/-/web-ext-8.0.0.tgz#7b5ffe31347f197011fff2ef0057eb0a6ffe42cb"
+web-ext@8.1.0:
+  version "8.1.0"
+  resolved "https://registry.yarnpkg.com/web-ext/-/web-ext-8.1.0.tgz#f6313f745f155490c058bb7cf220973fa93e0f77"
   dependencies:
-    "@babel/runtime" "7.24.6"
+    "@babel/runtime" "7.24.7"
     "@devicefarmer/adbkit" "3.2.6"
-    addons-linter "6.28.0"
+    addons-linter "6.29.0"
     bunyan "1.8.15"
     camelcase "8.0.0"
     chrome-launcher "0.15.1"
@@ -3412,7 +3412,7 @@ web-ext@8.0.0:
     fs-extra "11.2.0"
     fx-runner "1.4.0"
     https-proxy-agent "^7.0.0"
-    jose "4.15.5"
+    jose "5.4.0"
     jszip "3.10.1"
     mkdirp "1.0.4"
     multimatch "6.0.0"
