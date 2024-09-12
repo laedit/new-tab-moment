@@ -758,9 +758,9 @@ concat-stream@^1.4.7:
     readable-stream "^2.2.2"
     typedarray "^0.0.6"
 
-concurrently@9.0.0:
-  version "9.0.0"
-  resolved "https://registry.yarnpkg.com/concurrently/-/concurrently-9.0.0.tgz#b74e85bfbed9b920c54128f8cf7f91f23cc19112"
+concurrently@9.0.1:
+  version "9.0.1"
+  resolved "https://registry.yarnpkg.com/concurrently/-/concurrently-9.0.1.tgz#01e171bf6c7af0c022eb85daef95bff04d8185aa"
   dependencies:
     chalk "^4.1.2"
     lodash "^4.17.21"
