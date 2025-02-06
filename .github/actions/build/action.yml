@@ -39,8 +39,7 @@ runs:
         cp web-ext-artifacts/edge/new_tab_-_moment-$version.zip web-ext-artifacts/new_tab_-_moment-$version.edge.zip
       shell: bash
 
-    - uses: actions/upload-artifact@v3
+    - uses: actions/upload-artifact@v4
       with:
         path: web-ext-artifacts/new_tab_-_moment-*.zip
         if-no-files-found: error
-
