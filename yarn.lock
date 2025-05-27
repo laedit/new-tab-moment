@@ -182,9 +182,9 @@ acorn@^8.9.0:
   version "8.10.0"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-8.10.0.tgz#8be5b3907a67221a81ab23c7889c4c5526b62ec5"
 
-addons-linter@7.12.0:
-  version "7.12.0"
-  resolved "https://registry.yarnpkg.com/addons-linter/-/addons-linter-7.12.0.tgz#9ec72b5ceca0a8d70da8a3b6571c38ad67772b72"
+addons-linter@7.13.0:
+  version "7.13.0"
+  resolved "https://registry.yarnpkg.com/addons-linter/-/addons-linter-7.13.0.tgz#c125b994fdd8c6ec7fe8ca0cbbf02848d7e70f23"
   dependencies:
     "@fluent/syntax" "0.19.0"
     "@fregante/relaxed-json" "2.0.0"
@@ -2762,13 +2762,13 @@ web-ext-types@3.2.1:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/web-ext-types/-/web-ext-types-3.2.1.tgz#3edc0e3c2e8fe121d7d7e4ca0b7ee0c883cea832"
 
-web-ext@8.7.0:
-  version "8.7.0"
-  resolved "https://registry.yarnpkg.com/web-ext/-/web-ext-8.7.0.tgz#ceda6b983c5ad8eeb4652feb1a4a8761e40dd712"
+web-ext@8.7.1:
+  version "8.7.1"
+  resolved "https://registry.yarnpkg.com/web-ext/-/web-ext-8.7.1.tgz#53a5d2e4061791c8a5694460aee3cc66f412cfe1"
   dependencies:
     "@babel/runtime" "7.27.1"
     "@devicefarmer/adbkit" "3.3.8"
-    addons-linter "7.12.0"
+    addons-linter "7.13.0"
     camelcase "8.0.0"
     chrome-launcher "1.2.0"
     debounce "1.2.1"
