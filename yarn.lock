@@ -102,9 +102,9 @@
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/object-schema/-/object-schema-2.0.3.tgz#4a2868d75d6d6963e423bcf90b7fd1be343409d3"
 
-"@mdn/browser-compat-data@6.0.23":
-  version "6.0.23"
-  resolved "https://registry.yarnpkg.com/@mdn/browser-compat-data/-/browser-compat-data-6.0.23.tgz#6552de3adb9f800c9ee3e29e84c7ec97e9d2581b"
+"@mdn/browser-compat-data@6.0.32":
+  version "6.0.32"
+  resolved "https://registry.yarnpkg.com/@mdn/browser-compat-data/-/browser-compat-data-6.0.32.tgz#34b85634d4c2d43cb592087547727b5ca5fc146e"
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
@@ -164,12 +164,6 @@
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@ungap/structured-clone/-/structured-clone-1.2.0.tgz#756641adb587851b5ccb3e095daf27ae581c8406"
 
-abort-controller@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/abort-controller/-/abort-controller-3.0.0.tgz#eaf54d53b62bae4138e809ca225c8439a6efb392"
-  dependencies:
-    event-target-shim "^5.0.0"
-
 acorn-jsx@^5.3.2:
   version "5.3.2"
   resolved "https://registry.yarnpkg.com/acorn-jsx/-/acorn-jsx-5.3.2.tgz#7ed5bb55908b3b2f1bc55c6af1653bada7f07937"
@@ -182,13 +176,13 @@ acorn@^8.9.0:
   version "8.10.0"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-8.10.0.tgz#8be5b3907a67221a81ab23c7889c4c5526b62ec5"
 
-addons-linter@7.15.0:
-  version "7.15.0"
-  resolved "https://registry.yarnpkg.com/addons-linter/-/addons-linter-7.15.0.tgz#c55586ace3176d6f99d1d8c59c99d8c83e057142"
+addons-linter@7.18.0:
+  version "7.18.0"
+  resolved "https://registry.yarnpkg.com/addons-linter/-/addons-linter-7.18.0.tgz#9403e93e87832c394cc79a5cd76d31888ca961cc"
   dependencies:
     "@fluent/syntax" "0.19.0"
     "@fregante/relaxed-json" "2.0.0"
-    "@mdn/browser-compat-data" "6.0.23"
+    "@mdn/browser-compat-data" "6.0.32"
     addons-moz-compare "1.3.0"
     addons-scanner-utils "9.13.0"
     ajv "8.17.1"
@@ -205,7 +199,7 @@ addons-linter@7.15.0:
     fast-json-patch "3.1.1"
     image-size "2.0.2"
     json-merge-patch "1.0.2"
-    pino "8.20.0"
+    pino "9.7.0"
     semver "7.7.2"
     source-map-support "0.5.21"
     upath "2.0.1"
@@ -987,10 +981,6 @@ estraverse@^5.2.0:
 esutils@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/esutils/-/esutils-2.0.2.tgz#0abf4f1caa5bcb1f7a9d8acc6dea4faaa04bac9b"
-
-event-target-shim@^5.0.0:
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/event-target-shim/-/event-target-shim-5.0.1.tgz#5d4d3ebdf9583d63a5333ce2deb7480ab2b05789"
 
 expand-brackets@^0.1.4:
   version "0.1.5"
@@ -1957,14 +1947,14 @@ once@^1.3.0:
   dependencies:
     wrappy "1"
 
-open@10.1.2:
-  version "10.1.2"
-  resolved "https://registry.yarnpkg.com/open/-/open-10.1.2.tgz#d5df40984755c9a9c3c93df8156a12467e882925"
+open@10.2.0:
+  version "10.2.0"
+  resolved "https://registry.yarnpkg.com/open/-/open-10.2.0.tgz#b9d855be007620e80b6fb05fac98141fe62db73c"
   dependencies:
     default-browser "^5.2.1"
     define-lazy-prop "^3.0.0"
     is-inside-container "^1.0.0"
-    is-wsl "^3.1.0"
+    wsl-utils "^0.1.0"
 
 optionator@^0.9.3:
   version "0.9.3"
@@ -2072,42 +2062,15 @@ picocolors@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/picocolors/-/picocolors-1.0.1.tgz#a8ad579b571952f0e5d25892de5445bcfe25aaa1"
 
-pino-abstract-transport@^1.1.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/pino-abstract-transport/-/pino-abstract-transport-1.2.0.tgz#97f9f2631931e242da531b5c66d3079c12c9d1b5"
-  dependencies:
-    readable-stream "^4.0.0"
-    split2 "^4.0.0"
-
 pino-abstract-transport@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/pino-abstract-transport/-/pino-abstract-transport-2.0.0.tgz#de241578406ac7b8a33ce0d77ae6e8a0b3b68a60"
   dependencies:
     split2 "^4.0.0"
 
-pino-std-serializers@^6.0.0:
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/pino-std-serializers/-/pino-std-serializers-6.0.0.tgz#4c20928a1bafca122fdc2a7a4a171ca1c5f9c526"
-
 pino-std-serializers@^7.0.0:
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/pino-std-serializers/-/pino-std-serializers-7.0.0.tgz#7c625038b13718dbbd84ab446bd673dc52259e3b"
-
-pino@8.20.0:
-  version "8.20.0"
-  resolved "https://registry.yarnpkg.com/pino/-/pino-8.20.0.tgz#ccfc6fef37b165e006b923834131632a8c4f036b"
-  dependencies:
-    atomic-sleep "^1.0.0"
-    fast-redact "^3.1.1"
-    on-exit-leak-free "^2.1.0"
-    pino-abstract-transport "^1.1.0"
-    pino-std-serializers "^6.0.0"
-    process-warning "^3.0.0"
-    quick-format-unescaped "^4.0.3"
-    real-require "^0.2.0"
-    safe-stable-stringify "^2.3.1"
-    sonic-boom "^3.7.0"
-    thread-stream "^2.0.0"
 
 pino@9.7.0:
   version "9.7.0"
@@ -2140,10 +2103,6 @@ preserve@^0.2.0:
 process-nextick-args@~2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/process-nextick-args/-/process-nextick-args-2.0.1.tgz#7820d9b16120cc55ca9ae7792680ae7dba6d7fe2"
-
-process-warning@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/process-warning/-/process-warning-3.0.0.tgz#96e5b88884187a1dce6f5c3166d611132058710b"
 
 process-warning@^5.0.0:
   version "5.0.0"
@@ -2205,12 +2164,6 @@ readable-stream@^2.0.2, readable-stream@^2.2.2, readable-stream@~2.3.6:
     safe-buffer "~5.1.1"
     string_decoder "~1.1.1"
     util-deprecate "~1.0.1"
-
-readable-stream@^4.0.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-4.1.0.tgz#280d0a29f559d3fb684a277254e02b6f61ae0631"
-  dependencies:
-    abort-controller "^3.0.0"
 
 readdirp@^2.0.0:
   version "2.2.1"
@@ -2424,12 +2377,6 @@ snapdragon@^0.8.1:
     source-map-resolve "^0.5.0"
     use "^3.1.0"
 
-sonic-boom@^3.7.0:
-  version "3.7.0"
-  resolved "https://registry.yarnpkg.com/sonic-boom/-/sonic-boom-3.7.0.tgz#b4b7b8049a912986f4a92c51d4660b721b11f2f2"
-  dependencies:
-    atomic-sleep "^1.0.0"
-
 sonic-boom@^4.0.1:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/sonic-boom/-/sonic-boom-4.1.0.tgz#4f039663ba191fac5cfe4f1dc330faac079e4342"
@@ -2604,12 +2551,6 @@ text-table@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/text-table/-/text-table-0.2.0.tgz#7f5ee823ae805207c00af2df4a84ec3fcfa570b4"
 
-thread-stream@^2.0.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/thread-stream/-/thread-stream-2.1.0.tgz#d560dd8b9d09482b0e2e876a96c229c374870836"
-  dependencies:
-    real-require "^0.2.0"
-
 thread-stream@^3.0.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/thread-stream/-/thread-stream-3.1.0.tgz#4b2ef252a7c215064507d4ef70c05a5e2d34c4f1"
@@ -2762,13 +2703,13 @@ web-ext-types@3.2.1:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/web-ext-types/-/web-ext-types-3.2.1.tgz#3edc0e3c2e8fe121d7d7e4ca0b7ee0c883cea832"
 
-web-ext@8.8.0:
-  version "8.8.0"
-  resolved "https://registry.yarnpkg.com/web-ext/-/web-ext-8.8.0.tgz#212e3914c443f6674092bd769781ad4334760552"
+web-ext@8.9.0:
+  version "8.9.0"
+  resolved "https://registry.yarnpkg.com/web-ext/-/web-ext-8.9.0.tgz#86e93efd011141b79b5f1bbb11e14515545f1992"
   dependencies:
     "@babel/runtime" "7.27.6"
     "@devicefarmer/adbkit" "3.3.8"
-    addons-linter "7.15.0"
+    addons-linter "7.18.0"
     camelcase "8.0.0"
     chrome-launcher "1.2.0"
     debounce "1.2.1"
@@ -2781,7 +2722,7 @@ web-ext@8.8.0:
     jszip "3.10.1"
     multimatch "6.0.0"
     node-notifier "10.0.1"
-    open "10.1.2"
+    open "10.2.0"
     parse-json "7.1.1"
     pino "9.7.0"
     promise-toolbox "0.21.0"
@@ -2844,6 +2785,12 @@ wrap-ansi@^9.0.0:
 wrappy@1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/wrappy/-/wrappy-1.0.2.tgz#b5243d8f3ec1aa35f1364605bc0d1036e30ab69f"
+
+wsl-utils@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/wsl-utils/-/wsl-utils-0.1.0.tgz#8783d4df671d4d50365be2ee4c71917a0557baab"
+  dependencies:
+    is-wsl "^3.1.0"
 
 xdg-basedir@^5.1.0:
   version "5.1.0"
