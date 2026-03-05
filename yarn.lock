@@ -128,9 +128,9 @@
   version "0.4.3"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/retry/-/retry-0.4.3.tgz#c2b9d2e374ee62c586d3adbea87199b1d7a7a6ba"
 
-"@mdn/browser-compat-data@7.3.0":
-  version "7.3.0"
-  resolved "https://registry.yarnpkg.com/@mdn/browser-compat-data/-/browser-compat-data-7.3.0.tgz#a2cb88c6f553a800365e4380ea0e5653b015175d"
+"@mdn/browser-compat-data@7.3.3":
+  version "7.3.3"
+  resolved "https://registry.yarnpkg.com/@mdn/browser-compat-data/-/browser-compat-data-7.3.3.tgz#22c809a4af5c6dfa6afd90d284392d70cd024650"
 
 "@pinojs/redact@^0.4.0":
   version "0.4.0"
@@ -174,12 +174,6 @@
   version "10.12.0"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-10.12.0.tgz#ea6dcbddbc5b584c83f06c60e82736d8fbb0c235"
 
-"@types/yauzl@2.10.3":
-  version "2.10.3"
-  resolved "https://registry.yarnpkg.com/@types/yauzl/-/yauzl-2.10.3.tgz#e9b2808b4f109504a03cda958259876f61017999"
-  dependencies:
-    "@types/node" "*"
-
 acorn-jsx@^5.3.2:
   version "5.3.2"
   resolved "https://registry.yarnpkg.com/acorn-jsx/-/acorn-jsx-5.3.2.tgz#7ed5bb55908b3b2f1bc55c6af1653bada7f07937"
@@ -188,31 +182,35 @@ acorn@^8.15.0:
   version "8.15.0"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-8.15.0.tgz#a360898bc415edaac46c8241f6383975b930b816"
 
-addons-linter@9.6.0:
-  version "9.6.0"
-  resolved "https://registry.yarnpkg.com/addons-linter/-/addons-linter-9.6.0.tgz#83599052b127b4a545fee5cc8e206e5df00a3e37"
+acorn@^8.16.0:
+  version "8.16.0"
+  resolved "https://registry.yarnpkg.com/acorn/-/acorn-8.16.0.tgz#4ce79c89be40afe7afe8f3adb902a1f1ce9ac08a"
+
+addons-linter@9.9.1:
+  version "9.9.1"
+  resolved "https://registry.yarnpkg.com/addons-linter/-/addons-linter-9.9.1.tgz#7a33f8f924ad7810a2a4697af8c74560a500ab1e"
   dependencies:
     "@fluent/syntax" "0.19.0"
     "@fregante/relaxed-json" "2.0.0"
-    "@mdn/browser-compat-data" "7.3.0"
+    "@mdn/browser-compat-data" "7.3.3"
     addons-moz-compare "1.3.0"
-    addons-scanner-utils "10.2.0"
-    ajv "8.17.1"
+    addons-scanner-utils "12.0.0"
+    ajv "8.18.0"
     chalk "4.1.2"
     cheerio "1.2.0"
     columnify "1.6.0"
     common-tags "1.8.2"
     deepmerge "4.3.1"
     eslint "9.39.2"
-    eslint-plugin-no-unsanitized "4.1.4"
-    eslint-visitor-keys "5.0.0"
-    espree "11.1.0"
+    eslint-plugin-no-unsanitized "4.1.5"
+    eslint-visitor-keys "5.0.1"
+    espree "11.1.1"
     esprima "4.0.1"
     fast-json-patch "3.1.1"
     image-size "2.0.2"
     json-merge-patch "1.0.2"
-    pino "10.3.0"
-    semver "7.7.3"
+    pino "10.3.1"
+    semver "7.7.4"
     source-map-support "0.5.21"
     upath "2.0.1"
     yargs "17.7.2"
@@ -222,16 +220,15 @@ addons-moz-compare@1.3.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/addons-moz-compare/-/addons-moz-compare-1.3.0.tgz#9074dce00291cef998c2fba6b462d041cc6b3e36"
 
-addons-scanner-utils@10.2.0:
-  version "10.2.0"
-  resolved "https://registry.yarnpkg.com/addons-scanner-utils/-/addons-scanner-utils-10.2.0.tgz#5e07ff1b94296cc5ec7628e850e4e6808cecee30"
+addons-scanner-utils@12.0.0:
+  version "12.0.0"
+  resolved "https://registry.yarnpkg.com/addons-scanner-utils/-/addons-scanner-utils-12.0.0.tgz#c9d58173d2cb963bec944b20fa4e3fe0abe49ed7"
   dependencies:
-    "@types/yauzl" "2.10.3"
     common-tags "1.8.2"
     first-chunk-stream "3.0.0"
     strip-bom-stream "4.0.0"
     upath "2.0.1"
-    yauzl "2.10.0"
+    yauzl "3.2.0"
 
 adm-zip@~0.5.x:
   version "0.5.4"
@@ -243,9 +240,9 @@ agent-base@^7.0.2:
   dependencies:
     debug "^4.3.4"
 
-ajv@8.17.1:
-  version "8.17.1"
-  resolved "https://registry.yarnpkg.com/ajv/-/ajv-8.17.1.tgz#37d9a5c776af6bc92d7f4f9510eba4c0a60d11a6"
+ajv@8.18.0:
+  version "8.18.0"
+  resolved "https://registry.yarnpkg.com/ajv/-/ajv-8.18.0.tgz#8864186b6738d003eb3a933172bb3833e10cefbc"
   dependencies:
     fast-deep-equal "^3.1.3"
     fast-uri "^3.0.1"
@@ -870,9 +867,9 @@ escape-string-regexp@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-4.0.0.tgz#14ba83a5d373e3d311e5afca29cf5bfad965bf34"
 
-eslint-plugin-no-unsanitized@4.1.4:
-  version "4.1.4"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-no-unsanitized/-/eslint-plugin-no-unsanitized-4.1.4.tgz#732dc9988190e38b29e5c1af86261f18ff658233"
+eslint-plugin-no-unsanitized@4.1.5:
+  version "4.1.5"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-no-unsanitized/-/eslint-plugin-no-unsanitized-4.1.5.tgz#036c7c7ac4561ff0ee34c3d126b3b6e86037641c"
 
 eslint-scope@^8.4.0:
   version "8.4.0"
@@ -881,9 +878,9 @@ eslint-scope@^8.4.0:
     esrecurse "^4.3.0"
     estraverse "^5.2.0"
 
-eslint-visitor-keys@5.0.0, eslint-visitor-keys@^5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/eslint-visitor-keys/-/eslint-visitor-keys-5.0.0.tgz#b9aa1a74aa48c44b3ae46c1597ce7171246a94a9"
+eslint-visitor-keys@5.0.1, eslint-visitor-keys@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/eslint-visitor-keys/-/eslint-visitor-keys-5.0.1.tgz#9e3c9489697824d2d4ce3a8ad12628f91e9f59be"
 
 eslint-visitor-keys@^3.4.3:
   version "3.4.3"
@@ -932,13 +929,13 @@ eslint@9.39.2:
     natural-compare "^1.4.0"
     optionator "^0.9.3"
 
-espree@11.1.0:
-  version "11.1.0"
-  resolved "https://registry.yarnpkg.com/espree/-/espree-11.1.0.tgz#7d0c82a69f8df670728dba256264b383fbf73e8f"
+espree@11.1.1:
+  version "11.1.1"
+  resolved "https://registry.yarnpkg.com/espree/-/espree-11.1.1.tgz#866f6bc9ccccd6f28876b7a6463abb281b9cb847"
   dependencies:
-    acorn "^8.15.0"
+    acorn "^8.16.0"
     acorn-jsx "^5.3.2"
-    eslint-visitor-keys "^5.0.0"
+    eslint-visitor-keys "^5.0.1"
 
 espree@^10.0.1, espree@^10.4.0:
   version "10.4.0"
@@ -2045,22 +2042,6 @@ pino-std-serializers@^7.0.0:
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/pino-std-serializers/-/pino-std-serializers-7.0.0.tgz#7c625038b13718dbbd84ab446bd673dc52259e3b"
 
-pino@10.3.0:
-  version "10.3.0"
-  resolved "https://registry.yarnpkg.com/pino/-/pino-10.3.0.tgz#965ae842e9b7e6e7e9f002bac33c831b16912529"
-  dependencies:
-    "@pinojs/redact" "^0.4.0"
-    atomic-sleep "^1.0.0"
-    on-exit-leak-free "^2.1.0"
-    pino-abstract-transport "^3.0.0"
-    pino-std-serializers "^7.0.0"
-    process-warning "^5.0.0"
-    quick-format-unescaped "^4.0.3"
-    real-require "^0.2.0"
-    safe-stable-stringify "^2.3.1"
-    sonic-boom "^4.0.1"
-    thread-stream "^4.0.0"
-
 pino@10.3.1:
   version "10.3.1"
   resolved "https://registry.yarnpkg.com/pino/-/pino-10.3.1.tgz#6552c8f8d8481844c9e452e7bf0be90bff1939ce"
@@ -2269,9 +2250,9 @@ sax@>=0.6.0:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
 
-semver@7.7.3:
-  version "7.7.3"
-  resolved "https://registry.yarnpkg.com/semver/-/semver-7.7.3.tgz#4b5f4143d007633a8dc671cd0a6ef9147b8bb946"
+semver@7.7.4:
+  version "7.7.4"
+  resolved "https://registry.yarnpkg.com/semver/-/semver-7.7.4.tgz#28464e36060e991fa7a11d0279d2d3f3b57a7e8a"
 
 semver@^7.3.5:
   version "7.5.4"
@@ -2670,13 +2651,13 @@ web-ext-types@3.2.1:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/web-ext-types/-/web-ext-types-3.2.1.tgz#3edc0e3c2e8fe121d7d7e4ca0b7ee0c883cea832"
 
-web-ext@9.3.0:
-  version "9.3.0"
-  resolved "https://registry.yarnpkg.com/web-ext/-/web-ext-9.3.0.tgz#2797d4c6064d02c40aa921ca12f6a733bb066463"
+web-ext@9.4.0:
+  version "9.4.0"
+  resolved "https://registry.yarnpkg.com/web-ext/-/web-ext-9.4.0.tgz#5395b321107b50658127c4838b36024e4ddb3e77"
   dependencies:
     "@babel/runtime" "7.28.6"
     "@devicefarmer/adbkit" "3.3.8"
-    addons-linter "9.6.0"
+    addons-linter "9.9.1"
     camelcase "8.0.0"
     chrome-launcher "1.2.0"
     debounce "1.2.1"
@@ -2815,6 +2796,13 @@ yauzl@2.10.0:
   dependencies:
     buffer-crc32 "~0.2.3"
     fd-slicer "~1.1.0"
+
+yauzl@3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/yauzl/-/yauzl-3.2.0.tgz#7b6cb548f09a48a6177ea0be8ece48deb7da45c0"
+  dependencies:
+    buffer-crc32 "~0.2.3"
+    pend "~1.2.0"
 
 yocto-queue@^0.1.0:
   version "0.1.0"
