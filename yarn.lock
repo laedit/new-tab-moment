@@ -128,9 +128,9 @@
   version "0.4.3"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/retry/-/retry-0.4.3.tgz#c2b9d2e374ee62c586d3adbea87199b1d7a7a6ba"
 
-"@mdn/browser-compat-data@7.3.9":
-  version "7.3.9"
-  resolved "https://registry.yarnpkg.com/@mdn/browser-compat-data/-/browser-compat-data-7.3.9.tgz#657bdf5ba8d27369bb7678040827bad915e760b4"
+"@mdn/browser-compat-data@7.3.15":
+  version "7.3.15"
+  resolved "https://registry.yarnpkg.com/@mdn/browser-compat-data/-/browser-compat-data-7.3.15.tgz#a07f2ce7e739e400f2c255be0a54a8a3c1b4f95f"
 
 "@pinojs/redact@^0.4.0":
   version "0.4.0"
@@ -186,17 +186,16 @@ acorn@^8.16.0:
   version "8.16.0"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-8.16.0.tgz#4ce79c89be40afe7afe8f3adb902a1f1ce9ac08a"
 
-addons-linter@10.3.0:
-  version "10.3.0"
-  resolved "https://registry.yarnpkg.com/addons-linter/-/addons-linter-10.3.0.tgz#8fe44e7389acd6d4c4879a9d99c3259b536b7311"
+addons-linter@10.5.0:
+  version "10.5.0"
+  resolved "https://registry.yarnpkg.com/addons-linter/-/addons-linter-10.5.0.tgz#a22eb29bcc922d6f98af9f271d37dd8c21167cc4"
   dependencies:
     "@fluent/syntax" "0.19.0"
     "@fregante/relaxed-json" "2.0.0"
-    "@mdn/browser-compat-data" "7.3.9"
+    "@mdn/browser-compat-data" "7.3.15"
     addons-moz-compare "1.3.0"
-    addons-scanner-utils "15.0.0"
-    ajv "8.18.0"
-    chalk "4.1.2"
+    addons-scanner-utils "15.1.0"
+    ajv "8.20.0"
     cheerio "1.2.0"
     columnify "1.6.0"
     common-tags "1.8.2"
@@ -210,26 +209,26 @@ addons-linter@10.3.0:
     image-size "2.0.2"
     json-merge-patch "1.0.2"
     pino "10.3.1"
-    semver "7.7.4"
+    semver "7.8.0"
     source-map-support "0.5.21"
-    upath "2.0.1"
+    upath "3.0.7"
     yargs "17.7.2"
-    yauzl "3.2.1"
+    yauzl "3.3.0"
 
 addons-moz-compare@1.3.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/addons-moz-compare/-/addons-moz-compare-1.3.0.tgz#9074dce00291cef998c2fba6b462d041cc6b3e36"
 
-addons-scanner-utils@15.0.0:
-  version "15.0.0"
-  resolved "https://registry.yarnpkg.com/addons-scanner-utils/-/addons-scanner-utils-15.0.0.tgz#322f83365bbd833b0c3e14653ecbfa932f6abd4a"
+addons-scanner-utils@15.1.0:
+  version "15.1.0"
+  resolved "https://registry.yarnpkg.com/addons-scanner-utils/-/addons-scanner-utils-15.1.0.tgz#c5d82abf47d907b42d01c0ca7d089833bd7dfeba"
   dependencies:
     common-tags "1.8.2"
     first-chunk-stream "3.0.0"
     jsonwebtoken "^9.0.3"
     strip-bom-stream "4.0.0"
-    upath "2.0.1"
-    yauzl "3.2.1"
+    upath "3.0.7"
+    yauzl "3.3.0"
 
 adm-zip@~0.5.x:
   version "0.5.4"
@@ -241,9 +240,9 @@ agent-base@^7.0.2:
   dependencies:
     debug "^4.3.4"
 
-ajv@8.18.0:
-  version "8.18.0"
-  resolved "https://registry.yarnpkg.com/ajv/-/ajv-8.18.0.tgz#8864186b6738d003eb3a933172bb3833e10cefbc"
+ajv@8.20.0:
+  version "8.20.0"
+  resolved "https://registry.yarnpkg.com/ajv/-/ajv-8.20.0.tgz#304b3636add88ba7d936760dd50ece006dea95f9"
   dependencies:
     fast-deep-equal "^3.1.3"
     fast-uri "^3.0.1"
@@ -1261,10 +1260,6 @@ graceful-fs@^4.2.11:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/graceful-readlink/-/graceful-readlink-1.0.1.tgz#4cafad76bc62f02fa039b2f94e9a3dd3a391a725"
 
-growly@^1.3.0:
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/growly/-/growly-1.3.0.tgz#f10748cbe76af964b7c96c93c6bcc28af120c081"
-
 has-flag@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/has-flag/-/has-flag-4.0.0.tgz#944771fd9c81c81265c4d6941860da06bb59479b"
@@ -1772,12 +1767,6 @@ lodash.once@^4.0.0:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/lodash.once/-/lodash.once-4.1.1.tgz#0dd3971213c7c56df880977d504c88fb471a97ac"
 
-lru-cache@^6.0.0:
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/lru-cache/-/lru-cache-6.0.0.tgz#6d6fe6570ebd96aaf90fcad1dafa3b2566db3a94"
-  dependencies:
-    yallist "^4.0.0"
-
 make-error@^1.3.2:
   version "1.3.6"
   resolved "https://registry.yarnpkg.com/make-error/-/make-error-1.3.6.tgz#2eb2e37ea9b67c4891f684a1394799af484cf7a2"
@@ -1911,17 +1900,6 @@ natural-compare@^1.4.0:
 node-forge@^1.3.1:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/node-forge/-/node-forge-1.4.0.tgz#1c7b7d8bdc2d078739f58287d589d903a11b2fc2"
-
-node-notifier@10.0.1:
-  version "10.0.1"
-  resolved "https://registry.yarnpkg.com/node-notifier/-/node-notifier-10.0.1.tgz#0e82014a15a8456c4cfcdb25858750399ae5f1c7"
-  dependencies:
-    growly "^1.3.0"
-    is-wsl "^2.2.0"
-    semver "^7.3.5"
-    shellwords "^0.1.1"
-    uuid "^8.3.2"
-    which "^2.0.2"
 
 normalize-path@^2.0.0, normalize-path@^2.0.1:
   version "2.1.1"
@@ -2317,15 +2295,13 @@ sax@>=0.6.0:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
 
-semver@7.7.4, semver@^7.5.4:
+semver@7.8.0:
+  version "7.8.0"
+  resolved "https://registry.yarnpkg.com/semver/-/semver-7.8.0.tgz#ed0661039fcbcda2ce71f01fa6adbefaa77040df"
+
+semver@^7.5.4:
   version "7.7.4"
   resolved "https://registry.yarnpkg.com/semver/-/semver-7.7.4.tgz#28464e36060e991fa7a11d0279d2d3f3b57a7e8a"
-
-semver@^7.3.5:
-  version "7.5.4"
-  resolved "https://registry.yarnpkg.com/semver/-/semver-7.5.4.tgz#483986ec4ed38e1c6c48c34894a9182dbff68a6e"
-  dependencies:
-    lru-cache "^6.0.0"
 
 semver@^7.6.0, semver@^7.6.3:
   version "7.6.3"
@@ -2370,10 +2346,6 @@ shell-quote@1.7.3:
 shell-quote@1.8.3, shell-quote@^1.6.1:
   version "1.8.3"
   resolved "https://registry.yarnpkg.com/shell-quote/-/shell-quote-1.8.3.tgz#55e40ef33cf5c689902353a3d8cd1a6725f08b4b"
-
-shellwords@^0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/shellwords/-/shellwords-0.1.1.tgz#d6b9181c1a48d397324c84871efbcfc73fc0654b"
 
 snapdragon-node@^2.0.1:
   version "2.1.1"
@@ -2660,9 +2632,9 @@ unset-value@^1.0.0:
     has-value "^0.3.1"
     isobject "^3.0.0"
 
-upath@2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/upath/-/upath-2.0.1.tgz#50c73dea68d6f6b990f51d279ce6081665d61a8b"
+upath@3.0.7:
+  version "3.0.7"
+  resolved "https://registry.yarnpkg.com/upath/-/upath-3.0.7.tgz#2e71224200ee5b14ca36342a9b7e8a37f0912859"
 
 update-notifier@7.3.1:
   version "7.3.1"
@@ -2697,10 +2669,6 @@ util-deprecate@~1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/util-deprecate/-/util-deprecate-1.0.2.tgz#450d4dc9fa70de732762fbd2d4a28981419a0ccf"
 
-uuid@^8.3.2:
-  version "8.3.2"
-  resolved "https://registry.yarnpkg.com/uuid/-/uuid-8.3.2.tgz#80d5b5ced271bb9af6c445f21a1a04c606cefbe2"
-
 watchpack@2.5.1:
   version "2.5.1"
   resolved "https://registry.yarnpkg.com/watchpack/-/watchpack-2.5.1.tgz#dd38b601f669e0cbf567cb802e75cead82cde102"
@@ -2718,13 +2686,13 @@ web-ext-types@3.2.1:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/web-ext-types/-/web-ext-types-3.2.1.tgz#3edc0e3c2e8fe121d7d7e4ca0b7ee0c883cea832"
 
-web-ext@10.1.0:
-  version "10.1.0"
-  resolved "https://registry.yarnpkg.com/web-ext/-/web-ext-10.1.0.tgz#9bc9de9644689cea3c0e1f58dcb01122a08cb644"
+web-ext@10.2.0:
+  version "10.2.0"
+  resolved "https://registry.yarnpkg.com/web-ext/-/web-ext-10.2.0.tgz#e30c223251c6512a3fc51e29e42db725367516c7"
   dependencies:
     "@babel/runtime" "7.29.2"
     "@devicefarmer/adbkit" "3.3.8"
-    addons-linter "10.3.0"
+    addons-linter "10.5.0"
     camelcase "8.0.0"
     chrome-launcher "1.2.0"
     debounce "1.2.1"
@@ -2736,7 +2704,6 @@ web-ext@10.1.0:
     jose "5.9.6"
     jszip "3.10.1"
     multimatch "6.0.0"
-    node-notifier "10.0.1"
     open "11.0.0"
     parse-json "8.3.0"
     pino "10.3.1"
@@ -2775,7 +2742,7 @@ which@1.2.4:
     is-absolute "^0.1.7"
     isexe "^1.1.1"
 
-which@^2.0.1, which@^2.0.2:
+which@^2.0.1:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/which/-/which-2.0.2.tgz#7c6a8dd0a636a0327e10b59c9286eee93f3f51b1"
   dependencies:
@@ -2837,10 +2804,6 @@ y18n@^5.0.5:
   version "5.0.5"
   resolved "https://registry.yarnpkg.com/y18n/-/y18n-5.0.5.tgz#8769ec08d03b1ea2df2500acef561743bbb9ab18"
 
-yallist@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/yallist/-/yallist-4.0.0.tgz#9bb92790d9c0effec63be73519e11a35019a3a72"
-
 yargs-parser@^21.1.1:
   version "21.1.1"
   resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-21.1.1.tgz#9096bceebf990d21bb31fa9516e0ede294a77d35"
@@ -2857,9 +2820,9 @@ yargs@17.7.2:
     y18n "^5.0.5"
     yargs-parser "^21.1.1"
 
-yauzl@3.2.1:
-  version "3.2.1"
-  resolved "https://registry.yarnpkg.com/yauzl/-/yauzl-3.2.1.tgz#d35befb9a0fdd328da41926be895ade2de14dbe7"
+yauzl@3.3.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/yauzl/-/yauzl-3.3.0.tgz#5be5e287b9a8112941c177734a34bf61a3e11bb4"
   dependencies:
     buffer-crc32 "~0.2.3"
     pend "~1.2.0"
