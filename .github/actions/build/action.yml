@@ -12,13 +12,20 @@ inputs:
 runs:
   using: "composite"
   steps:
+    - name: Enable Corepack
+      run: corepack enable
+      shell: bash
+
     - name: Use Node.js lts/*
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v6
       with:
         node-version: lts/*
         cache: 'yarn'
 
-    - run: yarn --prefer-offline --frozen-lockfile
+    - run: yarn add --cached
+      shell: bash
+
+    - run: yarn --immutable
       shell: bash
 
     - name: Create secrets.ts
@@ -39,7 +46,7 @@ runs:
         cp web-ext-artifacts/edge/new_tab_-_moment-$version.zip web-ext-artifacts/new_tab_-_moment-$version.edge.zip
       shell: bash
 
-    - uses: actions/upload-artifact@v4
+    - uses: actions/upload-artifact@v7
       with:
         path: web-ext-artifacts/new_tab_-_moment-*.zip
         if-no-files-found: error
