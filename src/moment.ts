@@ -88,8 +88,11 @@ async function displayWeather({ measurementUnits, location, displayIcon, activat
             setValue(elementsMap.windText, `${weatherResult.windSpeed} ${windUnit}`);
             elementsMap.gust.style.display = 'none';
             if (weatherResult.windGust) {
-                elementsMap.gust.style.display = 'block';
-                setValue(elementsMap.windGustText, `${weatherResult.windGust} ${windUnit}`); // MeasurementUnits // imperial -> miles/hour
+                elementsMap.gust.style.display = "block";
+                setValue(
+                    elementsMap.gustText,
+                    `${weatherResult.windGust} ${windUnit}`,
+                ); // MeasurementUnits // imperial -> miles/hour
             }
             elementsMap.windIcon.classList.add(`towards-${weatherResult.windDegrees}-deg`);
             elementsMap.wind.style.display = "block";
