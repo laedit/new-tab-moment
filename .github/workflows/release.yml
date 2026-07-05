@@ -61,7 +61,7 @@ jobs:
         run: ls -R
 
       - name: Create Release
-        uses: softprops/action-gh-release@de2c0eb89ae2a093876385947365aca7b0e5f844
+        uses: softprops/action-gh-release@v3.0.1
         with:
           tag_name: ${{ github.ref }}
           name: ${{ github.ref_name }}
@@ -82,10 +82,10 @@ jobs:
       - name: Display structure of downloaded files
         run: ls -R
 
-      - uses: wdzeng/edge-addon@b1ce0984067e0a0107065e0af237710906d94531
+      - uses: wdzeng/edge-addon@v2.1.1
         with:
           product-id: ${{ secrets.EDGE_PRODUCT }}
           zip-path: new_tab_moment.zip/new_tab_-_moment-${{ github.ref_name }}.edge.zip
           client-id: ${{ secrets.EDGE_CLIENT }}
-          client-secret: ${{ secrets.EDGE_SECRET }}
+          api-key: ${{ secrets.EDGE_KEY }}
           access-token-url: ${{ secrets.EDGE_TOKEN_URL }}
