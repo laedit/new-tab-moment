@@ -4,6 +4,7 @@
   "description": "new tab moment",
   "author": "laedit",
   "type": "module",
+  "packageManager": "yarn@4.13.0",
   "devDependencies": {
     "concurrently": "10.0.3",
     "cpx": "1.5.0",
