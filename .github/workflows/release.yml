@@ -35,7 +35,7 @@ jobs:
           }
           EOF
 
-    - uses: actions/upload-artifact@v3
+    - uses: actions/upload-artifact@v7
       with:
         path: ./version-metadata.json
 
