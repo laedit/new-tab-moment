@@ -22,7 +22,7 @@ runs:
         node-version: lts/*
         cache: 'yarn'
 
-    - run: yarn --prefer-offline --frozen-lockfile
+    - run: yarn --immutable-cache
       shell: bash
 
     - name: Create secrets.ts
