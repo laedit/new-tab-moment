@@ -22,7 +22,10 @@ runs:
         node-version: lts/*
         cache: 'yarn'
 
-    - run: yarn --immutable-cache
+    - run: yarn add --cached
+      shell: bash
+
+    - run: yarn --immutable
       shell: bash
 
     - name: Create secrets.ts
