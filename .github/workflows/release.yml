@@ -20,7 +20,7 @@ jobs:
 
     - name: Extract release notes
       id: extract-release-notes
-      uses: ffurrer2/extract-release-notes@4db7ff8e9cc8a442ab103fd3ddfaebd0f8f36e4c
+      uses: ffurrer2/extract-release-notes@3.1.0
 
     - name: Create version metadata
       run: |
@@ -38,6 +38,7 @@ jobs:
     - uses: actions/upload-artifact@v7
       with:
         path: ./version-metadata.json
+        name: "version-matadata.json"
 
     - run: yarn web-ext sign --api-key ${{ secrets.AMO_ISSUER }} --api-secret ${{ secrets.AMO_SECRET }} --use-submission-api --channel=listed --source-dir build/firefox --amo-metadata ./version-metadata.json
 
@@ -45,6 +46,7 @@ jobs:
       with:
         path: web-ext-artifacts/new_tab_moment-${{ github.ref_name }}.xpi
         if-no-files-found: error
+        name: new_tab_moment.xpi
 
     outputs:
       release_notes: ${{ steps.extract-release-notes.outputs.release_notes }}
@@ -53,7 +55,7 @@ jobs:
     needs: [release-firefox]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/download-artifact@v4.1.7
+      - uses: actions/download-artifact@v7.0.1
 
       - name: Display structure of downloaded files
         run: ls -R
@@ -68,14 +70,14 @@ jobs:
           prerelease: false
           token: ${{ secrets.GITHUB_TOKEN }}
           files: |
-            artifact/new_tab_-_moment-${{ github.ref_name }}.*.zip
-            artifact/new_tab_moment-${{ github.ref_name }}.xpi
+            new_tab_moment.zip/new_tab_-_moment-${{ github.ref_name }}.*.zip
+            new_tab_moment.xpi/new_tab_moment-${{ github.ref_name }}.xpi
 
   release-edge:
     needs: [release-firefox]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/download-artifact@v4.1.7
+      - uses: actions/download-artifact@v7.0.1
 
       - name: Display structure of downloaded files
         run: ls -R
@@ -83,7 +85,7 @@ jobs:
       - uses: wdzeng/edge-addon@b1ce0984067e0a0107065e0af237710906d94531
         with:
           product-id: ${{ secrets.EDGE_PRODUCT }}
-          zip-path: artifact/new_tab_-_moment-${{ github.ref_name }}.edge.zip
+          zip-path: new_tab_moment.zip/new_tab_-_moment-${{ github.ref_name }}.edge.zip
           client-id: ${{ secrets.EDGE_CLIENT }}
           client-secret: ${{ secrets.EDGE_SECRET }}
           access-token-url: ${{ secrets.EDGE_TOKEN_URL }}
