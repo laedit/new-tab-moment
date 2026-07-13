@@ -30,10 +30,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:7.29.7":
-  version: 7.29.7
-  resolution: "@babel/runtime@npm:7.29.7"
-  checksum: 10c0/ca11572f7146b21e0bde6a9ed4bb6a89eafbee5f0944c7eb54d0d8a2dac962c33638a1d611e14faa71dfbb92b4b5f9236232208568a6b7d5c6f3f39ddb91771e
+"@babel/runtime@npm:8.0.0":
+  version: 8.0.0
+  resolution: "@babel/runtime@npm:8.0.0"
+  checksum: 10c0/450857cf52b3a3935d4aad505277201361c86185dad3bdd2ae083d78b76c6265c7fc7610e170c80de1b825d5bfdcfb50697f0853fff922b2661c91cff1fbbd81
   languageName: node
   linkType: hard
 
@@ -210,10 +210,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mdn/browser-compat-data@npm:8.0.2":
-  version: 8.0.2
-  resolution: "@mdn/browser-compat-data@npm:8.0.2"
-  checksum: 10c0/1b6e29e85f404646e787a7197b0ba6e61851e7a69d40b55e9f30a0fab3eecb335529b5f3a32999b6ee43c23362558881e42976d09b6499654f22119047531043
+"@mdn/browser-compat-data@npm:8.0.4":
+  version: 8.0.4
+  resolution: "@mdn/browser-compat-data@npm:8.0.4"
+  checksum: 10c0/c5796e2eef6f0df90ac9c739140251a739e734d73497517ed149742b893bf937beddf84fba56f32c12380d6c39032923b6cc4d4206715a1f428f496957cf61a3
   languageName: node
   linkType: hard
 
@@ -320,19 +320,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"addons-linter@npm:10.7.0":
-  version: 10.7.0
-  resolution: "addons-linter@npm:10.7.0"
+"addons-linter@npm:10.8.0":
+  version: 10.8.0
+  resolution: "addons-linter@npm:10.8.0"
   dependencies:
     "@fluent/syntax": "npm:0.19.0"
     "@fregante/relaxed-json": "npm:2.0.0"
-    "@mdn/browser-compat-data": "npm:8.0.2"
+    "@mdn/browser-compat-data": "npm:8.0.4"
     addons-moz-compare: "npm:1.3.0"
-    addons-scanner-utils: "npm:15.2.0"
+    addons-scanner-utils: "npm:15.4.0"
     ajv: "npm:8.20.0"
     cheerio: "npm:1.2.0"
     columnify: "npm:1.6.0"
     common-tags: "npm:1.8.2"
+    css-tree: "npm:3.2.1"
     deepmerge: "npm:4.3.1"
     eslint: "npm:9.39.4"
     eslint-plugin-no-unsanitized: "npm:4.1.5"
@@ -343,14 +344,14 @@ __metadata:
     image-size: "npm:2.0.2"
     json-merge-patch: "npm:1.0.2"
     pino: "npm:10.3.1"
-    semver: "npm:7.8.2"
+    semver: "npm:7.8.5"
     source-map-support: "npm:0.5.21"
     upath: "npm:3.0.7"
     yargs: "npm:17.7.2"
-    yauzl: "npm:3.3.2"
+    yauzl: "npm:3.4.0"
   bin:
     addons-linter: bin/addons-linter
-  checksum: 10c0/73b253b76ae91d0e5af3afe06197196a07991613d137b5fe0b04a0cb54b49b591fa4bb85b3454b4723a135482f6b33d343b423693f0a579c2056858ac61e4a79
+  checksum: 10c0/8af269d4458f7e32026d937a74327508a7e2c51fbfd439ab60c6859f60b0d3e3bcce8db928ed51e247909ec374abbbebd7af9888fb75c4954e4b8efc1e45b237
   languageName: node
   linkType: hard
 
@@ -361,16 +362,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"addons-scanner-utils@npm:15.2.0":
-  version: 15.2.0
-  resolution: "addons-scanner-utils@npm:15.2.0"
+"addons-scanner-utils@npm:15.4.0":
+  version: 15.4.0
+  resolution: "addons-scanner-utils@npm:15.4.0"
   dependencies:
     common-tags: "npm:1.8.2"
     first-chunk-stream: "npm:3.0.0"
     jsonwebtoken: "npm:^9.0.3"
     strip-bom-stream: "npm:4.0.0"
     upath: "npm:3.0.7"
-    yauzl: "npm:3.3.0"
+    yauzl: "npm:3.4.0"
   peerDependencies:
     express: 5.2.1
     safe-compare: 1.1.4
@@ -379,7 +380,7 @@ __metadata:
       optional: true
     safe-compare:
       optional: true
-  checksum: 10c0/43a2953471940d9b560ed0eed92bc07d5bd128508de3731fe77c1a372c3d7224864bf0acf6a2db1af7f25e117966948879af3bf36c482bb4bf283db554305625
+  checksum: 10c0/4b41881636938b139fb61c38c0cccd15466e071593539c41c579cd70789520f51924741521983a9bb67ad90e043ad6d81ab550858118e137aa595db4575be278
   languageName: node
   linkType: hard
 
@@ -706,13 +707,6 @@ __metadata:
     split-string: "npm:^3.0.2"
     to-regex: "npm:^3.0.1"
   checksum: 10c0/72b27ea3ea2718f061c29e70fd6e17606e37c65f5801abddcf0b0052db1de7d60f3bf92cfc220ab57b44bd0083a5f69f9d03b3461d2816cfe9f9398207acc728
-  languageName: node
-  linkType: hard
-
-"buffer-crc32@npm:~0.2.3":
-  version: 0.2.13
-  resolution: "buffer-crc32@npm:0.2.13"
-  checksum: 10c0/cb0a8ddf5cf4f766466db63279e47761eb825693eeba6a5a95ee4ec8cb8f81ede70aa7f9d8aeec083e781d47154290eb5d4d26b3f7a465ec57fb9e7d59c47150
   languageName: node
   linkType: hard
 
@@ -1082,6 +1076,16 @@ __metadata:
     domutils: "npm:^3.0.1"
     nth-check: "npm:^2.0.1"
   checksum: 10c0/551c60dba5b54054741032c1793b5734f6ba45e23ae9e82761a3c0ed1acbb8cfedfa443aaba3a3c1a54cac12b456d2012a09d2cd5f0e82e430454c1b9d84d500
+  languageName: node
+  linkType: hard
+
+"css-tree@npm:3.2.1":
+  version: 3.2.1
+  resolution: "css-tree@npm:3.2.1"
+  dependencies:
+    mdn-data: "npm:2.27.1"
+    source-map-js: "npm:^1.2.1"
+  checksum: 10c0/1f65e9ccaa56112a4706d6f003dd43d777f0dbcf848e66fd320f823192533581f8dd58daa906cb80622658332d50284d6be13b87a6ab4556cbbfe9ef535bbf7e
   languageName: node
   linkType: hard
 
@@ -1908,13 +1912,6 @@ __metadata:
   dependencies:
     is-glob: "npm:^4.0.3"
   checksum: 10c0/317034d88654730230b3f43bb7ad4f7c90257a426e872ea0bf157473ac61c99bf5d205fad8f0185f989be8d2fa6d3c7dce1645d99d545b6ea9089c39f838e7f8
-  languageName: node
-  linkType: hard
-
-"glob-to-regexp@npm:^0.4.1":
-  version: 0.4.1
-  resolution: "glob-to-regexp@npm:0.4.1"
-  checksum: 10c0/0486925072d7a916f052842772b61c3e86247f0a80cc0deb9b5a3e8a1a9faad5b04fb6f58986a09f34d3e96cd2a22a24b7e9882fb1cf904c31e9a310de96c429
   languageName: node
   linkType: hard
 
@@ -2820,6 +2817,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"mdn-data@npm:2.27.1":
+  version: 2.27.1
+  resolution: "mdn-data@npm:2.27.1"
+  checksum: 10c0/eb8abf5d22e4d1e090346f5e81b67d23cef14c83940e445da5c44541ad874dc8fb9f6ca236e8258c3a489d9fb5884188a4d7d58773adb9089ac2c0b966796393
+  languageName: node
+  linkType: hard
+
 "micromatch@npm:^2.1.5":
   version: 2.3.11
   resolution: "micromatch@npm:2.3.11"
@@ -2997,7 +3001,7 @@ __metadata:
     concurrently: "npm:10.0.3"
     cpx: "npm:1.5.0"
     typescript: "npm:5.9.3"
-    web-ext: "npm:10.4.0"
+    web-ext: "npm:10.5.0"
     web-ext-types: "npm:3.2.1"
   languageName: unknown
   linkType: soft
@@ -3664,16 +3668,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"semver@npm:7.8.2":
-  version: 7.8.2
-  resolution: "semver@npm:7.8.2"
-  bin:
-    semver: bin/semver.js
-  checksum: 10c0/8e8c193fa75b938e5b3ccf6707c6447e4b34f73e493e72b03f3185393489f45e049144052f624217c346d6c6e0a301dda8eeab2f14413e337218ecb1cbd2de16
-  languageName: node
-  linkType: hard
-
-"semver@npm:^7.3.5":
+"semver@npm:7.8.5, semver@npm:^7.3.5":
   version: 7.8.5
   resolution: "semver@npm:7.8.5"
   bin:
@@ -3796,6 +3791,13 @@ __metadata:
   dependencies:
     atomic-sleep: "npm:^1.0.0"
   checksum: 10c0/4c9e082db296fbfb02e22a1a9b8de8b82f5965697dda3fe7feadc4759bf25d1de0094e3c35f16e015bfdc00fad7b8cf15bef5b0144501a2a5c5b86efb5684096
+  languageName: node
+  linkType: hard
+
+"source-map-js@npm:^1.2.1":
+  version: 1.2.1
+  resolution: "source-map-js@npm:1.2.1"
+  checksum: 10c0/7bda1fc4c197e3c6ff17de1b8b2c20e60af81b63a52cb32ec5a5d67a20a7d42651e2cb34ebe93833c5a2a084377e17455854fee3e21e7925c64a51b6a52b0faf
   languageName: node
   linkType: hard
 
@@ -4267,13 +4269,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"watchpack@npm:2.5.1":
-  version: 2.5.1
-  resolution: "watchpack@npm:2.5.1"
+"watchpack@npm:2.5.2":
+  version: 2.5.2
+  resolution: "watchpack@npm:2.5.2"
   dependencies:
-    glob-to-regexp: "npm:^0.4.1"
     graceful-fs: "npm:^4.1.2"
-  checksum: 10c0/dffbb483d1f61be90dc570630a1eb308581e2227d507d783b1d94a57ac7b705ecd9a1a4b73d73c15eab596d39874e5276a3d9cb88bbb698bafc3f8d08c34cf17
+  checksum: 10c0/8290e89f03e1e7136e1ef9b8d04bd03822963fa4b442781a40999e7b9ba29ab333a7a5285312b2d4f3e91bc8c5c526cf1f91f5ce0e857dafe56db28ab1c17dca
   languageName: node
   linkType: hard
 
@@ -4293,13 +4294,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"web-ext@npm:10.4.0":
-  version: 10.4.0
-  resolution: "web-ext@npm:10.4.0"
+"web-ext@npm:10.5.0":
+  version: 10.5.0
+  resolution: "web-ext@npm:10.5.0"
   dependencies:
-    "@babel/runtime": "npm:7.29.7"
+    "@babel/runtime": "npm:8.0.0"
     "@devicefarmer/adbkit": "npm:3.3.8"
-    addons-linter: "npm:10.7.0"
+    addons-linter: "npm:10.8.0"
     camelcase: "npm:8.0.0"
     chrome-launcher: "npm:1.2.0"
     debounce: "npm:1.2.1"
@@ -4320,12 +4321,12 @@ __metadata:
     strip-json-comments: "npm:5.0.3"
     tmp: "npm:0.2.7"
     update-notifier: "npm:7.3.1"
-    watchpack: "npm:2.5.1"
+    watchpack: "npm:2.5.2"
     yargs: "npm:17.7.2"
     zip-dir: "npm:2.0.0"
   bin:
     web-ext: bin/web-ext.js
-  checksum: 10c0/65d62e2b81fd6d0c5eff5b75c6665435c6cee46af1b2172a62c57c8eeda286d6ef1b84b47e54becba1832faf9920c872d6c428c710770f25bc59408b3dbf88e8
+  checksum: 10c0/13ab747121a63640159a26d0d17498338b0437218f1e2de5ccb483e21c7e30e03cae1f4a1623a66c812b11f1b3ee1a69ef2274ef0a6887e970ad50ac56afc80b
   languageName: node
   linkType: hard
 
@@ -4521,22 +4522,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"yauzl@npm:3.3.0":
-  version: 3.3.0
-  resolution: "yauzl@npm:3.3.0"
-  dependencies:
-    buffer-crc32: "npm:~0.2.3"
-    pend: "npm:~1.2.0"
-  checksum: 10c0/935e32054171104bdf8a4091180f61b5698d8b90ee64552bb643c2176f815d4215d0764e3f41e0d9a1e4525b37602bf145ec5fd39dd014f0be7290851ce3acce
-  languageName: node
-  linkType: hard
-
-"yauzl@npm:3.3.2":
-  version: 3.3.2
-  resolution: "yauzl@npm:3.3.2"
+"yauzl@npm:3.4.0":
+  version: 3.4.0
+  resolution: "yauzl@npm:3.4.0"
   dependencies:
     pend: "npm:~1.2.0"
-  checksum: 10c0/92e93b5162ad27a1b3088742fd613c90158553f9ce957ef40bad117c13b25476ea2992a825a7b45eed23924a355991253e60cdeb9b7dea63771de83710dd856f
+  checksum: 10c0/17a98c42c0065e8af429eb8a61f7a0e4562181ed54080366b838f34f741b6829f167f804787c86b7646bb042707f35871739f053de0548285e405a2eae4da025
   languageName: node
   linkType: hard
 
