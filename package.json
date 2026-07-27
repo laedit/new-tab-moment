@@ -6,7 +6,7 @@
   "type": "module",
   "packageManager": "yarn@4.13.0",
   "devDependencies": {
-    "concurrently": "10.0.3",
+    "concurrently": "10.0.4",
     "cpx": "1.5.0",
     "typescript": "5.9.3",
     "web-ext": "10.5.0",
